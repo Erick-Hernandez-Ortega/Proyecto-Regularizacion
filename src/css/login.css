@@ -1,0 +1,82 @@
+:root {
+  /*  Variables de css */
+  --tinto: #852120;
+  --beige: #f9e9ce;
+  --gris-claro: #9c9c9c;
+  --gris-obscuro: #545454;
+}
+
+* {
+  font-family: Arial;
+}
+
+body {
+  /* background-color: var(--beige); */
+  background: linear-gradient(to right, var(--tinto), var(--gris-claro));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login {
+    margin-top: 30px;
+    padding-top: 20px;
+    background-color: rgba(255, 255, 255, .7);
+    width: 800px;
+    height: 450px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    
+}
+
+.form-item span{ 
+    position: relative;
+    left: -10px;
+    bottom: -13px;
+    font-size: 40px;
+}
+
+.container-form input {
+    letter-spacing: 1px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: none;
+    padding: 5px;
+    outline: none;
+    width: 40%;
+}
+
+.form-btn {
+    margin-top: 20px;
+}
+
+h2 {
+    letter-spacing: 1px;
+}
+
+.btnEnviar {
+    width: 80%;
+    border: none;
+    background-color: black;
+    color: white;
+    font-size: 15px;
+    padding: 1rem;
+    text-transform: uppercase;
+    border-radius: 75px;
+}
+
+.btnEnviar {
+    transition: all ease .5s;
+}
+
+.btnEnviar:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
