@@ -11,18 +11,22 @@
 }
 
 body {
-  background-color: var(--beige);
-  background: linear-gradient(to right, var(--tinto), var(--gris-claro));
+  background-color: var(--tinto);
 }
 
 .login {
-    background-color: rgba(255, 255, 255, 0.7);
-    width: 450px;
-    text-align: center;
-    margin-top: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    height: 400px;
-    padding: 1%;
-    border-radius: 100px;
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 550px;
+  text-align: center;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 400px;
+  padding: 1%;
+  border-radius: 100px;
+}
+
+.form-control-dark:focus {
+  border-color: #fff;
+  box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25);
 }
