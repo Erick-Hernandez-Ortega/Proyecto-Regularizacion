@@ -10,10 +10,14 @@ header {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-footer{
+footer {
   box-shadow: rgba(0, 0, 0, 0.35) 15px 0px 15px;
 }
 
-.iconos{
+.ml {
+  margin-left: 30px;
+}
+
+.iconos {
   padding-top: 10px;
 }
