@@ -10,7 +10,26 @@
   font-weight: Arial;
 }
 
-header {
+.bs {
+  background-color: var(--gris-claro);
+}
+
+.borde {
+  border-right: var(--gris-obscuro) 2px solid;
+}
+
+.link {
+  color: white;
+  transition: all ease 0.3s;
+}
+
+.link:hover{
+  background-color: var(--beige);
+  color: black;
+}
+
+
+header, .bs {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
@@ -35,3 +54,4 @@ footer {
   font-size: 2rem;
   margin-right: 10px;
 }
+
