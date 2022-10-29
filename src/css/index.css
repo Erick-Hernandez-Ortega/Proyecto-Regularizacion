@@ -6,8 +6,16 @@
   --gris-obscuro: #545454;
 }
 
+* {
+  font-weight: Arial;
+}
+
 header {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+body {
+  background-color: var(--tinto);
 }
 
 footer {
@@ -20,4 +28,10 @@ footer {
 
 .iconos {
   padding-top: 10px;
+}
+
+.icono {
+  font-weight: 200;
+  font-size: 2rem;
+  margin-right: 10px;
 }
