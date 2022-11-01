@@ -73,21 +73,21 @@
 
     <div class="text-center bs">
         <div class="row w-100">
-            <a class="col text-decoration-none link p-2 borde" href="registro.html">
-                Column
+            <a class="col text-decoration-none link p-2 borde" href="/">
+                Principal
             </a>
-            <a class="col text-decoration-none link p-2 borde" href="registro.html">
-                Column
+            <a class="col text-decoration-none link p-2 borde" href="/">
+                Búsqueda Avanzada
             </a>
-            <a class="col text-decoration-none link p-2" href="registro.html">
+            <a class="col text-decoration-none link p-2" href="/">
                 Column
             </a>
         </div>
-      </div>
-      <br>
-      <div class="divTabla">
-        <table class="table table-hover" id="tablaCentral">
-            <caption>List of users</caption>
+    </div>
+    <br>
+    <div class="divTabla">
+        <table class="table table-hover text-center " id="tablaCentral">
+            <!-- <caption>List of users</caption> -->
             <thead>
                 <tr class="table-dark">
                     <th scope="col">FOLIO</th>
@@ -103,31 +103,415 @@
             <tbody>
                 <tr class="table-light">
                     <th scope="row">IH123</th>
+                    <td><button type="button" class="btn btn-danger px-1" data-bs-toggle="modal"
+                            data-bs-target="#modalProceso1">
+                            Sin empezar
+                        </button></td>
                     <td><button type="button" class="btn btn-success px-1">Completado</button></td>
-                    <td><button type="button" class="btn btn-warning px-1">Incompleto</button></td>
-                    <td><button type="button" class="btn btn-info px-1">En revisión</button></td>
-                    <td><button type="button" class="btn btn-danger px-1">Sin empezar</button></td>
-                    <td><button type="button" class="btn btn-danger px-1">Sin empezar</button></td>
-                    <td><button type="button" class="btn btn-danger px-1">Sin empezar</button></td>
-                    <td><button type="button" class="btn btn-danger px-1">Sin empezar</button></td>
+                    <td><button type="button" class="btn btn-danger px-1" data-bs-toggle="modal"
+                            data-bs-target="#modalProceso3">
+                            Sin empezar
+                        </button></td>
+                    <td><button type="button" class="btn btn-warning px-1" data-bs-toggle="modal"
+                            data-bs-target="#modalProceso4">
+                            Incompleto
+                        </button></td>
+                    <td><button type="button" class="btn btn-danger px-1" data-bs-toggle="modal"
+                            data-bs-target="#modalProceso5">
+                            Sin empezar
+                        </button></td>
+                    <td><button type="button" class="btn btn-danger px-1" data-bs-toggle="modal"
+                            data-bs-target="#modalProceso6">
+                            Sin empezar
+                        </button></td>
+                    <td><button type="button" class="btn btn-danger px-1" data-bs-toggle="modal"
+                            data-bs-target="#modalProceso7">
+                            Sin empezar
+                        </button></td>
+
                 </tr>
-                <tr class="table-light">
-                    <th scope="row">IH234</th>
+                
+                <tr class="table-success">
+                    <th scope="row">IH124</th>
                     <td><button type="button" class="btn btn-success px-1">Completado</button></td>
-                    <td><button type="button" class="btn btn-warning px-1">Incompleto</button></td>
-                    <td><button type="button" class="btn btn-info px-1">En revisión</button></td>
-                    <td><button type="button" class="btn btn-danger px-1">Sin empezar</button></td>
-                    <td><button type="button" class="btn btn-danger px-1">Sin empezar</button></td>
-                    <td><button type="button" class="btn btn-danger px-1">Sin empezar</button></td>
-                    <td><button type="button" class="btn btn-danger px-1">Sin empezar</button></td>
+                    <td><button type="button" class="btn btn-success px-1">Completado</button></td>
+                    <td><button type="button" class="btn btn-success px-1">Completado</button></td>
+                    <td><button type="button" class="btn btn-success px-1">Completado</button></td>
+                    <td><button type="button" class="btn btn-success px-1">Completado</button></td>
+                    <td><button type="button" class="btn btn-success px-1">Completado</button></td>
+                    <td><button type="button" class="btn btn-success px-1">Completado</button></td>
                 </tr>
             </tbody>
         </table>
     </div>
-        <br>
-        <br>
-        <br>
-        <br>
+
+    <!-- Modal proceso 1-->
+    <div class="modal fade" id="modalProceso1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Proceso 1: Solicitud de regularización</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6 class="mb-3 fw-bold">Número de Folio: IH123</h6>
+
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="formFile" class="form-label fw-bold">Solicitud</label>
+                            <span class="material-icons position-absolute rojo">&#xe5c9;</span>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                        <div class="col">
+                            <label for="formFile" class="form-label fw-bold">Escritutas</label>
+                            <span class="material-icons position-absolute rojo">&#xe5c9;</span>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="formFile" class="form-label fw-bold">Identificación</label>
+                            <span class="material-icons position-absolute rojo">&#xe5c9;</span>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                        <div class="col">
+                            <label for="formFile" class="form-label fw-bold">Historial Catastral</label>
+                            <span class="material-icons position-absolute rojo">&#xe5c9;</span>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="formFile" class="form-label fw-bold">Resolución idicial</label>
+                            <span class="material-icons position-absolute rojo">&#xe5c9;</span>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                        <div class="col">
+                            <label for="formFile" class="form-label fw-bold">Certificación de hechos</label>
+                            <span class="material-icons position-absolute rojo">&#xe5c9;</span>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="formFile" class="form-label fw-bold">Foto aerea</label>
+                            <span class="material-icons position-absolute rojo">&#xe5c9;</span>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                        <div class="col">
+                            <label for="formFile" class="form-label fw-bold">Oficio</label>
+                            <span class="material-icons position-absolute rojo">&#xe5c9;</span>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="formFile" class="form-label fw-bold">Oficio Regreso</label>
+                            <span class="material-icons position-absolute rojo">&#xe5c9;</span>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary">Enviar documentos</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal proceso 3 -->
+    <div class="modal fade" id="modalProceso3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Proceso 3: Segunda Presentación de documento a
+                        la COMUR</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6 class="mb-3 fw-bold">Número de Folio: IH123</h6>
+
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="formFile" class="form-label fw-bold">Oficio</label>
+                            <span class="material-icons position-absolute rojo">&#xe5c9;</span>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                        <div class="col">
+                            <label for="formFile" class="form-label fw-bold">Estudio de opinion</label>
+                            <span class="material-icons position-absolute rojo">&#xe5c9;</span>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="formFile" class="form-label fw-bold">Acta de COMUR (Proceso 2)</label>
+                            <span class="material-icons position-absolute rojo">&#xe5c9;</span>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                        <div class="col">
+                            <label for="formFile" class="form-label fw-bold">Acta de COMUR 2</label>
+                            <span class="material-icons position-absolute rojo">&#xe5c9;</span>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="formFile" class="form-label fw-bold">Acta Regreso</label>
+                            <span class="material-icons position-absolute rojo">&#xe5c9;</span>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary">Enviar documentos</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal proceso 4 -->
+    <div class="modal fade" id="modalProceso4" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Proceso 4: Solicitud por oficio a la PRODEUR
+                    </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6 class="mb-3 fw-bold">Número de Folio: IH123</h6>
+
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="formFile" class="form-label fw-bold">Dictamen</label>
+                            <span class="material-icons position-absolute verde">&#xe2e6;</span>
+                            <input class="form-control" type="file" id="formFile" disabled>
+                        </div>
+                        <div class="col">
+                            <label for="formFile" class="form-label fw-bold">Oficio</label>
+                            <span class="material-icons position-absolute rojo">&#xe5c9;</span>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="formFile" class="form-label fw-bold">Oficio Regreso</label>
+                            <span class="material-icons position-absolute rojo">&#xe5c9;</span>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary">Enviar documentos</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal proceso 5 -->
+    <div class="modal fade" id="modalProceso5" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Proceso 5: Presentación a la COMUR</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6 class="mb-3 fw-bold">Número de Folio: IH123</h6>
+
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="formFile" class="form-label fw-bold">Oficio</label>
+                            <span class="material-icons position-absolute rojo">&#xe5c9;</span>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                        <div class="col">
+                            <label for="formFile" class="form-label fw-bold">Dictamen PRODEUR</label>
+                            <span class="material-icons position-absolute rojo">&#xe5c9;</span>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="formFile" class="form-label fw-bold">Acta de COMUR 1</label>
+                            <span class="material-icons position-absolute rojo">&#xe5c9;</span>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                        <div class="col">
+                            <label for="formFile" class="form-label fw-bold">Acta de COMUR 2</label>
+                            <span class="material-icons position-absolute rojo">&#xe5c9;</span>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="formFile" class="form-label fw-bold">Publicación</label>
+                            <span class="material-icons position-absolute rojo">&#xe5c9;</span>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                        <div class="col">
+                            <label for="formFile" class="form-label fw-bold">Estudio análisis y resolución del
+                                expediente</label>
+                            <span class="material-icons position-absolute rojo">&#xe5c9;</span>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="formFile" class="form-label fw-bold">Estudio de opinión</label>
+                            <span class="material-icons position-absolute rojo">&#xe5c9;</span>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                        <div class="col">
+                            <label for="formFile" class="form-label fw-bold">Oficio regreso</label>
+                            <span class="material-icons position-absolute rojo">&#xe5c9;</span>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary">Enviar documentos</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal proceso 6 -->
+    <div class="modal fade" id="modalProceso6" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Proceso 6: Proyecto definitivo</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6 class="mb-3 fw-bold">Número de Folio: IH123</h6>
+
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="formFile" class="form-label fw-bold">Proyecto Definitivo</label>
+                            <span class="material-icons position-absolute rojo">&#xe5c9;</span>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary">Enviar documentos</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal proceso 7  -->
+    <div class="modal fade" id="modalProceso7" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Proceso 7: Convenio de regularización</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6 class="mb-3 fw-bold">Número de Folio: IH123</h6>
+
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="formFile" class="form-label fw-bold">Oficio de Catastro </label>
+                            <span class="material-icons position-absolute rojo">&#xe5c9;</span>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                        <div class="col">
+                            <label for="formFile" class="form-label fw-bold">Convenio de regularización (Solo
+                                archivo)</label>
+                            <span class="material-icons position-absolute rojo">&#xe5c9;</span>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                    </div>
+                    <h5 class="text-center fw-bold text-decoration-underline mb-3">Firmas Con Oficio</h5>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="formFile" class="form-label fw-bold">Presidente</label>
+                            <span class="material-icons position-absolute rojo">&#xe5c9;</span>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                        <div class="col">
+                            <label for="formFile" class="form-label fw-bold">Sindico</label>
+                            <span class="material-icons position-absolute rojo">&#xe5c9;</span>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                        
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="formFile" class="form-label fw-bold">Secretaria General</label>
+                            <span class="material-icons position-absolute rojo">&#xe5c9;</span>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                        <div class="col">
+                            <label for="formFile" class="form-label fw-bold">Tesorero</label>
+                            <span class="material-icons position-absolute rojo">&#xe5c9;</span>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                        
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="formFile" class="form-label fw-bold">Presidente de Comite o Propietario</label>
+                            <span class="material-icons position-absolute rojo">&#xe5c9;</span>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                        <div class="col">
+                            <label for="formFile" class="form-label fw-bold">Secretario Técnico</label>
+                            <span class="material-icons position-absolute rojo">&#xe5c9;</span>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                        
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="formFile" class="form-label fw-bold">Procurador de desarrollo urbano</label>
+                            <span class="material-icons position-absolute rojo">&#xe5c9;</span>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary">Enviar documentos</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
     <div class="d-flex flex-column h-100 text-bg-light">
         <!-- FOOTER -->
         <footer class="w-100 py-4 flex-shrink-0">
@@ -192,15 +576,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
-        integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
-        crossorigin="anonymous"></script>
-    <script src="/docs/5.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>
 </body>
