@@ -11,12 +11,12 @@ https://docs.google.com/document/d/1zi122DzZNNRkVBHeG9EZ1YQFy5AGvDHXUeiugz-W774/
 https://github.com/ramonchis47/Proyecto-Regularizacion
 
 # Involucrados:
-Christian Axel Hernandez Cárdenas (Administrador de proyecto)
-Francisco Obledo García (Base de Datos)
-Cristian Rentería Olivares (Base de Datos)
-Erick Ramon Hernandez Ortega (Front-end)
-José Jaime Guadalupe Castañeda Ruiz (Front-end)
-Carlos Isaac Figueroa Reyes (Back-end)
-José Gabriel García Pérez (Back-end)
-Miguel Ángel Ortiz Velasco (Documentación)
-Ulises Gutiérrez Gutiérrez (Documentación)
+* Christian Axel Hernandez Cárdenas (Administrador de proyecto)
+* Francisco Obledo García (Base de Datos)
+* Cristian Rentería Olivares (Base de Datos)
+* Erick Ramon Hernandez Ortega (Front-end)
+* José Jaime Guadalupe Castañeda Ruiz (Front-end)
+* Carlos Isaac Figueroa Reyes (Back-end)
+* José Gabriel García Pérez (Back-end)
+* Miguel Ángel Ortiz Velasco (Documentación)
+* Ulises Gutiérrez Gutiérrez (Documentación)
