@@ -587,13 +587,12 @@
                         <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-decoration-none">
                             <img alt="" src="src/img/Logo 1.png" class="bi" width="66" height="80" role="img">
                         </a>
-                        <p class="text-muted">Ayuntamiento de Toanala</p>
-                        <p class="text-muted mb-0">&copy; Copyrights. Todos los derechos reservados.</p>
+                        <p class="text-muted">Ayuntamiento de Tonalá</p>
+                        <p class="text-muted">&copy; Copyrights. Todos los derechos reservados.</p>
                     </div>
                     <div class="col-lg-2 col-md-6">
                         <h5 class="text-black mb-3">Direccion</h5>
-                        <p class="small text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                            eiusmod tempor incididunt.</p>
+                        <p class="small text-muted">Calle Pino Suarez NO.32, Tonalá Centro C.P. 45400, Tonalá, Jalisco.</p>
                     </div>
                     <div class="col-lg-2 col-md-6">
                         <h5 class="text-black mb-3">Redes</h5>
@@ -630,10 +629,8 @@
                     <div class="col-lg-4 col-md-6">
                         <h5 class="text-black mb-3">Contacto</h5>
                         <ul class="list-unstyled text-muted">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Get started</a></li>
-                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#" class="text-decoration-none">Tel. 33-35-86-60-00</a></li>
+                            <li><a href="#" class="text-decoration-none">www.tonalá.gob.mx</a></li>
                         </ul>
                     </div>
                 </div>
