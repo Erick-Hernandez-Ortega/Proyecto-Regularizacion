@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -55,6 +56,15 @@
                 <a type="submit" class="btn btn-primary" href="index.html" id="boton">Iniciar Sesión</a>
             </form>
         </div>
+        <div class="row" style="justify-content: center; padding-top: 50px;">
+            <div class="col-4">
+                <?php if (isset($_SESSION['mensaje'])) { ?>
+                    <div style="width:auto; text-align:center;" class="alert alert-<?php print $_SESSION['color']; ?> alert-dismissible fade show" role="alert">
+                        <strong><?php echo $_SESSION['mensaje']; ?></strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                <?php session_unset();} ?>
+            </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
