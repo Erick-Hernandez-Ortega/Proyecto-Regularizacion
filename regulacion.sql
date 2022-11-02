@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-11-2022 a las 05:33:40
+-- Tiempo de generación: 02-11-2022 a las 05:50:23
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -228,27 +228,29 @@ INSERT INTO `solicitud_por_oficio_a_la_prodeur` (`folio`, `dictamen`, `dictamen_
 --
 
 CREATE TABLE `usuarios_regulacion` (
-  `Id_usuario` int(5) NOT NULL,
-  `Nombre_de_usuario` varchar(20) NOT NULL,
-  `Contraseña` varchar(15) NOT NULL,
-  `Tipo_de_usuario` varchar(20) NOT NULL DEFAULT 'Capturista',
-  `Nombre_completo` varchar(50) NOT NULL,
-  `Dependencia` varchar(50) NOT NULL,
-  `Email` varchar(30) NOT NULL,
-  `Sexo` varchar(10) NOT NULL,
-  `Nombramiento` varchar(20) NOT NULL
+  `id_usuario` int(5) NOT NULL,
+  `nombre_de_usuario` varchar(20) NOT NULL,
+  `contraseña` varchar(15) NOT NULL,
+  `tipo_de_usuario` varchar(20) NOT NULL DEFAULT 'Capturista',
+  `nombre` varchar(30) NOT NULL,
+  `apellido_paterno` varchar(25) NOT NULL,
+  `apellido_materno` varchar(25) NOT NULL,
+  `dependencia` varchar(50) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `sexo` varchar(10) NOT NULL,
+  `nombramiento` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `usuarios_regulacion`
 --
 
-INSERT INTO `usuarios_regulacion` (`Id_usuario`, `Nombre_de_usuario`, `Contraseña`, `Tipo_de_usuario`, `Nombre_completo`, `Dependencia`, `Email`, `Sexo`, `Nombramiento`) VALUES
-(1, 'Administrador', '12345', 'Super administrador', 'Super administrador', 'Administrador', 'jaimeg@hotmail.com', 'Masculino', 'Super administrador'),
-(2, 'Administrador', 'abcdef', 'Administrador', 'Administrador', 'U de G', 'ramonc@gmail.com', 'Masculino', 'Jefe de departamento'),
-(3, 'GabrielG', '101112', 'Capturista', 'Jose Gabriel Garcia Perez', 'U de G', 'JoseG@hotmail.com', 'Masculino', 'Prueba'),
-(4, 'CarlosX', '111213', 'Capturista', 'Carlos X X', 'U de G', 'Carlos@gmail.com', 'Masculino', 'Prueba'),
-(5, 'JaimeG', '12345', 'Capturista', 'Jose Jaime Guadalupe Castaneda Ruiz', 'U de G', 'JoseG@hotmail.com', 'Masculino', 'Prueba');
+INSERT INTO `usuarios_regulacion` (`id_usuario`, `nombre_de_usuario`, `contraseña`, `tipo_de_usuario`, `nombre`, `apellido_paterno`, `apellido_materno`, `dependencia`, `email`, `sexo`, `nombramiento`) VALUES
+(1, 'Administrador', '12345', 'Super administrador', 'Super administrador', '', '', 'Administrador', 'jaimeg@hotmail.com', 'Masculino', 'Super administrador'),
+(2, 'Administrador', 'abcdef', 'Administrador', 'Administrador', '', '', 'U de G', 'ramonc@gmail.com', 'Masculino', 'Jefe de departamento'),
+(3, 'GabrielG', '101112', 'Capturista', 'Jose Gabriel ', 'Garcia ', 'Perez', 'U de G', 'JoseG@hotmail.com', 'Masculino', 'Prueba'),
+(4, 'CarlosX', '111213', 'Capturista', 'Carlos ', 'X', 'X', 'U de G', 'Carlos@gmail.com', 'Masculino', 'Prueba'),
+(5, 'JaimeG', '12345', 'Capturista', 'Jose Jaime Guadalupe ', 'Castaneda ', 'Ruiz', 'U de G', 'JoseG@hotmail.com', 'Masculino', 'Prueba');
 
 --
 -- Índices para tablas volcadas
@@ -305,7 +307,7 @@ ALTER TABLE `solicitud_por_oficio_a_la_prodeur`
 -- Indices de la tabla `usuarios_regulacion`
 --
 ALTER TABLE `usuarios_regulacion`
-  ADD PRIMARY KEY (`Id_usuario`);
+  ADD PRIMARY KEY (`id_usuario`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -315,7 +317,7 @@ ALTER TABLE `usuarios_regulacion`
 -- AUTO_INCREMENT de la tabla `usuarios_regulacion`
 --
 ALTER TABLE `usuarios_regulacion`
-  MODIFY `Id_usuario` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_usuario` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restricciones para tablas volcadas
