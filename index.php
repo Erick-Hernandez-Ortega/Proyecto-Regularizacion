@@ -59,7 +59,7 @@
                                         <a class="nav-link active" aria-current="page" href="#">Configuración</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link text-danger" href="#">Cerrar Sesión</a>
+                                        <a class="nav-link text-danger" href="logout.php">Cerrar Sesión</a>
                                     </li>
                                 </ul>
                             </div>
