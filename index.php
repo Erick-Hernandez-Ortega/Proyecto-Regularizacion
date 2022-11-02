@@ -591,7 +591,7 @@
                         <p class="text-muted mb-0">&copy; Copyrights. Todos los derechos reservados.</p>
                     </div>
                     <div class="col-lg-2 col-md-6">
-                        <h5 class="text-black mb-3">Acerca de</h5>
+                        <h5 class="text-black mb-3">Direccion</h5>
                         <p class="small text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
                             eiusmod tempor incididunt.</p>
                     </div>
