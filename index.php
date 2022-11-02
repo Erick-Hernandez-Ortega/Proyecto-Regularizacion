@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -33,7 +34,7 @@
 
                 <div class="d-flex">
                     <span class="material-icons icono">&#xe853;</span>
-                    <h6 class="mt-2">Jaime223</h6>
+                    <h6 class="mt-2"><?php echo $_SESSION['Usuario'];?></h6>
                 </div>
 
                 <nav class="navbar bg-light border-2" aria-label="Light offcanvas navbar">
