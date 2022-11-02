@@ -52,8 +52,7 @@
                     <a href="#" class="link-primary">Restablecer Contraseña</a>
                 </div>
 
-                <!-- <button type="submit" class="btn btn-primary" id="boton">Iniciar Sesión</button> -->
-                <a type="submit" class="btn btn-primary" href="index.html" id="boton">Iniciar Sesión</a>
+                <button type="submit" class="btn btn-primary" id="boton">Iniciar Sesión</button>
             </form>
         </div>
         <div class="row" style="justify-content: center; padding-top: 50px;">
