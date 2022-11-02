@@ -1,6 +1,6 @@
 <?php
 session_destroy();
-
-header("location: login.php");
+$host = $_SERVER['HTTP_HOST'];
+header("location: http://$host/Proyecto-Regularizacion/login.php");
 exit();
 ?>
