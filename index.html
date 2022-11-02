@@ -107,7 +107,10 @@
                             data-bs-target="#modalProceso1">
                             Sin empezar
                         </button></td>
-                    <td><button type="button" class="btn btn-success px-1">Completado</button></td>
+                    <td><button type="button" class="btn btn-success px-1" data-bs-toggle="modal"
+                            data-bs-target="#modalProceso2">
+                            Completado
+                        </button></td>
                     <td><button type="button" class="btn btn-danger px-1" data-bs-toggle="modal"
                             data-bs-target="#modalProceso3">
                             Sin empezar
@@ -130,7 +133,7 @@
                         </button></td>
 
                 </tr>
-                
+
                 <tr class="table-success">
                     <th scope="row">IH124</th>
                     <td><button type="button" class="btn btn-success px-1">Completado</button></td>
@@ -152,6 +155,10 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="staticBackdropLabel">Proceso 1: Solicitud de regularización</h1>
+                    <a href="src/docs/Solicitud de regularizacion.pdf" target="_blank"
+                        download="Solicitud de regularización.pdf"
+                        class="text-decoration-none btn btn-secondary mt-1 mx-3 mb-1">Generar solicitud de
+                        regularización</a>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -213,6 +220,60 @@
                             <input class="form-control" type="file" id="formFile">
                         </div>
                     </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary">Enviar documentos</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal proceso 2 Completado -->
+    <div class="modal fade" id="modalProceso2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Proceso 2: Presentación de documento a la
+                        COMUR
+                    </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6 class="mb-3 fw-bold">Número de Folio: IH123</h6>
+
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="formFile" class="form-label fw-bold">Oficio</label>
+                            <span class="material-icons position-absolute verde">&#xe2e6;</span>
+                            <input class="form-control" type="file" id="formFile" disabled>
+                        </div>
+                        <div class="col">
+                            <label for="formFile" class="form-label fw-bold">Solicitud de la regularización</label>
+                            <span class="material-icons position-absolute verde">&#xe2e6;</span>
+                            <input class="form-control" type="file" id="formFile" disabled>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="formFile" class="form-label fw-bold">Estudio de análisis</label>
+                            <span class="material-icons position-absolute verde">&#xe2e6;</span>
+                            <input class="form-control" type="file" id="formFile" disabled>
+                        </div>
+                        <div class="col">
+                            <label for="formFile" class="form-label fw-bold">Acta de comur</label>
+                            <span class="material-icons position-absolute verde">&#xe2e6;</span>
+                            <input class="form-control" type="file" id="formFile" disabled>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="formFile" class="form-label fw-bold">Oficio de regreso</label>
+                            <span class="material-icons position-absolute verde">&#xe2e6;</span>
+                            <input class="form-control" type="file" id="formFile" disabled>
+                        </div>
+                    </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
@@ -452,7 +513,7 @@
                             <span class="material-icons position-absolute rojo">&#xe5c9;</span>
                             <input class="form-control" type="file" id="formFile">
                         </div>
-                        
+
                     </div>
                     <div class="row mb-3">
                         <div class="col">
@@ -465,7 +526,7 @@
                             <span class="material-icons position-absolute rojo">&#xe5c9;</span>
                             <input class="form-control" type="file" id="formFile">
                         </div>
-                        
+
                     </div>
                     <div class="row mb-3">
                         <div class="col">
@@ -478,7 +539,7 @@
                             <span class="material-icons position-absolute rojo">&#xe5c9;</span>
                             <input class="form-control" type="file" id="formFile">
                         </div>
-                        
+
                     </div>
                     <div class="row mb-3">
                         <div class="col">
@@ -496,6 +557,10 @@
         </div>
     </div>
 
+    <br>
+    <br>
+    <br>
+    <br>
     <br>
     <br>
     <br>
