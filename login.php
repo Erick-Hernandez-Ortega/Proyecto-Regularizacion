@@ -39,7 +39,7 @@
                 <span class="material-icons" style="font-size: 75px;">&#xe853;</span>
                 <h3>Iniciar Sesión</h3>
             </div>
-            <form action="src/php/login.php" method="get" class="mt-5">
+            <form action="src/php/user.php" method="post" class="mt-5">
                 <div class="mb-3 w-75 m-auto input-group">
                     <span class="material-icons input-group-text">&#xe158;</span>
                     <input type="email" class="form-control" required placeholder="Correo electronico" name="email" required>
