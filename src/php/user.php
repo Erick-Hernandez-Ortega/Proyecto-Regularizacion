@@ -13,6 +13,7 @@ if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
     if ($row == '') {
         $_SESSION['mensaje'] = "El correo y/o la contraseña son incorrectos...";
         $_SESSION['color'] = 'danger';
+        $_SESSION['destroy'] = true;
         header("location: http://$host/Proyecto-Regularizacion/login.php");
     } else {
         $id = $row['Id_usuario'];
@@ -25,6 +26,8 @@ if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
 } else {
     $_SESSION['mensaje'] = "Ingresa un correo válido...";
     $_SESSION['color'] = 'danger';
+    $_SESSION['destroy'] = true;
     
     header("location: http://$host/Proyecto-Regularizacion/login.php");
 }
+?>
