@@ -55,3 +55,4 @@ if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
     header("location: http://$host/Proyecto-Regularizacion/login.php");
 }
+?>
