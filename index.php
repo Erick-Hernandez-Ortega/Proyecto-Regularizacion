@@ -34,7 +34,13 @@
 
                 <div class="d-flex">
                     <span class="material-icons icono">&#xe853;</span>
-                    <h6 class="mt-2"><?php echo $_SESSION['Usuario'];?></h6>
+                    <h6 class="mt-2"><?php if(isset($_SESSION['Usuario'])){ echo $_SESSION['Usuario'];}else{
+                        $_SESSION['mensaje'] = "Necesitas iniciar sesión...";
+                        $_SESSION['color'] = 'danger';
+                        $_SESSION['destroy'] = false;
+                        $host = $_SERVER['HTTP_HOST'];
+                        header("location: http://$host/Proyecto-Regularizacion/login.php");
+                    } ?></h6>
                 </div>
 
                 <nav class="navbar bg-light border-2" aria-label="Light offcanvas navbar">
