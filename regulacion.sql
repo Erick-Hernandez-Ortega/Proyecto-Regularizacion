@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-11-2022 a las 05:50:23
+-- Tiempo de generación: 04-11-2022 a las 03:39:55
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -171,11 +171,11 @@ INSERT INTO `segunda_presentacion_de_documentos_a_la_comur` (`folio`, `oficio`, 
 
 CREATE TABLE `solicitud_de_regularizacion` (
   `folio` varchar(20) NOT NULL,
-  `solicitud` varchar(50) DEFAULT NULL,
+  `solicitud` longblob DEFAULT NULL,
   `solicidud_estatus` tinyint(1) DEFAULT 0,
   `escritura` varchar(50) DEFAULT NULL,
   `escritura_estatus` tinyint(1) DEFAULT 0,
-  `identificacion` varchar(50) DEFAULT NULL,
+  `identificacion` longblob DEFAULT NULL,
   `identificacion_estatus` tinyint(1) DEFAULT 0,
   `historial_catastral` varchar(50) DEFAULT NULL,
   `historial_catastral_estatus` tinyint(1) DEFAULT 0,
@@ -196,7 +196,7 @@ CREATE TABLE `solicitud_de_regularizacion` (
 --
 
 INSERT INTO `solicitud_de_regularizacion` (`folio`, `solicitud`, `solicidud_estatus`, `escritura`, `escritura_estatus`, `identificacion`, `identificacion_estatus`, `historial_catastral`, `historial_catastral_estatus`, `resolucion_idicial`, `resolucion_idicial_estatus`, `certificacion_de_hechos`, `certificacion_de_hechos_estatus`, `foto_aerea`, `foto_aerea_estatus`, `oficio`, `oficio_estatus`, `oficio_regreso`, `oficio_regreso_estatus`) VALUES
-('abcd', 'ruta del archivo', 1, 'ruta del archivo', 1, 'ruta del archivo', 0, 'ruta del archivo', 1, 'ruta del archivo', 0, 'ruta del archivo', 0, 'ruta del archivo', 1, 'ruta del archivo', 0, 'ruta del archivo', 0);
+('abcd', NULL, 1, 'ruta del archivo', 1, NULL, 0, 'ruta del archivo', 1, 'ruta del archivo', 0, 'ruta del archivo', 0, 'ruta del archivo', 1, 'ruta del archivo', 0, 'ruta del archivo', 0);
 
 -- --------------------------------------------------------
 
