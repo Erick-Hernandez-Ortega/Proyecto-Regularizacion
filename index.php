@@ -87,7 +87,7 @@
                 Búsqueda Avanzada
             </a>
             <a class="col text-decoration-none link p-2" href="/">
-                Column
+                Estatus de documentos
             </a>
         </div>
     </div>

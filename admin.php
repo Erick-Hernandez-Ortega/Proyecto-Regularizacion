@@ -80,19 +80,19 @@
 
     <div class="text-center bs">
         <div class="row w-100">
-            <a class="col text-decoration-none link p-2 borde" href="/">
+            <a class="col text-decoration-none link p-2 borde" href="admin.php">
                 Principal
             </a>
             <a class="col text-decoration-none link p-2 borde" href="/">
                 Búsqueda Avanzada
             </a>
             <a class="col text-decoration-none link p-2" href="/">
-                Column
+                Estatus de documentos
             </a>
         </div>
     </div>
-    <br>
-    <div class="divTabla">
+
+    <div class="divTabla mt-4">
         <table class="table table-hover text-center " id="tablaCentral">
             <!-- <caption>List of users</caption> -->
             <thead>
@@ -158,6 +158,17 @@
             </tbody>
         </table>
     </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
     <!-- Modal proceso 1-->
     <div class="modal fade" id="modalProceso1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
