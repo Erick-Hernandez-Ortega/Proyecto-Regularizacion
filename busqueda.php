@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="src/css/index.css" type="text/css" rel="stylesheet">
     <link rel="shortcut icon" href="src/img/Logo-1-icono.ico">
-    <title>Regularización</title>
+    <title>Busqueda: IH125</title>
 </head>
 
 <body>
@@ -87,7 +87,7 @@
         </div>
     </div>
 
-
+    <!-- Tabla que no mas mostrara un unico resultado de la busqueda -->
     <div class="divTabla mt-4">
         <table class="table table-hover text-center " id="tablaCentral">
             <!-- <caption>List of users</caption> -->
@@ -104,34 +104,8 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="table-light">
-                    <th scope="row">IH123</th>
-                    <td><button type="button" class="btn btn-danger px-1" data-bs-toggle="modal" data-bs-target="#modalProceso1">
-                            Sin empezar
-                        </button></td>
-                    <td><button type="button" class="btn btn-success px-1" data-bs-toggle="modal" data-bs-target="#modalProceso2">
-                            Completado
-                        </button></td>
-                    <td><button type="button" class="btn btn-danger px-1" data-bs-toggle="modal" data-bs-target="#modalProceso3">
-                            Sin empezar
-                        </button></td>
-                    <td><button type="button" class="btn btn-warning px-1" data-bs-toggle="modal" data-bs-target="#modalProceso4">
-                            Incompleto
-                        </button></td>
-                    <td><button type="button" class="btn btn-danger px-1" data-bs-toggle="modal" data-bs-target="#modalProceso5">
-                            Sin empezar
-                        </button></td>
-                    <td><button type="button" class="btn btn-danger px-1" data-bs-toggle="modal" data-bs-target="#modalProceso6">
-                            Sin empezar
-                        </button></td>
-                    <td><button type="button" class="btn btn-danger px-1" data-bs-toggle="modal" data-bs-target="#modalProceso7">
-                            Sin empezar
-                        </button></td>
-
-                </tr>
-
                 <tr class="table-success">
-                    <th scope="row">IH124</th>
+                    <th scope="row">IH125</th>
                     <td><button type="button" class="btn btn-success px-1">Completado</button></td>
                     <td><button type="button" class="btn btn-success px-1">Completado</button></td>
                     <td><button type="button" class="btn btn-success px-1">Completado</button></td>
@@ -571,9 +545,10 @@
         </div>
     </div>
 
+
     <div class="d-flex flex-column h-100 text-bg-light">
         <!-- FOOTER -->
-        <footer class="w-100 py-4 flex-shrink-0 position-absolute bottom-0 text-bg-light">
+        <footer class="w-100 py-4 flex-shrink-0 bottom-0 text-bg-light position-absolute">
             <div class="container py-3">
                 <div class="row gy-4 gx-5">
                     <div class="col-lg-4 col-md-6">
