@@ -89,18 +89,18 @@
                     </div>
                     <form method="post" action="src/php/recuperar.php">
                         <div class="modal-body">
-                            <h5 style="font-weight:bold;"> Ingresa el correo electronico de tu cuenta y las credenciales del administrador para recuperar tu contraseña.</h5>
+                            <h5 style="font-weight:bold;"> Ingresa el correo electronico de tu cuenta y las credenciales del administrador.</h5>
                             <p style="margin-bottom: 2px; padding-top:8px;">Correo cuenta.</p>
                             <div class="input-group">
                                 <span class="material-icons input-group-text">&#xe158;</span>
                                 <input type="email" class="form-control" required placeholder="Correo electronico" name="email" required>
                             </div>
-                            <p style="margin-bottom: 2px; padding-top:10px;">Credenciales administrador.</p>
-                            <div class="input-group">
+                            <p class="mt-3 mb-1">Credenciales administrador.</p>
+                            <div class="input-group mb-1">
                                 <span class="material-icons input-group-text">&#xe158;</span>
                                 <input type="email" class="form-control" required placeholder="Correo electronico administrador" name="emailAdmin" required>
                             </div>
-                            <div class="input-group" style="padding-top:5px;">
+                            <div class="input-group mb-3" style="padding-top:5px;">
                                 <span class="material-icons input-group-text">&#xf042;</span>
                                 <input type="password" class="form-control" required placeholder="Contraseña administrador" name="passAdmin" required>
                             </div>
