@@ -14,7 +14,7 @@ if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $res_query = mysqli_query($conn, $consulta);
     $resultado = mysqli_fetch_array($res_query);
 
-    if ($resultado != 'Administrador') {
+    if ($resultado['Tipo_de_usuario'] != 'Administrador') {
         $_SESSION['mensaje-modal'] = "Las credenciales del administrador son incorrectas!";
         $_SESSION['color-modal'] = 'danger';
 
