@@ -1,4 +1,4 @@
-<?php session_start(); $host = $_SERVER['HTTP_HOST']; if($_SESSION['Tipo']!='Capturista') header("location: http://$host/Proyecto-Regularizacion/admin.php"); ?>
+<?php session_start(); $host = $_SERVER['HTTP_HOST']; if($_SESSION['Tipo']=='Capturista') header("location: http://$host/Proyecto-Regularizacion/index.php");?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -57,6 +57,9 @@
                             <div class="offcanvas-body">
                                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                                     <li class="nav-item">
+                                        <a class="nav-link active" aria-current="page" href="#">Buscar</a>
+                                    </li>
+                                    <li class="nav-item">
                                         <a class="nav-link active" aria-current="page" href="#">Configuración</a>
                                     </li>
                                     <li class="nav-item">
@@ -72,10 +75,10 @@
         </div>
     </header>
 
-    <!-- Submenu -->
+
     <div class="text-center bs">
         <div class="row w-100">
-            <a class="col text-decoration-none link p-2 borde" href="index.php">
+            <a class="col text-decoration-none link p-2 borde" href="admin.php">
                 Principal
             </a>
             <a class="col text-decoration-none link p-2 borde" href="" data-bs-toggle="modal" data-bs-target="#modalBusqueda">
@@ -86,7 +89,6 @@
             </a>
         </div>
     </div>
-
 
     <div class="divTabla mt-4">
         <table class="table table-hover text-center " id="tablaCentral">
@@ -101,33 +103,34 @@
                     <th scope="col">Proceso 5</th>
                     <th scope="col">Proceso 6</th>
                     <th scope="col">Proceso 7</th>
+                    <th scope="col">Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 <tr class="table-light">
                     <th scope="row">IH123</th>
-                    <td><button type="button" class="btn btn-danger px-1" data-bs-toggle="modal" data-bs-target="#modalProceso1">
+                    <td><button type="button" class="btn btn-secondary px-1" data-bs-toggle="modal" data-bs-target="#modalProceso1">
                             Sin empezar
                         </button></td>
                     <td><button type="button" class="btn btn-success px-1" data-bs-toggle="modal" data-bs-target="#modalProceso2">
                             Completado
                         </button></td>
-                    <td><button type="button" class="btn btn-danger px-1" data-bs-toggle="modal" data-bs-target="#modalProceso3">
+                    <td><button type="button" class="btn btn-secondary px-1" data-bs-toggle="modal" data-bs-target="#modalProceso3">
                             Sin empezar
                         </button></td>
                     <td><button type="button" class="btn btn-warning px-1" data-bs-toggle="modal" data-bs-target="#modalProceso4">
                             Incompleto
                         </button></td>
-                    <td><button type="button" class="btn btn-danger px-1" data-bs-toggle="modal" data-bs-target="#modalProceso5">
+                    <td><button type="button" class="btn btn-secondary px-1" data-bs-toggle="modal" data-bs-target="#modalProceso5">
                             Sin empezar
                         </button></td>
-                    <td><button type="button" class="btn btn-danger px-1" data-bs-toggle="modal" data-bs-target="#modalProceso6">
+                    <td><button type="button" class="btn btn-secondary px-1" data-bs-toggle="modal" data-bs-target="#modalProceso6">
                             Sin empezar
                         </button></td>
-                    <td><button type="button" class="btn btn-danger px-1" data-bs-toggle="modal" data-bs-target="#modalProceso7">
+                    <td><button type="button" class="btn btn-secondary px-1" data-bs-toggle="modal" data-bs-target="#modalProceso7">
                             Sin empezar
                         </button></td>
-
+                    <td><button type="button" class="btn btn-danger px-1" data-bs-toggle="modal" data-bs-target="#ModalEliminar">Eliminar</button></td>
                 </tr>
 
                 <tr class="table-success">
@@ -139,11 +142,13 @@
                     <td><button type="button" class="btn btn-success px-1">Completado</button></td>
                     <td><button type="button" class="btn btn-success px-1">Completado</button></td>
                     <td><button type="button" class="btn btn-success px-1">Completado</button></td>
+                    <td><button type="button" class="btn btn-danger px-1" data-bs-toggle="modal" data-bs-target="#ModalEliminar">Eliminar</button></td>
                 </tr>
             </tbody>
         </table>
     </div>
 
+    <br>
     <br>
     <br>
     <br>
@@ -553,7 +558,25 @@
             </div>
         </div>
     </div>
-
+    <!-- Modal Eliminar-->
+    <div class="modal fade" id="ModalEliminar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-x1">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Eliminar consulta</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>¿Seguro que desea eliminar esta consulta?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Eliminar</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Modal busqueda avanzada -->
     <div class="modal fade" id="modalBusqueda" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
@@ -586,7 +609,7 @@
             <div class="container py-3">
                 <div class="row gy-4 gx-5">
                     <div class="col-lg-4 col-md-6">
-                        <a href="index.php" class="d-flex align-items-center mb-2 mb-lg-0 text-decoration-none">
+                        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-decoration-none">
                             <img alt="" src="src/img/Logo 1.png" class="bi" width="66" height="80" role="img">
                         </a>
                         <p class="text-muted">Ayuntamiento de Tonalá</p>
