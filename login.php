@@ -1,4 +1,10 @@
-<?php session_start(); ?>
+<?php session_start(); 
+      if(isset($_SESSION['Usuario'])){ 
+        $host = $_SERVER['HTTP_HOST']; 
+        if($_SESSION['Tipo']=='Capturista') header("location: http://$host/Proyecto-Regularizacion/index.php");
+        else header("location: http://$host/Proyecto-Regularizacion/admin.php"); 
+    }
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -26,7 +32,7 @@
                 </ul>
 
                 <div class="text-end">
-                    <a href="registro.html" class="btn btn-outline-dark me-2 p-2" id="boton1">Registrarse</a>
+                    <a href="registro.php" class="btn btn-outline-dark me-2 p-2" id="boton1">Registrarse</a>
                 </div>
             </div>
         </div>
@@ -89,7 +95,7 @@
                     </div>
                     <form method="post" action="src/php/recuperar.php">
                         <div class="modal-body">
-                            <h5 style="font-weight:bold;"> Ingresa el correo electronico de tu cuenta y las credenciales del administrador.</h5>
+                            <h5 style="font-weight:bold;"> Ingresa el correo electronico de tu cuenta y las credenciales de un administrador.</h5>
                             <p style="margin-bottom: 2px; padding-top:8px;">Correo cuenta.</p>
                             <div class="input-group">
                                 <span class="material-icons input-group-text">&#xe158;</span>
