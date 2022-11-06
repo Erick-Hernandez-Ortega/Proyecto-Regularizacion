@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php session_start(); $host = $_SERVER['HTTP_HOST']; if($_SESSION['Tipo']!='Capturista') header("location: http://$host/Proyecto-Regularizacion/admin.php"); ?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -38,7 +38,7 @@
                                         } else {
                                             $_SESSION['mensaje'] = "Necesitas iniciar sesión...";
                                             $_SESSION['color'] = 'danger';
-                                            $_SESSION['destroy'] = false;
+                                            $_SESSION['destroy'] = true;
                                             $host = $_SERVER['HTTP_HOST'];
                                             header("location: http://$host/Proyecto-Regularizacion/login.php");
                                         } ?></h6>
@@ -144,6 +144,15 @@
         </table>
     </div>
 
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
     <!-- Modal proceso 1-->
     <div class="modal fade" id="modalProceso1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -573,7 +582,7 @@
 
     <div class="d-flex flex-column h-100 text-bg-light">
         <!-- FOOTER -->
-        <footer class="w-100 py-4 flex-shrink-0 position-absolute bottom-0 text-bg-light">
+        <footer class="w-100 py-4 flex-shrink-0">
             <div class="container py-3">
                 <div class="row gy-4 gx-5">
                     <div class="col-lg-4 col-md-6">
