@@ -286,13 +286,13 @@ if ($_SESSION['Tipo'] != 'Capturista') header("location: http://$host/Proyecto-R
                             <input class="form-control" type="file" id="formFile">
                         </div>
                         <div class="col">
-                            <label for="" class="fw-bold">Estado de Oficio de Regreso</label>
-                                <select class="form-control" name="Sexo" required>
-                                    <option selected>-Seleccione uno-</option>
-                                    <option>Aceptado</option>
-                                    <option>No Subido</option>
-                                    <option>En Revision</option>
-                                </select>
+                            <label for="" class="form-label fw-bold">Estado de Oficio de Regreso</label>
+                            <select class="form-control" name="Sexo" required>
+                                <option selected>-Seleccione uno-</option>
+                                <option>Aceptado ✅</option>
+                                <option>No Subido ❌</option>
+                                <option>En Revision ⌛️</option>
+                            </select>
                         </div>
                     </div>
                 </div>
