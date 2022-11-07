@@ -71,7 +71,7 @@ if (filter_var($emailAdmin, FILTER_VALIDATE_EMAIL) && filter_var($email, FILTER_
 }
 
 $nombrecompleto = $nombre." ".$Apaterno." ".$AMaterno;
-$registro = "INSERT INTO usuarios_regulacion(Nombre_de_usuario, Contraseña, Tipo_de_usuario, Nombre_completo, Dependencia, Email, Sexo, Nombramiento) VALUES ('$usuario', '$password', '$tipousuario', '$nombrecompleto', '$dependencia', '$email', '$sexo', '$nombramiento')";
+$registro = "INSERT INTO usuarios_regulacion(Nombre_de_usuario, Contraseña, Tipo_de_usuario, Nombre, Apellido_paterno, Apellido_materno, Dependencia, Email, Sexo, Nombramiento) VALUES ('$usuario', '$password', '$tipousuario', '$nombrecompleto', '$Apaterno', '$AMaterno', '$dependencia', '$email', '$sexo', '$nombramiento')";
 
 $rs = mysqli_query($conn, $registro);
 if ($rs) {
