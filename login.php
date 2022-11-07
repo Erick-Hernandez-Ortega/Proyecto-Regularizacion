@@ -31,9 +31,9 @@
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                 </ul>
 
-                <div class="text-end">
+                <!-- <div class="text-end">
                     <a href="registro.php" class="btn btn-outline-dark me-2 p-2" id="boton1">Registrarse</a>
-                </div>
+                </div> -->
             </div>
         </div>
     </header>

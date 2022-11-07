@@ -1,4 +1,6 @@
-<?php session_start(); $host = $_SERVER['HTTP_HOST']; if($_SESSION['Tipo']!='Capturista') header("location: http://$host/Proyecto-Regularizacion/admin.php"); ?>
+<?php session_start();
+$host = $_SERVER['HTTP_HOST'];
+if ($_SESSION['Tipo'] != 'Capturista') header("location: http://$host/Proyecto-Regularizacion/admin.php"); ?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -88,8 +90,13 @@
     </div>
 
 
-    <div class="divTabla mt-4">
-        <table class="table table-hover text-center " id="tablaCentral">
+
+    <div class="divTabla mt-3">
+        <button class="btn btn-dark mb-2 d-flex rounded-4 btn-lg" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Agregar Folio">
+            <span class="material-icons" style="font-size: 27px;" data-bs-toggle="modal" data-bs-target="#modalFolio">&#xe2cc;</span>
+        </button>
+
+        <table class="table table-hover text-center" id="tablaCentral">
             <!-- <caption>List of users</caption> -->
             <thead>
                 <tr class="table-dark">
@@ -106,54 +113,111 @@
             <tbody>
                 <tr class="table-light">
                     <th scope="row">IH123</th>
-                    <td><button type="button" class="btn btn-danger px-1" data-bs-toggle="modal" data-bs-target="#modalProceso1">
-                            Sin empezar
-                        </button></td>
-                    <td><button type="button" class="btn btn-success px-1" data-bs-toggle="modal" data-bs-target="#modalProceso2">
-                            Completado
-                        </button></td>
-                    <td><button type="button" class="btn btn-danger px-1" data-bs-toggle="modal" data-bs-target="#modalProceso3">
-                            Sin empezar
-                        </button></td>
-                    <td><button type="button" class="btn btn-warning px-1" data-bs-toggle="modal" data-bs-target="#modalProceso4">
-                            Incompleto
-                        </button></td>
-                    <td><button type="button" class="btn btn-danger px-1" data-bs-toggle="modal" data-bs-target="#modalProceso5">
-                            Sin empezar
-                        </button></td>
-                    <td><button type="button" class="btn btn-danger px-1" data-bs-toggle="modal" data-bs-target="#modalProceso6">
-                            Sin empezar
-                        </button></td>
-                    <td><button type="button" class="btn btn-danger px-1" data-bs-toggle="modal" data-bs-target="#modalProceso7">
-                            Sin empezar
-                        </button></td>
+                    <td>
+                        <button type="button" class="btn btn-danger px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Sin empezar">
+                            <span class="material-icons d-flex" data-bs-toggle="modal" data-bs-target="#modalProceso1">&#xe89c;</span>
+                        </button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-success px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Completado">
+                            <span class="material-icons d-flex" data-bs-toggle="modal" data-bs-target="#modalProceso2">&#xe876;</span>
+                        </button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-danger px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Sin empezar">
+                            <span class="material-icons d-flex" data-bs-toggle="modal" data-bs-target="#modalProceso3">&#xe89c;</span>
+                        </button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-warning px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Incompleto">
+                            <span class="material-icons d-flex" data-bs-toggle="modal" data-bs-target="#modalProceso4">&#xf1c2;</span>
+                        </button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-danger px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Sin empezar">
+                            <span class="material-icons d-flex" data-bs-toggle="modal" data-bs-target="#modalProceso5">&#xe89c;</span>
+                        </button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-danger px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Sin empezar">
+                            <span class="material-icons d-flex" data-bs-toggle="modal" data-bs-target="#modalProceso6">&#xe89c;</span>
+                        </button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-danger px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Sin empezar">
+                            <span class="material-icons d-flex" data-bs-toggle="modal" data-bs-target="#modalProceso7">&#xe89c;</span>
+                        </button>
+                    </td>
 
                 </tr>
 
                 <tr class="table-success">
                     <th scope="row">IH124</th>
-                    <td><button type="button" class="btn btn-success px-1">Completado</button></td>
-                    <td><button type="button" class="btn btn-success px-1">Completado</button></td>
-                    <td><button type="button" class="btn btn-success px-1">Completado</button></td>
-                    <td><button type="button" class="btn btn-success px-1">Completado</button></td>
-                    <td><button type="button" class="btn btn-success px-1">Completado</button></td>
-                    <td><button type="button" class="btn btn-success px-1">Completado</button></td>
-                    <td><button type="button" class="btn btn-success px-1">Completado</button></td>
+                    <td>
+                        <button type="button" class="btn btn-success px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Completado">
+                            <span class="material-icons d-flex" data-bs-toggle="modal" data-bs-target="#">&#xe876;</span>
+                        </button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-success px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Completado">
+                            <span class="material-icons d-flex">&#xe876;</span>
+                        </button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-success px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Completado">
+                            <span class="material-icons d-flex">&#xe876;</span>
+                        </button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-success px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Completado">
+                            <span class="material-icons d-flex">&#xe876;</span>
+                        </button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-success px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Completado">
+                            <span class="material-icons d-flex">&#xe876;</span>
+                        </button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-success px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Completado">
+                            <span class="material-icons d-flex">&#xe876;</span>
+                        </button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-success px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Completado">
+                            <span class="material-icons d-flex">&#xe876;</span>
+                        </button>
+                    </td>
                 </tr>
             </tbody>
         </table>
     </div>
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-
+    <!-- Modal Folio -->
+    <div class="modal fade" id="modalFolio" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Agregar Folio</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row mb-3 align-items-center">
+                        <div class="col-auto">
+                            <label for="inputPassword6" class="col-form-label fw-bold">Número de folio</label>
+                        </div>
+                        <div class="col-auto">
+                            <input type="text" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn" style="background-color: #852120; color: white;">Agregar</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Modal proceso 1-->
     <div class="modal fade" id="modalProceso1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
@@ -165,8 +229,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <h6 class="mb-3 fw-bold">Número de Folio: IH123</h6>
-
+                    <h6 class="fw-bold mb-3">Numero de Folio: H123</h6>
                     <div class="row mb-3">
                         <div class="col">
                             <label for="formFile" class="form-label fw-bold">Solicitud</label>
@@ -279,7 +342,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary">Enviar documentos</button>
+                    <!-- <button type="button" class="btn btn-primary">Enviar documentos</button> -->
                 </div>
             </div>
         </div>
@@ -582,7 +645,7 @@
 
     <div class="d-flex flex-column h-100 text-bg-light">
         <!-- FOOTER -->
-        <footer class="w-100 py-4 flex-shrink-0">
+        <footer class="w-100 py-4 flex-shrink-0 position-absolute bottom-0 text-bg-light">
             <div class="container py-3">
                 <div class="row gy-4 gx-5">
                     <div class="col-lg-4 col-md-6">
@@ -635,6 +698,10 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script>
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    </script>
 </body>
 
 </html>

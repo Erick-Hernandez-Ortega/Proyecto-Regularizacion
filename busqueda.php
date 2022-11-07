@@ -106,13 +106,41 @@
             <tbody>
                 <tr class="table-success">
                     <th scope="row">IH125</th>
-                    <td><button type="button" class="btn btn-success px-1">Completado</button></td>
-                    <td><button type="button" class="btn btn-success px-1">Completado</button></td>
-                    <td><button type="button" class="btn btn-success px-1">Completado</button></td>
-                    <td><button type="button" class="btn btn-success px-1">Completado</button></td>
-                    <td><button type="button" class="btn btn-success px-1">Completado</button></td>
-                    <td><button type="button" class="btn btn-success px-1">Completado</button></td>
-                    <td><button type="button" class="btn btn-success px-1">Completado</button></td>
+                    <td>
+                        <button type="button" class="btn btn-success px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Completado">
+                            <span class="material-icons d-flex" data-bs-toggle="modal" data-bs-target="#">&#xe876;</span>
+                        </button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-success px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Completado">
+                            <span class="material-icons d-flex" data-bs-toggle="modal" data-bs-target="#modalProceso2">&#xe876;</span>
+                        </button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-success px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Completado">
+                            <span class="material-icons d-flex" data-bs-toggle="modal" data-bs-target="#">&#xe876;</span>
+                        </button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-success px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Completado">
+                            <span class="material-icons d-flex" data-bs-toggle="modal" data-bs-target="#">&#xe876;</span>
+                        </button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-success px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Completado">
+                            <span class="material-icons d-flex" data-bs-toggle="modal" data-bs-target="#">&#xe876;</span>
+                        </button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-success px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Completado">
+                            <span class="material-icons d-flex" data-bs-toggle="modal" data-bs-target="#">&#xe876;</span>
+                        </button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-success px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Completado">
+                            <span class="material-icons d-flex" data-bs-toggle="modal" data-bs-target="#">&#xe876;</span>
+                        </button>
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -601,6 +629,10 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script>
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    </script>
 </body>
 
 </html>
