@@ -346,6 +346,15 @@ if ($_SESSION['Tipo'] != 'Capturista') header("location: http://$host/Proyecto-R
                             <span class="material-icons position-absolute verde">&#xe2e6;</span>
                             <input class="form-control" type="file" id="formFile" disabled>
                         </div>
+                        <div class="col">
+                            <label for="" class="form-label fw-bold">Estado de Oficio de Regreso</label>
+                            <select class="form-control" name="Sexo" required>
+                                <option selected>-Seleccione uno-</option>
+                                <option>Aceptado ✅</option>
+                                <option>No Subido ❌</option>
+                                <option>En Revision ⌛️</option>
+                            </select>
+                        </div>
                     </div>
 
                 </div>
@@ -400,6 +409,15 @@ if ($_SESSION['Tipo'] != 'Capturista') header("location: http://$host/Proyecto-R
                             <span class="material-icons position-absolute rojo">&#xe5c9;</span>
                             <input class="form-control" type="file" id="formFile">
                         </div>
+                        <div class="col">
+                            <label for="" class="form-label fw-bold">Estado de Acta de Regreso</label>
+                            <select class="form-control" name="Sexo" required>
+                                <option selected>-Seleccione uno-</option>
+                                <option>Aceptado ✅</option>
+                                <option>No Subido ❌</option>
+                                <option>En Revision ⌛️</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -438,6 +456,15 @@ if ($_SESSION['Tipo'] != 'Capturista') header("location: http://$host/Proyecto-R
                             <label for="formFile" class="form-label fw-bold">Oficio Regreso</label>
                             <span class="material-icons position-absolute rojo">&#xe5c9;</span>
                             <input class="form-control" type="file" id="formFile">
+                        </div>
+                        <div class="col">
+                            <label for="" class="form-label fw-bold">Estado de Oficio de Regreso</label>
+                            <select class="form-control" name="Sexo" required>
+                                <option selected>-Seleccione uno-</option>
+                                <option>Aceptado ✅</option>
+                                <option>No Subido ❌</option>
+                                <option>En Revision ⌛️</option>
+                            </select>
                         </div>
                     </div>
 
@@ -511,6 +538,18 @@ if ($_SESSION['Tipo'] != 'Capturista') header("location: http://$host/Proyecto-R
                             <span class="material-icons position-absolute rojo">&#xe5c9;</span>
                             <input class="form-control" type="file" id="formFile">
                         </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="" class="form-label fw-bold">Estado de Oficio de Regreso</label>
+                            <select class="form-control" name="Sexo" required>
+                                <option selected>-Seleccione uno-</option>
+                                <option>Aceptado ✅</option>
+                                <option>No Subido ❌</option>
+                                <option>En Revision ⌛️</option>
+                            </select>
+                        </div>
+                        <div class="col"></div>
                     </div>
                 </div>
                 <div class="modal-footer">
