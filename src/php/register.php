@@ -22,7 +22,7 @@ if (filter_var($emailAdmin, FILTER_VALIDATE_EMAIL) && filter_var($email, FILTER_
     $res_query = mysqli_query($conn, $consulta);
     $resultado = mysqli_fetch_array($res_query);
 
-    if ($resultado['Tipo_de_usuario'] != 'Administrador') {
+    if ($resultado['Tipo_de_usuario'] != 'Administrador' && $resultado['Tipo_de_usuario'] != 'Super administrador') {
         $_SESSION['mensaje-modal'] = "Las credenciales del administrador son incorrectas!";
         $_SESSION['color-modal'] = 'danger';
 
@@ -32,7 +32,7 @@ if (filter_var($emailAdmin, FILTER_VALIDATE_EMAIL) && filter_var($email, FILTER_
 
         header("location: http://$host/Proyecto-Regularizacion/registro.php");
     } else {
-        if ($tipousuario != '-Rol-' && $sexo != '-Seleccione uno-') {
+        if ($tipousuario != 'Rol del nuevo usuario' && $sexo != '-Seleccione uno-') {
             $consulta = "SELECT Id_usuario FROM usuarios_regulacion WHERE Email = '$email'";
             $consulta2 = "SELECT Id_usuario FROM usuarios_regulacion WHERE Nombre_de_usuario = '$usuario'";
             $res1 = mysqli_query($conn, $consulta);
@@ -70,11 +70,13 @@ if (filter_var($emailAdmin, FILTER_VALIDATE_EMAIL) && filter_var($email, FILTER_
     header("location: http://$host/Proyecto-Regularizacion/registro.php");
 }
 
-$nombrecompleto = $nombre." ".$Apaterno." ".$AMaterno;
-$registro = "INSERT INTO usuarios_regulacion(Nombre_de_usuario, Contraseña, Tipo_de_usuario, Nombre, Apellido_paterno, Apellido_materno, Dependencia, Email, Sexo, Nombramiento) VALUES ('$usuario', '$password', '$tipousuario', '$nombrecompleto', '$Apaterno', '$AMaterno', '$dependencia', '$email', '$sexo', '$nombramiento')";
+$registro = "INSERT INTO usuarios_regulacion(Nombre_de_usuario, Contraseña, Tipo_de_usuario, Nombre, Apellido_paterno, Apellido_materno, Dependencia, Email, Sexo, Nombramiento) VALUES ('$usuario', '$password', '$tipousuario', '$nombre', '$Apaterno', '$AMaterno', '$dependencia', '$email', '$sexo', '$nombramiento')";
 
 $rs = mysqli_query($conn, $registro);
 if ($rs) {
+    $_SESSION['mensaje'] = "Registro exitoso! Ahora inicia sesión.";
+    $_SESSION['color'] = 'success';
+    $_SESSION['destroy'] = true;
     echo "<script>alert('Registro exitoso!');window.location = 'http://$host/Proyecto-Regularizacion/login.php'</script>";
 } else {
     echo "<script>alert('Ocurrió un error, vuelve a intentarlo...');window.location = '/registro.html'</script>";
