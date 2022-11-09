@@ -58,6 +58,8 @@ footer {
 .divTabla {
   width: 95%;
   margin: auto;
+  max-height: 500px;
+  overflow-y: scroll;  
 }
 
 #tablaCentral {

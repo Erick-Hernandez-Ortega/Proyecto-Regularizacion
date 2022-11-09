@@ -10,8 +10,8 @@ if ($_SESSION['Tipo'] != 'Capturista') header("location: http://$host/Proyecto-R
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="src/css/index.css" type="text/css" rel="stylesheet">
     <link rel="shortcut icon" href="src/img/Logo-1-icono.ico">
+    <link href="src/css/index.css?v1" type="text/css" rel="stylesheet">
     <title>Regularización</title>
 </head>
 
@@ -89,14 +89,13 @@ if ($_SESSION['Tipo'] != 'Capturista') header("location: http://$host/Proyecto-R
         </div>
     </div>
 
-
-
-    <div class="divTabla mt-3 table-wrapper-scroll-y">
-        <button class="btn btn-dark mb-2 d-flex rounded-4 btn-lg" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Agregar Folio">
+    <button class="btn btn-dark mb-2 d-flex rounded-4 btn-lg" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Agregar Folio">
             <span class="material-icons" style="font-size: 27px;" data-bs-toggle="modal" data-bs-target="#modalFolio">&#xe2cc;</span>
         </button>
 
-        <table class="table table-hover text-center" id="tablaCentral">
+
+    <div class="divTabla mt-3">
+        <table class="table table-hover text-center" id="tablaCentral" style="height:400px;">
             <!-- <caption>List of users</caption> -->
             <thead>
                 <tr class="table-dark">
@@ -991,7 +990,10 @@ if ($_SESSION['Tipo'] != 'Capturista') header("location: http://$host/Proyecto-R
                 </div>
             </div>
         </div>
-    </div>
+    </div> 
+
+    <br>
+    <br>
 
     <div class="d-flex flex-column h-100 text-bg-light">
         <!-- FOOTER -->
