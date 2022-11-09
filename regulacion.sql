@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-11-2022 a las 05:56:09
+-- Tiempo de generación: 09-11-2022 a las 04:10:33
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -55,7 +55,9 @@ CREATE TABLE `convenio_de_regularizacion` (
 --
 
 INSERT INTO `convenio_de_regularizacion` (`folio`, `oficio`, `oficio_estatus`, `oficio_de_castastro`, `oficio_de_castastro_estatus`, `convenio_de_regularizacion`, `firma_presidente`, `firma_presidente_estatus`, `firma_sindico`, `firma_sindico_estatus`, `firma_secretaria_general`, `firma_secretaria_general_estatus`, `firma_tesorero`, `firma_tesorero_estatus`, `firma_secretario_tecnico`, `firma_secretario_tecnico_estatus`, `firma_presidente_de_comite_o_propietario`, `firma_presidente_de_comite_o_propietario_estatus`, `firma_procurador_de_desarrollo_urbano`, `firma_procurador_de_desarrollo_urbano_estatus`) VALUES
-('abcd', NULL, 1, NULL, 0, NULL, NULL, 'faltante', NULL, 'faltante', NULL, 'faltante', NULL, 'faltante', NULL, 'faltante', NULL, 'listo', NULL, 'proceso');
+(' Prueba_Trigger_2', NULL, 0, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('abcd', NULL, 0, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('Prueb_Trigger', NULL, 0, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -88,7 +90,9 @@ CREATE TABLE `presentacion_a_la_comur` (
 --
 
 INSERT INTO `presentacion_a_la_comur` (`folio`, `oficio`, `oficio_estatus`, `dictamen_prodeur`, `dictamen_prodeur_estatus`, `acta_de_comur_1`, `acta_de_comur_1_estatus`, `acta_de_comur_2`, `acta_de_comur_2_estatus`, `publicacion`, `publicacion_estatus`, `estudio_analisis_y_resolucion_del_expediente`, `estudio_analisis_y_resolucion_del_expediente_estatus`, `estudio_de_opinion`, `estudio_de_opinion_estatus`, `oficion_regreso`, `oficion_regreso_estatus`) VALUES
-('abcd', NULL, 1, NULL, 1, NULL, 1, NULL, 1, NULL, 1, NULL, 1, NULL, 1, NULL, 1);
+(' Prueba_Trigger_2', NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0),
+('abcd', NULL, 1, NULL, 1, NULL, 1, NULL, 1, NULL, 1, NULL, 1, NULL, 1, NULL, 1),
+('Prueb_Trigger', NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -115,7 +119,9 @@ CREATE TABLE `presentacion_de_documentos_a_la_comur` (
 --
 
 INSERT INTO `presentacion_de_documentos_a_la_comur` (`folio`, `oficio`, `oficio_estatus`, `solicitud_de_regularizacion`, `solicitud_de_regularizacion_estatus`, `estudio_de_analisis`, `estudio_de_analisis_estatus`, `acta_comur`, `acta_comur_estatus`, `oficio_regreso`, `oficio_regreso_estatus`) VALUES
-('abcd', NULL, 1, NULL, 1, NULL, 1, NULL, 0, NULL, 1);
+(' Prueba_Trigger_2', NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0),
+('abcd', NULL, 1, NULL, 1, NULL, 1, NULL, 0, NULL, 1),
+('Prueb_Trigger', NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -134,7 +140,9 @@ CREATE TABLE `proyecto_definitivo` (
 --
 
 INSERT INTO `proyecto_definitivo` (`folio`, `proyecto_definitivo`, `proyecto_definitivo_estatus`) VALUES
-('abcd', NULL, 1);
+(' Prueba_Trigger_2', NULL, 0),
+('abcd', NULL, 1),
+('Prueb_Trigger', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -161,7 +169,9 @@ CREATE TABLE `segunda_presentacion_de_documentos_a_la_comur` (
 --
 
 INSERT INTO `segunda_presentacion_de_documentos_a_la_comur` (`folio`, `oficio`, `oficio_estatus`, `estudio_opinion`, `estudio_opinion_estatus`, `acta_de_comur_proceso_2`, `acta_de_comur_proceso_2_estatus`, `acta_comur_2`, `acta_comur_2_estatus`, `oficio_regreso`, `oficio_regreso_estatus`) VALUES
-('abcd', NULL, 1, NULL, 1, NULL, 1, NULL, 0, NULL, 0);
+(' Prueba_Trigger_2', NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0),
+('abcd', NULL, 1, NULL, 1, NULL, 1, NULL, 0, NULL, 0),
+('Prueb_Trigger', NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -196,7 +206,25 @@ CREATE TABLE `solicitud_de_regularizacion` (
 --
 
 INSERT INTO `solicitud_de_regularizacion` (`folio`, `solicitud`, `solicidud_estatus`, `escritura`, `escritura_estatus`, `identificacion`, `identificacion_estatus`, `historial_catastral`, `historial_catastral_estatus`, `resolucion_idicial`, `resolucion_idicial_estatus`, `certificacion_de_hechos`, `certificacion_de_hechos_estatus`, `foto_aerea`, `foto_aerea_estatus`, `oficio`, `oficio_estatus`, `oficio_regreso`, `oficio_regreso_estatus`) VALUES
-('abcd', NULL, 1, NULL, 1, NULL, 0, NULL, 1, NULL, 0, NULL, 0, NULL, 1, NULL, 0, NULL, 0);
+(' Prueba_Trigger_2', NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0),
+('abcd', NULL, 1, NULL, 1, NULL, 0, NULL, 1, NULL, 0, NULL, 0, NULL, 1, NULL, 0, NULL, 0),
+('Prueb_Trigger', NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0);
+
+--
+-- Disparadores `solicitud_de_regularizacion`
+--
+DELIMITER $$
+CREATE TRIGGER `insertar_folios` AFTER INSERT ON `solicitud_de_regularizacion` FOR EACH ROW BEGIN
+	INSERT INTO presentacion_de_documentos_a_la_comur(folio) VALUES (new.folio);
+    INSERT INTO segunda_presentacion_de_documentos_a_la_comur(folio) VALUES (new.folio);
+    INSERT INTO solicitud_por_oficio_a_la_prodeur(folio) VALUES (new.folio);
+    INSERT INTO presentacion_a_la_comur(folio) VALUES (new.folio);
+    INSERT INTO proyecto_definitivo(folio) VALUES (new.folio);
+    INSERT INTO convenio_de_regularizacion(folio) VALUES (new.folio);
+    
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -219,7 +247,9 @@ CREATE TABLE `solicitud_por_oficio_a_la_prodeur` (
 --
 
 INSERT INTO `solicitud_por_oficio_a_la_prodeur` (`folio`, `dictamen`, `dictamen_estatus`, `oficio`, `oficio_estatus`, `oficio_regreso`, `oficio_regreso_estatus`) VALUES
-('abcd', NULL, 0, NULL, 0, NULL, 0);
+(' Prueba_Trigger_2', NULL, 0, NULL, 0, NULL, 0),
+('abcd', NULL, 0, NULL, 0, NULL, 0),
+('Prueb_Trigger', NULL, 0, NULL, 0, NULL, 0);
 
 -- --------------------------------------------------------
 
