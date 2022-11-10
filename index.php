@@ -976,7 +976,7 @@ if ($_SESSION['Tipo'] != 'Capturista') header("location: http://$host/Proyecto-R
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="">
+                    <form action="busqueda.php" method="POST">
                         <label class="mb-1">Por folio</label>
                         <div class="input-group mb-3">
                             <span class="material-icons input-group-text">&#xe2c7;</span>
@@ -991,6 +991,21 @@ if ($_SESSION['Tipo'] != 'Capturista') header("location: http://$host/Proyecto-R
             </div>
         </div>
     </div> 
+    
+    <!-- Toast -->
+    <div class="toast-container position-fixed top-0 start-50 translate-middle-x p-4">
+        <div id="toastBusqueda" class="toast text-bg-dark" role="alert" aria-live="assertive" aria-atomic="true">
+            <div style="background-color: white;" class="toast-header">
+                <img style="width: 20px; height:20px;" src="src/img/rojo.jpg" class="rounded me-2" alt="rojo">
+                <strong style="color: black;" class="me-auto">Error</strong>
+                <small style="color:black;">hace 1 segundo</small>
+                <button type="button" class="btn-close btn-close-dark" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                El folio que ingresaste no se encuentra...
+            </div>
+        </div>
+    </div>
 
     <br>
     <br>
@@ -1053,6 +1068,14 @@ if ($_SESSION['Tipo'] != 'Capturista') header("location: http://$host/Proyecto-R
     <script>
         const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
         const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    </script>
+    <script>
+        <?php if($_SESSION['busqueda']==false){ ?>
+        const toast = document.getElementById('toastBusqueda')
+        const t = new bootstrap.Toast(toast)
+        t.show()
+        
+        <?php $_SESSION['busqueda']=true; }?>
     </script>
 </body>
 
