@@ -1,4 +1,6 @@
-<?php session_start(); ?>
+<?php include("src/php/db.php");
+$host = $_SERVER['HTTP_HOST'];
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -39,8 +41,7 @@
                                             $_SESSION['mensaje'] = "Necesitas iniciar sesión...";
                                             $_SESSION['color'] = 'danger';
                                             $_SESSION['destroy'] = false;
-                                            $host = $_SERVER['HTTP_HOST'];
-                                            header("location: http://$host/Proyecto-Regularizacion/login.php");
+                                            echo '<script>window.location="http://'.$host.'/Proyecto-Regularizacion/login.php"</script>';
                                         } ?></h6>
                 </div>
 
@@ -104,8 +105,19 @@
                 </tr>
             </thead>
             <tbody>
+                <?php $buscar = $_POST['folio'];
+                if ($buscar == null) {
+                    $_SESSION['busqueda']=false;
+                    if ($_SESSION['Tipo'] == 'Capturista') {
+                        echo '<script>window.location="http://'.$host.'/Proyecto-Regularizacion/index.php"</script>';
+                    }
+                    echo '<script>window.location="http://'.$host.'/Proyecto-Regularizacion/admin.php"</script>';
+                }
+                $sql = "SELECT * FROM solicitud_de_regularizacion WHERE folio LIKE '%" . $buscar . "%'";
+                $query = mysqli_query($conn, $sql);
+                while ($row = mysqli_fetch_array($query)) { ?>
                 <tr class="table-success">
-                    <th scope="row">IH125</th>
+                    <th scope="row"><?= $row['folio']; ?></th>
                     <td>
                         <button type="button" class="btn btn-success px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Completado">
                             <span class="material-icons d-flex" data-bs-toggle="modal" data-bs-target="#">&#xe876;</span>
@@ -142,6 +154,7 @@
                         </button>
                     </td>
                 </tr>
+                <?php } ?>
             </tbody>
         </table>
     </div>
@@ -565,7 +578,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="">
+                    <form action="busqueda.php" method="post">
                         <label class="mb-1">Por folio</label>
                         <div class="input-group mb-3">
                             <span class="material-icons input-group-text">&#xe2c7;</span>
