@@ -1,0 +1,32 @@
+.contenido {
+  margin: auto;
+  width: 90%;
+}
+
+.estatus {
+  transition: all ease 0.5s;
+  background-color: white;
+  visibility: hidden;
+  opacity: 0;
+  margin: auto;
+  padding: 0;
+  width: 0;
+  height: 0;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+#tabla-folio {
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.show {
+  visibility: visible;
+  opacity: 1;
+  padding: 1%;
+  height: 500px;
+  width: 500px;
+}
+
+table {
+  box-shadow: none;
+}

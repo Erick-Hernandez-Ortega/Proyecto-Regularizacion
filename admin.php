@@ -83,7 +83,7 @@ if ($_SESSION['Tipo'] == 'Capturista') header("location: http://$host/Proyecto-R
             <a class="col text-decoration-none link p-2 borde" href="" data-bs-toggle="modal" data-bs-target="#modalBusqueda">
                 Búsqueda Avanzada
             </a>
-            <a class="col text-decoration-none link p-2" href="/">
+            <a class="col text-decoration-none link p-2" href="estatus.php">
                 Estatus de documentos
             </a>
         </div>
