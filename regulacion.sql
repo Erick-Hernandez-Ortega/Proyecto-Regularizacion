@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-11-2022 a las 04:10:33
+-- Tiempo de generación: 11-11-2022 a las 00:10:28
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -198,17 +198,18 @@ CREATE TABLE `solicitud_de_regularizacion` (
   `oficio` longblob DEFAULT NULL,
   `oficio_estatus` tinyint(1) DEFAULT 0,
   `oficio_regreso` longblob DEFAULT NULL,
-  `oficio_regreso_estatus` tinyint(1) DEFAULT 0
+  `oficio_regreso_estatus` tinyint(1) DEFAULT 0,
+  `archivar` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `solicitud_de_regularizacion`
 --
 
-INSERT INTO `solicitud_de_regularizacion` (`folio`, `solicitud`, `solicidud_estatus`, `escritura`, `escritura_estatus`, `identificacion`, `identificacion_estatus`, `historial_catastral`, `historial_catastral_estatus`, `resolucion_idicial`, `resolucion_idicial_estatus`, `certificacion_de_hechos`, `certificacion_de_hechos_estatus`, `foto_aerea`, `foto_aerea_estatus`, `oficio`, `oficio_estatus`, `oficio_regreso`, `oficio_regreso_estatus`) VALUES
-(' Prueba_Trigger_2', NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0),
-('abcd', NULL, 1, NULL, 1, NULL, 0, NULL, 1, NULL, 0, NULL, 0, NULL, 1, NULL, 0, NULL, 0),
-('Prueb_Trigger', NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0);
+INSERT INTO `solicitud_de_regularizacion` (`folio`, `solicitud`, `solicidud_estatus`, `escritura`, `escritura_estatus`, `identificacion`, `identificacion_estatus`, `historial_catastral`, `historial_catastral_estatus`, `resolucion_idicial`, `resolucion_idicial_estatus`, `certificacion_de_hechos`, `certificacion_de_hechos_estatus`, `foto_aerea`, `foto_aerea_estatus`, `oficio`, `oficio_estatus`, `oficio_regreso`, `oficio_regreso_estatus`, `archivar`) VALUES
+(' Prueba_Trigger_2', NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, 0),
+('abcd', NULL, 1, NULL, 1, NULL, 0, NULL, 1, NULL, 0, NULL, 0, NULL, 1, NULL, 0, NULL, 0, 0),
+('Prueb_Trigger', NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, 0);
 
 --
 -- Disparadores `solicitud_de_regularizacion`
