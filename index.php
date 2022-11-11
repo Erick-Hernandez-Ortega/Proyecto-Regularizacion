@@ -1056,7 +1056,7 @@ if ($_SESSION['Tipo'] != 'Capturista') header("location: http://$host/Proyecto-R
                         <h5 class="text-black mb-3">Contacto</h5>
                         <ul class="list-unstyled text-muted">
                             <li><a href="#" class="text-decoration-none">Tel. 33-35-86-60-00</a></li>
-                            <li><a href="#" class="text-decoration-none">www.tonalá.gob.mx</a></li>
+                            <li><a href="https://tonala.gob.mx/portal/" target="blank" class="text-decoration-none">www.tonalá.gob.mx</a></li>
                         </ul>
                     </div>
                 </div>

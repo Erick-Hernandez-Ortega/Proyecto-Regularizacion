@@ -88,14 +88,11 @@ if ($_SESSION['Tipo'] == 'Capturista') header("location: http://$host/Proyecto-R
             </a>
         </div>
     </div>
-        <div class="agregar-folio mt-3">
-            <div class="btn-group">
-            <button class="btn btn-dark d-flex rounded-4" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Agregar Folio">
-                <span class="material-icons" style="font-size: 27px;" data-bs-toggle="modal" data-bs-target="#modalFolio">&#xe2cc;</span>
-            </button>
-            </div>
-            <a href="archivado.php" class="btn btn-primary">Mostrar archivados</a>
-        </div>
+
+    <div class="agregar-folio mt-3">
+        <a href="admin.php" class="btn btn-primary">Página principal</a>
+    </div> 
+
     <div class="divTabla mt-3">
         <table class="table table-hover text-center " id="tablaCentral">
             <!-- <caption>List of users</caption> -->
@@ -151,8 +148,8 @@ if ($_SESSION['Tipo'] == 'Capturista') header("location: http://$host/Proyecto-R
                         </button>
                     </td>
                     <td>
-                        <button type="button" class="btn btn-danger px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Archivar">
-                            <span class="material-icons d-flex" data-bs-toggle="modal" data-bs-target="#ModalEliminar">&#xe5c6;</span>
+                        <button type="button" class="btn btn-success px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Desarchivar">
+                            <span class="material-icons d-flex" data-bs-toggle="modal" data-bs-target="#ModalEliminar">&#xe8fb;</span>
                         </button>
                     </td>
                 </tr>
@@ -195,8 +192,8 @@ if ($_SESSION['Tipo'] == 'Capturista') header("location: http://$host/Proyecto-R
                         </button>
                     </td>
                     <td>
-                        <button type="button" class="btn btn-danger px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Archivar">
-                            <span class="material-icons d-flex" data-bs-toggle="modal" data-bs-target="#ModalEliminar">&#xe5c6;</span>
+                        <button type="button" class="btn btn-success px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Desarchivar">
+                            <span class="material-icons d-flex" data-bs-toggle="modal" data-bs-target="#ModalEliminar">&#xe8fb;</span>
                         </button>
                     </td>
                 </tr>
@@ -634,15 +631,15 @@ if ($_SESSION['Tipo'] == 'Capturista') header("location: http://$host/Proyecto-R
         <div class="modal-dialog modal-x1">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Archivar consulta</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Desarchivar consulta</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>¿Seguro que desea archivar esta consulta?</p>
+                    <p>¿Seguro que desea desarchivar esta consulta?</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Archivar</button>
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Desarchivar</button>
                     <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancelar</button>
                 </div>
             </div>
