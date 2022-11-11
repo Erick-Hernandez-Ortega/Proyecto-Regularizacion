@@ -284,31 +284,31 @@ if ($_SESSION['Tipo'] != 'Capturista') header("location: http://$host/Proyecto-R
                         <div class="col">
                             <label for="formFile" class="form-label fw-bold">Oficio</label>
                             <span class="material-icons position-absolute verde">&#xe2e6;</span>
-                            <input class="form-control" type="file" id="formFile" disabled>
+                            <input class="form-control" type="file" id="formFile" >
                         </div>
                         <div class="col">
                             <label for="formFile" class="form-label fw-bold">Solicitud de la regularización</label>
                             <span class="material-icons position-absolute verde">&#xe2e6;</span>
-                            <input class="form-control" type="file" id="formFile" disabled>
+                            <input class="form-control" type="file" id="formFile" >
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col">
                             <label for="formFile" class="form-label fw-bold">Estudio de análisis</label>
                             <span class="material-icons position-absolute verde">&#xe2e6;</span>
-                            <input class="form-control" type="file" id="formFile" disabled>
+                            <input class="form-control" type="file" id="formFile" >
                         </div>
                         <div class="col">
                             <label for="formFile" class="form-label fw-bold">Acta de comur</label>
                             <span class="material-icons position-absolute verde">&#xe2e6;</span>
-                            <input class="form-control" type="file" id="formFile" disabled>
+                            <input class="form-control" type="file" id="formFile" >
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col">
                             <label for="formFile" class="form-label fw-bold">Oficio de regreso</label>
                             <span class="material-icons position-absolute verde">&#xe2e6;</span>
-                            <input class="form-control" type="file" id="formFile" disabled>
+                            <input class="form-control" type="file" id="formFile" >
                         </div>
                         <div class="col">
                             <label for="" class="form-label fw-bold">Estado de Oficio de Regreso</label>
