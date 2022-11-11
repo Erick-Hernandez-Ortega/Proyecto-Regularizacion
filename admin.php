@@ -593,11 +593,30 @@ if ($_SESSION['Tipo'] == 'Capturista') header("location: http://$host/Proyecto-R
                             <input class="form-control" type="file" id="formFile">
                         </div>
                         <div class="col">
+                            <label for="" class="form-label fw-bold">Estado de Firma de Presidente</label>
+                            <select class="form-control" name="estado-oficio" required>
+                                <option selected>-Seleccione uno-</option>
+                                <option>Listo ✅</option>
+                                <option>Faltante ❌</option>
+                                <option>En Proceso ⌛️</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
                             <label for="formFile" class="form-label fw-bold">Sindico</label>
                             <span class="material-icons position-absolute rojo">&#xe5c9;</span>
                             <input class="form-control" type="file" id="formFile">
                         </div>
-
+                        <div class="col">
+                            <label for="" class="form-label fw-bold">Estado de Firma de Sindico</label>
+                            <select class="form-control" name="estado-oficio" required>
+                                <option selected>-Seleccione uno-</option>
+                                <option>Listo ✅</option>
+                                <option>Faltante ❌</option>
+                                <option>En Proceso ⌛️</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col">
@@ -606,11 +625,30 @@ if ($_SESSION['Tipo'] == 'Capturista') header("location: http://$host/Proyecto-R
                             <input class="form-control" type="file" id="formFile">
                         </div>
                         <div class="col">
+                            <label for="" class="form-label fw-bold">Estado de Firma de Secretaria General</label>
+                            <select class="form-control" name="estado-oficio" required>
+                                <option selected>-Seleccione uno-</option>
+                                <option>Listo ✅</option>
+                                <option>Faltante ❌</option>
+                                <option>En Proceso ⌛️</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
                             <label for="formFile" class="form-label fw-bold">Tesorero</label>
                             <span class="material-icons position-absolute rojo">&#xe5c9;</span>
                             <input class="form-control" type="file" id="formFile">
                         </div>
-
+                        <div class="col">
+                            <label for="" class="form-label fw-bold">Estado de Firma de Tesorero</label>
+                            <select class="form-control" name="estado-oficio" required>
+                                <option selected>-Seleccione uno-</option>
+                                <option>Listo ✅</option>
+                                <option>Faltante ❌</option>
+                                <option>En Proceso ⌛️</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col">
@@ -619,17 +657,45 @@ if ($_SESSION['Tipo'] == 'Capturista') header("location: http://$host/Proyecto-R
                             <input class="form-control" type="file" id="formFile">
                         </div>
                         <div class="col">
+                            <label for="" class="form-label fw-bold">Estado de Firma de Presidente de Comite o Propietario</label>
+                            <select class="form-control" name="estado-oficio" required>
+                                <option selected>-Seleccione uno-</option>
+                                <option>Listo ✅</option>
+                                <option>Faltante ❌</option>
+                                <option>En Proceso ⌛️</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
                             <label for="formFile" class="form-label fw-bold">Secretario Técnico</label>
                             <span class="material-icons position-absolute rojo">&#xe5c9;</span>
                             <input class="form-control" type="file" id="formFile">
                         </div>
-
+                        <div class="col">
+                            <label for="" class="form-label fw-bold">Estado de Firma de Técnico</label>
+                            <select class="form-control" name="estado-oficio" required>
+                                <option selected>-Seleccione uno-</option>
+                                <option>Listo ✅</option>
+                                <option>Faltante ❌</option>
+                                <option>En Proceso ⌛️</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col">
                             <label for="formFile" class="form-label fw-bold">Procurador de desarrollo urbano</label>
                             <span class="material-icons position-absolute rojo">&#xe5c9;</span>
                             <input class="form-control" type="file" id="formFile">
+                        </div>
+                        <div class="col">
+                            <label for="" class="form-label fw-bold">Estado de Firma de Procurador de desarrollo urbano</label>
+                            <select class="form-control" name="estado-oficio" required>
+                                <option selected>-Seleccione uno-</option>
+                                <option>Listo ✅</option>
+                                <option>Faltante ❌</option>
+                                <option>En Proceso ⌛️</option>
+                            </select>
                         </div>
                     </div>
                 </div>
