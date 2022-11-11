@@ -91,11 +91,13 @@ if ($_SESSION['Tipo'] == 'Capturista') header("location: http://$host/Proyecto-R
     </div>
     <div class="agregar-folio mt-3">
         <div class="btn-group">
-            <button class="btn btn-dark d-flex rounded-4" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Agregar Folio">
+            <button class="btn btn-dark d-flex rounded-4" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Agregar Folio">
                 <span class="material-icons" style="font-size: 27px;" data-bs-toggle="modal" data-bs-target="#modalFolio">&#xe2cc;</span>
             </button>
         </div>
-        <a href="archivado.php" class="btn btn-primary">Mostrar archivados</a>
+        <a href="archivado.php" class="btn btn-dark" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Mostrar archivados">
+            <span class="material-icons" style="font-size: 27px;">&#xe169;</span>
+        </a>
     </div>
     <div class="divTabla mt-3">
         <table class="table table-hover text-center " id="tablaCentral">
@@ -120,7 +122,7 @@ if ($_SESSION['Tipo'] == 'Capturista') header("location: http://$host/Proyecto-R
                     <tr class="table-light">
                         <th scope="row"><?= $row['folio'] ?></th>
                         <td>
-                            <button type="button" class="btn btn-secondary px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Sin empezar">
+                            <button type="button" class="btn btn-danger px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Sin empezar">
                                 <span class="material-icons d-flex" data-bs-toggle="modal" data-bs-target="#modalProceso1">&#xe89c;</span>
                             </button>
                         </td>
@@ -130,7 +132,7 @@ if ($_SESSION['Tipo'] == 'Capturista') header("location: http://$host/Proyecto-R
                             </button>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-secondary px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Sin empezar">
+                            <button type="button" class="btn btn-danger px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Sin empezar">
                                 <span class="material-icons d-flex" data-bs-toggle="modal" data-bs-target="#modalProceso3">&#xe89c;</span>
                             </button>
                         </td>
@@ -140,70 +142,27 @@ if ($_SESSION['Tipo'] == 'Capturista') header("location: http://$host/Proyecto-R
                             </button>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-secondary px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Sin empezar">
+                            <button type="button" class="btn btn-danger px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Sin empezar">
                                 <span class="material-icons d-flex" data-bs-toggle="modal" data-bs-target="#modalProceso5">&#xe89c;</span>
                             </button>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-secondary px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Sin empezar">
+                            <button type="button" class="btn btn-danger px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Sin empezar">
                                 <span class="material-icons d-flex" data-bs-toggle="modal" data-bs-target="#modalProceso6">&#xe89c;</span>
                             </button>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-secondary px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Sin empezar">
+                            <button type="button" class="btn btn-danger px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Sin empezar">
                                 <span class="material-icons d-flex" data-bs-toggle="modal" data-bs-target="#modalProceso7">&#xe89c;</span>
                             </button>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-danger px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Archivar">
-                                <span class="material-icons d-flex" data-bs-toggle="modal" data-bs-target="#ModalEliminar">&#xe5c6;</span>
+                            <button type="button" class="btn btn-dark px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Archivar">
+                                <span class="material-icons d-flex" data-bs-toggle="modal" data-bs-target="#ModalEliminar">&#xe149;</span>
                             </button>
                         </td>
                     </tr>
                 <?php } ?>
-                <tr class="table-success">
-                    <th scope="row">IH124</th>
-                    <td>
-                        <button type="button" class="btn btn-success px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Completado">
-                            <span class="material-icons d-flex" data-bs-toggle="modal" data-bs-target="#">&#xe876;</span>
-                        </button>
-                    </td>
-                    <td>
-                        <button type="button" class="btn btn-success px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Completado">
-                            <span class="material-icons d-flex" data-bs-toggle="modal" data-bs-target="#modalProceso2">&#xe876;</span>
-                        </button>
-                    </td>
-                    <td>
-                        <button type="button" class="btn btn-success px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Completado">
-                            <span class="material-icons d-flex" data-bs-toggle="modal" data-bs-target="#">&#xe876;</span>
-                        </button>
-                    </td>
-                    <td>
-                        <button type="button" class="btn btn-success px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Completado">
-                            <span class="material-icons d-flex" data-bs-toggle="modal" data-bs-target="#">&#xe876;</span>
-                        </button>
-                    </td>
-                    <td>
-                        <button type="button" class="btn btn-success px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Completado">
-                            <span class="material-icons d-flex" data-bs-toggle="modal" data-bs-target="#">&#xe876;</span>
-                        </button>
-                    </td>
-                    <td>
-                        <button type="button" class="btn btn-success px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Completado">
-                            <span class="material-icons d-flex" data-bs-toggle="modal" data-bs-target="#">&#xe876;</span>
-                        </button>
-                    </td>
-                    <td>
-                        <button type="button" class="btn btn-success px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Completado">
-                            <span class="material-icons d-flex" data-bs-toggle="modal" data-bs-target="#">&#xe876;</span>
-                        </button>
-                    </td>
-                    <td>
-                        <button type="button" class="btn btn-danger px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Archivar">
-                            <span class="material-icons d-flex" data-bs-toggle="modal" data-bs-target="#ModalEliminar">&#xe5c6;</span>
-                        </button>
-                    </td>
-                </tr>
             </tbody>
         </table>
     </div>
