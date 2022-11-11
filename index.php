@@ -1,4 +1,5 @@
-<?php session_start();
+<?php 
+include("src/php/db.php");
 $host = $_SERVER['HTTP_HOST'];
 if ($_SESSION['Tipo'] != 'Capturista') header("location: http://$host/Proyecto-Regularizacion/admin.php"); ?>
 <!DOCTYPE html>
@@ -110,8 +111,11 @@ if ($_SESSION['Tipo'] != 'Capturista') header("location: http://$host/Proyecto-R
                 </tr>
             </thead>
             <tbody id="bodyTable">
+                <?php $sql = "SELECT folio FROM solicitud_de_regularizacion";
+                $query = mysqli_query($conn, $sql);
+                while ($row = mysqli_fetch_array($query)) { ?>
                 <tr class="table-light">
-                    <th scope="row">IH123</th>
+                    <th scope="row"><?=$row['folio']?></th>
                     <td>
                         <button type="button" class="btn btn-danger px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Sin empezar">
                             <span class="material-icons d-flex" data-bs-toggle="modal" data-bs-target="#modalProceso1">&#xe89c;</span>
@@ -148,6 +152,7 @@ if ($_SESSION['Tipo'] != 'Capturista') header("location: http://$host/Proyecto-R
                         </button>
                     </td>
                 </tr>
+                 <?php } ?>
                 <tr class="table-success">
                     <th scope="row">IH124</th>
                     <td>
@@ -1002,7 +1007,7 @@ if ($_SESSION['Tipo'] != 'Capturista') header("location: http://$host/Proyecto-R
                 <button type="button" class="btn-close btn-close-dark" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
             <div class="toast-body">
-                El folio que ingresaste no se encuentra...
+                <?php if(isset($_SESSION['mensajeToast'])) echo $_SESSION['mensajeToast']; ?>
             </div>
         </div>
     </div>
