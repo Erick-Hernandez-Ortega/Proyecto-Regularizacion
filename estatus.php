@@ -1,7 +1,6 @@
 <?php session_start();
 include("src/php/db.php");
-$host = $_SERVER['HTTP_HOST'];
-if ($_SESSION['Tipo'] != 'Capturista') header("location: http://$host/Proyecto-Regularizacion/admin.php"); ?>
+$host = $_SERVER['HTTP_HOST']; ?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -110,44 +109,44 @@ if ($_SESSION['Tipo'] != 'Capturista') header("location: http://$host/Proyecto-R
                 <?php $sql = "SELECT folio FROM solicitud_de_regularizacion";
                 $query = mysqli_query($conn, $sql);
                 while ($row = mysqli_fetch_array($query)) { ?>
-                <tr class="folio">
-                    <th scope="row"><?= $row['folio'] ?></th>
-                    <td>
-                        <a class="badge text-bg-danger text-decoration-none" style="font-size: 14px;" data-bs-toggle="modal" data-bs-target="#proceso1">
-                            No Completado
-                        </a>
-                    </td>
-                    <td>
-                        <a class="badge text-bg-success text-decoration-none" style="font-size: 14px;" data-bs-toggle="modal" data-bs-target="#proceso2">
-                            Completado
-                        </a>
-                    </td>
-                    <td>
-                        <a class="badge text-bg-warning text-decoration-none" style="font-size: 14px;" data-bs-toggle="modal" data-bs-target="#proceso3">
-                            Incompleto
-                        </a>
-                    </td>
-                    <td>
-                        <a class="badge text-bg-danger text-decoration-none" style="font-size: 14px;" data-bs-toggle="modal" data-bs-target="#proceso4">
-                            No Completado
-                        </a>
-                    </td>
-                    <td>
-                        <a class="badge text-bg-danger text-decoration-none" style="font-size: 14px;" data-bs-toggle="modal" data-bs-target="#proceso5">
-                            No Completado
-                        </a>
-                    </td>
-                    <td>
-                        <a class="badge text-bg-danger text-decoration-none" style="font-size: 14px;" data-bs-toggle="modal" data-bs-target="#proceso6">
-                            No Completado
-                        </a>
-                    </td>
-                    <td>
-                        <a class="badge text-bg-danger text-decoration-none" style="font-size: 14px;" data-bs-toggle="modal" data-bs-target="#proceso7">
-                            No Completado
-                        </a>
-                    </td>
-                </tr>
+                    <tr class="folio">
+                        <th scope="row"><?= $row['folio'] ?></th>
+                        <td>
+                            <a class="badge text-bg-danger text-decoration-none" style="font-size: 14px;" data-bs-toggle="modal" data-bs-target="#proceso1">
+                                No Completado
+                            </a>
+                        </td>
+                        <td>
+                            <a class="badge text-bg-success text-decoration-none" style="font-size: 14px;" data-bs-toggle="modal" data-bs-target="#proceso2">
+                                Completado
+                            </a>
+                        </td>
+                        <td>
+                            <a class="badge text-bg-warning text-decoration-none" style="font-size: 14px;" data-bs-toggle="modal" data-bs-target="#proceso3">
+                                Incompleto
+                            </a>
+                        </td>
+                        <td>
+                            <a class="badge text-bg-danger text-decoration-none" style="font-size: 14px;" data-bs-toggle="modal" data-bs-target="#proceso4">
+                                No Completado
+                            </a>
+                        </td>
+                        <td>
+                            <a class="badge text-bg-danger text-decoration-none" style="font-size: 14px;" data-bs-toggle="modal" data-bs-target="#proceso5">
+                                No Completado
+                            </a>
+                        </td>
+                        <td>
+                            <a class="badge text-bg-danger text-decoration-none" style="font-size: 14px;" data-bs-toggle="modal" data-bs-target="#proceso6">
+                                No Completado
+                            </a>
+                        </td>
+                        <td>
+                            <a class="badge text-bg-danger text-decoration-none" style="font-size: 14px;" data-bs-toggle="modal" data-bs-target="#proceso7">
+                                No Completado
+                            </a>
+                        </td>
+                    </tr>
 
                 <?php } ?>
             </tbody>
@@ -163,61 +162,61 @@ if ($_SESSION['Tipo'] != 'Capturista') header("location: http://$host/Proyecto-R
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                <table class="table">
-                    <thead>
-                        <h5 class="text-center mb-3">Proceso 1: Solicitud de regularización</h5>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td scope="row">Solicitud</td>
-                            <td>
-                                <span class="material-icons rojo">&#xe5c9;</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">Escritutas</td>
-                            <td>
-                                <span class="material-icons rojo">&#xe5c9;</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">Identificación</td>
-                            <td>
-                                <span class="material-icons rojo">&#xe5c9;</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">Historial Catastral</td>
-                            <td>
-                                <span class="material-icons rojo">&#xe5c9;</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">Resolución idicial</td>
-                            <td>
-                                <span class="material-icons rojo">&#xe5c9;</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">Certificación de hechos</td>
-                            <td>
-                                <span class="material-icons rojo">&#xe5c9;</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">Foto aerea</td>
-                            <td>
-                                <span class="material-icons rojo">&#xe5c9;</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">Oficio</td>
-                            <td>
-                                <span class="material-icons rojo">&#xe5c9;</span>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                    <table class="table">
+                        <thead>
+                            <h5 class="text-center mb-3">Proceso 1: Solicitud de regularización</h5>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row">Solicitud</td>
+                                <td>
+                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Escritutas</td>
+                                <td>
+                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Identificación</td>
+                                <td>
+                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Historial Catastral</td>
+                                <td>
+                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Resolución idicial</td>
+                                <td>
+                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Certificación de hechos</td>
+                                <td>
+                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Foto aerea</td>
+                                <td>
+                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Oficio</td>
+                                <td>
+                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -234,44 +233,44 @@ if ($_SESSION['Tipo'] != 'Capturista') header("location: http://$host/Proyecto-R
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                <table class="table">
-                    <thead>
-                        <h5 class="text-center mb-3">Proceso 2: Presentación de documento a la
-                        COMUR</h5>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td scope="row">Oficio</td>
-                            <td>
-                                <span class="material-icons rojo">&#xe5c9;</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">Solicitud de la regularización </td>
-                            <td>
-                                <span class="material-icons rojo">&#xe5c9;</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">Estudio de análisis</td>
-                            <td>
-                                <span class="material-icons rojo">&#xe5c9;</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">Acta de comur</td>
-                            <td>
-                                <span class="material-icons rojo">&#xe5c9;</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">Oficio de regreso</td>
-                            <td>
-                                <span class="material-icons rojo">&#xe5c9;</span>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                    <table class="table">
+                        <thead>
+                            <h5 class="text-center mb-3">Proceso 2: Presentación de documento a la
+                                COMUR</h5>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row">Oficio</td>
+                                <td>
+                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Solicitud de la regularización </td>
+                                <td>
+                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Estudio de análisis</td>
+                                <td>
+                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Acta de comur</td>
+                                <td>
+                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Oficio de regreso</td>
+                                <td>
+                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -288,50 +287,50 @@ if ($_SESSION['Tipo'] != 'Capturista') header("location: http://$host/Proyecto-R
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                <table class="table">
-                    <thead>
-                        <h5 class="text-center mb-3">Proceso 3: Segunda Presentación de documento a
-                        la COMUR</h5>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td scope="row">Oficio</td>
-                            <td>
-                                <span class="material-icons rojo">&#xe5c9;</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">Estudio de opinión</td>
-                            <td>
-                                <span class="material-icons rojo">&#xe5c9;</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">Acta de COMUR (Proceso 2)</td>
-                            <td>
-                                <span class="material-icons rojo">&#xe5c9;</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">Acta de COMUR 2</td>
-                            <td>
-                                <span class="material-icons rojo">&#xe5c9;</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">Acta Regreso</td>
-                            <td>
-                                <span class="material-icons rojo">&#xe5c9;</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">Oficio de regreso</td>
-                            <td>
-                                <span class="material-icons rojo">&#xe5c9;</span>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                    <table class="table">
+                        <thead>
+                            <h5 class="text-center mb-3">Proceso 3: Segunda Presentación de documento a
+                                la COMUR</h5>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row">Oficio</td>
+                                <td>
+                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Estudio de opinión</td>
+                                <td>
+                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Acta de COMUR (Proceso 2)</td>
+                                <td>
+                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Acta de COMUR 2</td>
+                                <td>
+                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Acta Regreso</td>
+                                <td>
+                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Oficio de regreso</td>
+                                <td>
+                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -348,31 +347,31 @@ if ($_SESSION['Tipo'] != 'Capturista') header("location: http://$host/Proyecto-R
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                <table class="table">
-                    <thead>
-                        <h5 class="text-center mb-3">Proceso 4: Solicitud por oficio a la PRODEUR</h5>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td scope="row">Oficio</td>
-                            <td>
-                                <span class="material-icons rojo">&#xe5c9;</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">Dictamen</td>
-                            <td>
-                                <span class="material-icons rojo">&#xe5c9;</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">Oficio Regreso</td>
-                            <td>
-                                <span class="material-icons rojo">&#xe5c9;</span>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                    <table class="table">
+                        <thead>
+                            <h5 class="text-center mb-3">Proceso 4: Solicitud por oficio a la PRODEUR</h5>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row">Oficio</td>
+                                <td>
+                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Dictamen</td>
+                                <td>
+                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Oficio Regreso</td>
+                                <td>
+                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -389,62 +388,62 @@ if ($_SESSION['Tipo'] != 'Capturista') header("location: http://$host/Proyecto-R
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                <table class="table">
-                    <thead>
-                        <h5 class="text-center mb-3">Proceso 5: Presentación a la COMUR</h5>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td scope="row">Oficio</td>
-                            <td>
-                                <span class="material-icons rojo">&#xe5c9;</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">Dictamen PRODEUR</td>
-                            <td>
-                                <span class="material-icons rojo">&#xe5c9;</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">Acta de COMUR 1</td>
-                            <td>
-                                <span class="material-icons rojo">&#xe5c9;</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">Acta de COMUR 2</td>
-                            <td>
-                                <span class="material-icons rojo">&#xe5c9;</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">Publicación</td>
-                            <td>
-                                <span class="material-icons rojo">&#xe5c9;</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">Estudio análisis y resolución del
-                                expediente</td>
-                            <td>
-                                <span class="material-icons rojo">&#xe5c9;</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">Estudio de opinión</td>
-                            <td>
-                                <span class="material-icons rojo">&#xe5c9;</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">Oficio regreso</td>
-                            <td>
-                                <span class="material-icons rojo">&#xe5c9;</span>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                    <table class="table">
+                        <thead>
+                            <h5 class="text-center mb-3">Proceso 5: Presentación a la COMUR</h5>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row">Oficio</td>
+                                <td>
+                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Dictamen PRODEUR</td>
+                                <td>
+                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Acta de COMUR 1</td>
+                                <td>
+                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Acta de COMUR 2</td>
+                                <td>
+                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Publicación</td>
+                                <td>
+                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Estudio análisis y resolución del
+                                    expediente</td>
+                                <td>
+                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Estudio de opinión</td>
+                                <td>
+                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Oficio regreso</td>
+                                <td>
+                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -461,19 +460,19 @@ if ($_SESSION['Tipo'] != 'Capturista') header("location: http://$host/Proyecto-R
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                <table class="table">
-                    <thead>
-                        <h5 class="text-center mb-3">Proceso 6: Proyecto definitivo</h5>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td scope="row">Proyecto Definitivo</td>
-                            <td>
-                                <span class="material-icons rojo">&#xe5c9;</span>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                    <table class="table">
+                        <thead>
+                            <h5 class="text-center mb-3">Proceso 6: Proyecto definitivo</h5>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row">Proyecto Definitivo</td>
+                                <td>
+                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -490,75 +489,75 @@ if ($_SESSION['Tipo'] != 'Capturista') header("location: http://$host/Proyecto-R
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                <table class="table">
-                    <thead>
-                        <h5 class="text-center mb-3">Proceso 7: Convenio de regularización</h5>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td scope="row">Oficio de Catastro</td>
-                            <td>
-                                <span class="material-icons rojo">&#xe5c9;</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">Convenio de regularización (Solo
-                                archivo)</td>
-                            <td>
-                                <span class="material-icons rojo">&#xe5c9;</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">Oficio de Catastro</td>
-                            <td>
-                                <span class="material-icons rojo">&#xe5c9;</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">Firma Presidente</td>
-                            <td>
-                                <span class="material-icons rojo">&#xe5c9;</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">Firma Sindico</td>
-                            <td>
-                                <span class="material-icons rojo">&#xe5c9;</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">Firma Secretaria General</td>
-                            <td>
-                                <span class="material-icons rojo">&#xe5c9;</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">Firma Tesorero</td>
-                            <td>
-                                <span class="material-icons rojo">&#xe5c9;</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">Firma Presidente de Comite o Propietario</td>
-                            <td>
-                                <span class="material-icons rojo">&#xe5c9;</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">Firma Secretario Técnico</td>
-                            <td>
-                                <span class="material-icons rojo">&#xe5c9;</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">Firma Procurador de desarrollo urbano</td>
-                            <td>
-                                <span class="material-icons rojo">&#xe5c9;</span>
-                            </td>
-                        </tr>
-                        
-                    </tbody>
-                </table>
+                    <table class="table">
+                        <thead>
+                            <h5 class="text-center mb-3">Proceso 7: Convenio de regularización</h5>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row">Oficio de Catastro</td>
+                                <td>
+                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Convenio de regularización (Solo
+                                    archivo)</td>
+                                <td>
+                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Oficio de Catastro</td>
+                                <td>
+                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Firma Presidente</td>
+                                <td>
+                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Firma Sindico</td>
+                                <td>
+                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Firma Secretaria General</td>
+                                <td>
+                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Firma Tesorero</td>
+                                <td>
+                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Firma Presidente de Comite o Propietario</td>
+                                <td>
+                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Firma Secretario Técnico</td>
+                                <td>
+                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Firma Procurador de desarrollo urbano</td>
+                                <td>
+                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -566,6 +565,32 @@ if ($_SESSION['Tipo'] != 'Capturista') header("location: http://$host/Proyecto-R
             </div>
         </div>
     </div>
+    <!-- Modal busqueda avanzada -->
+    <div class="modal fade" id="modalBusqueda" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Búsqueda Avanzada</h1>
+                    <span class="material-icons mx-1">&#xe8b6;</span>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="busqueda.php" method="POST">
+                        <label class="mb-1">Por folio</label>
+                        <div class="input-group mb-3">
+                            <span class="material-icons input-group-text">&#xe2c7;</span>
+                            <input type="text" class="form-control" placeholder="Ingrese Folio..." id="folio" name="folio">
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn" style="background-color: #852120; color: white;">Buscar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <br>
     <br>
