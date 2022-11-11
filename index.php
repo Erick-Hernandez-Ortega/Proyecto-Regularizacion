@@ -348,7 +348,7 @@ if ($_SESSION['Tipo'] != 'Capturista') header("location: http://$host/Proyecto-R
                             <input class="form-control" type="file" id="formFile">
                         </div>
                         <div class="col">
-                            <label for="formFile" class="form-label fw-bold">Estudio de opinion</label>
+                            <label for="formFile" class="form-label fw-bold">Estudio de opinión</label>
                             <span class="material-icons position-absolute rojo">&#xe5c9;</span>
                             <input class="form-control" type="file" id="formFile">
                         </div>
