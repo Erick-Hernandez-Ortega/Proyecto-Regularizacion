@@ -108,13 +108,25 @@ $host = $_SERVER['HTTP_HOST'];
                 <?php $buscar = $_POST['folio'];
                 if ($buscar == null) {
                     $_SESSION['busqueda']=false;
+                    $_SESSION['mensajeToast']="Ingresa un folio para continuar...";
                     if ($_SESSION['Tipo'] == 'Capturista') {
                         echo '<script>window.location="http://'.$host.'/Proyecto-Regularizacion/index.php"</script>';
                     }
                     echo '<script>window.location="http://'.$host.'/Proyecto-Regularizacion/admin.php"</script>';
                 }
-                $sql = "SELECT * FROM solicitud_de_regularizacion WHERE folio LIKE '%" . $buscar . "%'";
+                $sql = "SELECT * FROM solicitud_de_regularizacion WHERE folio='$buscar'";
+                $sql2 = "SELECT * FROM solicitud_de_regularizacion WHERE folio='$buscar'";
                 $query = mysqli_query($conn, $sql);
+                $query2 = mysqli_query($conn, $sql2);
+                $a = mysqli_fetch_array($query2);
+                if($a==''){
+                    $_SESSION['busqueda']=false;
+                    $_SESSION['mensajeToast']="El folio que ingresaste no existe...";
+                    if ($_SESSION['Tipo'] == 'Capturista') {
+                        echo '<script>window.location="http://'.$host.'/Proyecto-Regularizacion/index.php"</script>';
+                    }
+                    echo '<script>window.location="http://'.$host.'/Proyecto-Regularizacion/admin.php"</script>';
+                }
                 while ($row = mysqli_fetch_array($query)) { ?>
                 <tr class="table-success">
                     <th scope="row"><?= $row['folio']; ?></th>
