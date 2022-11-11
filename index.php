@@ -251,7 +251,7 @@ if ($_SESSION['Tipo'] != 'Capturista') header("location: http://$host/Proyecto-R
                         </div>
                         <div class="col">
                             <label for="" class="form-label fw-bold">Estado de Oficio de Regreso</label>
-                            <select class="form-control" name="Sexo" required>
+                            <select class="form-control" name="estado-oficio" required>
                                 <option selected>-Seleccione uno-</option>
                                 <option>Aceptado ✅</option>
                                 <option>No Subido ❌</option>
@@ -312,7 +312,7 @@ if ($_SESSION['Tipo'] != 'Capturista') header("location: http://$host/Proyecto-R
                         </div>
                         <div class="col">
                             <label for="" class="form-label fw-bold">Estado de Oficio de Regreso</label>
-                            <select class="form-control" name="Sexo" required>
+                            <select class="form-control" name="estado-oficio" required>
                                 <option selected>-Seleccione uno-</option>
                                 <option>Aceptado ✅</option>
                                 <option>No Subido ❌</option>
@@ -369,13 +369,13 @@ if ($_SESSION['Tipo'] != 'Capturista') header("location: http://$host/Proyecto-R
 
                     <div class="row mb-3">
                         <div class="col">
-                            <label for="formFile" class="form-label fw-bold">Acta Regreso</label>
+                            <label for="formFile" class="form-label fw-bold">Oficio Regreso</label>
                             <span class="material-icons position-absolute rojo">&#xe5c9;</span>
                             <input class="form-control" type="file" id="formFile">
                         </div>
                         <div class="col">
-                            <label for="" class="form-label fw-bold">Estado de Acta de Regreso</label>
-                            <select class="form-control" name="Sexo" required>
+                            <label for="" class="form-label fw-bold">Estado de Oficio de Regreso</label>
+                            <select class="form-control" name="estado-oficio" required>
                                 <option selected>-Seleccione uno-</option>
                                 <option>Aceptado ✅</option>
                                 <option>No Subido ❌</option>
@@ -423,7 +423,7 @@ if ($_SESSION['Tipo'] != 'Capturista') header("location: http://$host/Proyecto-R
                         </div>
                         <div class="col">
                             <label for="" class="form-label fw-bold">Estado de Oficio de Regreso</label>
-                            <select class="form-control" name="Sexo" required>
+                            <select class="form-control" name="estado-oficio" required>
                                 <option selected>-Seleccione uno-</option>
                                 <option>Aceptado ✅</option>
                                 <option>No Subido ❌</option>
@@ -506,7 +506,7 @@ if ($_SESSION['Tipo'] != 'Capturista') header("location: http://$host/Proyecto-R
                     <div class="row mb-3">
                         <div class="col">
                             <label for="" class="form-label fw-bold">Estado de Oficio de Regreso</label>
-                            <select class="form-control" name="Sexo" required>
+                            <select class="form-control" name="estado-oficio" required>
                                 <option selected>-Seleccione uno-</option>
                                 <option>Aceptado ✅</option>
                                 <option>No Subido ❌</option>
