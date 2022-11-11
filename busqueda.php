@@ -12,7 +12,10 @@ $host = $_SERVER['HTTP_HOST'];
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="src/css/index.css" type="text/css" rel="stylesheet">
     <link rel="shortcut icon" href="src/img/Logo-1-icono.ico">
-    <title>Busqueda: IH125</title>
+    
+    <title>Busqueda:
+        <?php $buscar = $_POST['folio']; echo$buscar;?>
+    </title>
 </head>
 
 <body>
@@ -105,7 +108,7 @@ $host = $_SERVER['HTTP_HOST'];
                 </tr>
             </thead>
             <tbody>
-                <?php $buscar = $_POST['folio'];
+                <?php 
                 if ($buscar == null) {
                     $_SESSION['busqueda'] = false;
                     $_SESSION['mensajeToast'] = "Ingresa un folio para continuar...";
