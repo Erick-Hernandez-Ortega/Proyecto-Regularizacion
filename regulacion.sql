@@ -55,7 +55,7 @@ CREATE TABLE `convenio_de_regularizacion` (
 --
 
 INSERT INTO `convenio_de_regularizacion` (`folio`, `oficio`, `oficio_estatus`, `oficio_de_castastro`, `oficio_de_castastro_estatus`, `convenio_de_regularizacion`, `firma_presidente`, `firma_presidente_estatus`, `firma_sindico`, `firma_sindico_estatus`, `firma_secretaria_general`, `firma_secretaria_general_estatus`, `firma_tesorero`, `firma_tesorero_estatus`, `firma_secretario_tecnico`, `firma_secretario_tecnico_estatus`, `firma_presidente_de_comite_o_propietario`, `firma_presidente_de_comite_o_propietario_estatus`, `firma_procurador_de_desarrollo_urbano`, `firma_procurador_de_desarrollo_urbano_estatus`) VALUES
-(' Prueba_Trigger_2', NULL, 0, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('Prueba_Trigger_2', NULL, 0, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('abcd', NULL, 0, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('Prueb_Trigger', NULL, 0, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
