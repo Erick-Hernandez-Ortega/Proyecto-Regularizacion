@@ -1,10 +1,9 @@
-<?php
-session_start();
-$host = $_SERVER['HTTP_HOST'];
-if (isset($_SESSION['Usuario'])) {
-    if ($_SESSION['Tipo'] == 'Capturista') header("location: http://$host/Proyecto-Regularizacion/index.php");
-    else header("location: http://$host/Proyecto-Regularizacion/admin.php");
-} ?>
+<?php session_start(); 
+      if(isset($_SESSION['Usuario'])){ 
+        $host = $_SERVER['HTTP_HOST']; 
+        if($_SESSION['Tipo']=='Super administrador') header("location: http://$host/Proyecto-Regularizacion/registro-superadmin.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -30,9 +29,9 @@ if (isset($_SESSION['Usuario'])) {
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                 </ul>
 
-                <div class="text-end">
+                <!-- <div class="text-end">
                     <a href="login.php" class="btn btn-outline-dark me-2" id="boton1">Iniciar sesión</a>
-                </div>
+                </div> -->
             </div>
         </div>
     </header>
@@ -122,6 +121,7 @@ if (isset($_SESSION['Usuario'])) {
                             } ?>
                         </div>
                     </div>
+
                     <!-- Modal para registrar-->
                     <div class="modal fade" id="Registrar" tabindex="-1" aria-labelledby="Recuperar Contraseña" aria-hidden="true">
                         <div class="modal-dialog">
@@ -134,9 +134,9 @@ if (isset($_SESSION['Usuario'])) {
                                     <div class="input-group mb-3">
                                         <span class="material-icons input-group-text">&#xea67;</span>
                                         <select class="form-control" name="Rol" required>
-                                            <option selected>Rol del nuevo usuario</option>
-                                            <option>Capturista</option>
-                                            <option>Administrador</option>
+                                            <!-- <option selected>Rol del nuevo usuario</option> -->
+                                            <option selected>Capturista</option>
+                                            <!-- <option>Administrador</option> -->
                                         </select>
                                     </div>
                                     <div class="input-group mb-3">

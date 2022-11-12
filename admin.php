@@ -60,7 +60,7 @@ if ($_SESSION['Tipo'] == 'Capturista') header("location: http://$host/Proyecto-R
                             <div class="offcanvas-body">
                                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                                     <li class="nav-item">
-                                        <a class="nav-link active" aria-current="page" href="#">Configuración</a>
+                                        <a href="registro.php" class="nav-link active" id="boton1">Registrar una cuenta</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link text-danger" href="src/php/logout.php">Cerrar Sesión</a>
@@ -336,7 +336,7 @@ if ($_SESSION['Tipo'] == 'Capturista') header("location: http://$host/Proyecto-R
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                    <!-- <button type="button" class="btn btn-primary">Enviar documentos</button> -->
+                    <button type="button" class="btn btn-success">Modificar</button>
                 </div>
             </div>
         </div>

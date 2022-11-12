@@ -352,7 +352,7 @@ if ($_SESSION['Tipo'] == 'Capturista') header("location: http://$host/Proyecto-R
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                    <!-- <button type="button" class="btn btn-primary">Enviar documentos</button> -->
+                    <button type="button" class="btn btn-success">Modificar</button>
                 </div>
             </div>
         </div>
