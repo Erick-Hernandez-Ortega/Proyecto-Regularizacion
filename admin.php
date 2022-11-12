@@ -176,19 +176,22 @@ if ($_SESSION['Tipo'] == 'Capturista') header("location: http://$host/Proyecto-R
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
+                    <form action="src/php/new_folio.php" method="POST">
                     <div class="row mb-3 align-items-center">
                         <div class="col-auto">
                             <label for="inputPassword6" class="col-form-label fw-bold">Número de folio</label>
                         </div>
+                        
                         <div class="col-auto">
-                            <input type="text" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+                            <input type="text" id="inputPassword6" name="numfolio" class="form-control" aria-describedby="passwordHelpInline">
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn" style="background-color: #852120; color: white;">Agregar</button>
-                </div>
+                </div>          
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn" style="background-color: #852120; color: white;">Agregar</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -755,7 +758,7 @@ if ($_SESSION['Tipo'] == 'Capturista') header("location: http://$host/Proyecto-R
     <div class="toast-container position-fixed top-0 start-50 translate-middle-x p-4">
         <div id="toastBusqueda" class="toast text-bg-dark" role="alert" aria-live="assertive" aria-atomic="true">
             <div style="background-color: white;" class="toast-header">
-                <img style="width: 20px; height:20px;" src="src/img/rojo.jpg" class="rounded me-2" alt="rojo">
+                <img style="width: 20px; height:20px;" src="src/img/<?= $_SESSION['colorToast'] ?>.jpg" class="rounded me-2" alt="rojo">
                 <strong style="color: black;" class="me-auto">Error</strong>
                 <small style="color:black;">hace 1 segundo</small>
                 <button type="button" class="btn-close btn-close-dark" data-bs-dismiss="toast" aria-label="Close"></button>
