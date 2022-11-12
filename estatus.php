@@ -1,4 +1,4 @@
-<?php session_start();
+<?php
 include("src/php/db.php");
 $host = $_SERVER['HTTP_HOST']; ?>
 <!DOCTYPE html>
