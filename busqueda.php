@@ -112,12 +112,13 @@ $host = $_SERVER['HTTP_HOST'];
                 <?php
                 if ($buscar == null) {
                     $_SESSION['busqueda'] = false;
+                    $_SESSION['colorToast'] = 'rojo';
                     $_SESSION['mensajeToast'] = "Ingresa un folio para continuar...";
                     if ($_SESSION['Tipo'] == 'Capturista') {
                         echo '<script>window.location="http://' . $host . '/Proyecto-Regularizacion/index.php"</script>';
                     }
                     echo '<script>window.location="http://' . $host . '/Proyecto-Regularizacion/admin.php"</script>';
-                }
+                }else{
                 $sql = "SELECT * FROM solicitud_de_regularizacion WHERE folio='$buscar'";
                 $sql2 = "SELECT * FROM solicitud_de_regularizacion WHERE folio='$buscar'";
                 $query = mysqli_query($conn, $sql);
@@ -126,6 +127,7 @@ $host = $_SERVER['HTTP_HOST'];
                 if ($a == '') {
                     $_SESSION['busqueda'] = false;
                     $_SESSION['mensajeToast'] = "El folio que ingresaste no existe...";
+                    $_SESSION['colorToast'] = 'rojo';
                     if ($_SESSION['Tipo'] == 'Capturista') {
                         echo '<script>window.location="http://' . $host . '/Proyecto-Regularizacion/index.php"</script>';
                     }
@@ -170,7 +172,7 @@ $host = $_SERVER['HTTP_HOST'];
                             </button>
                         </td>
                     </tr>
-                <?php } ?>
+                <?php }} ?>
             </tbody>
         </table>
     </div>
