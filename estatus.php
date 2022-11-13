@@ -106,44 +106,85 @@ $host = $_SERVER['HTTP_HOST']; ?>
                 </tr>
             </thead>
             <tbody>
-                <?php $sql = "SELECT folio FROM solicitud_de_regularizacion";
+                <?php $a=0;
+                 $sql = "SELECT folio FROM solicitud_de_regularizacion";
                 $query = mysqli_query($conn, $sql);
                 while ($row = mysqli_fetch_array($query)) { ?>
                     <tr class="folio">
                         <th scope="row"><?= $row['folio'] ?></th>
                         <td>
-                            <a class="badge text-bg-danger text-decoration-none" style="font-size: 14px;" data-bs-toggle="modal" data-bs-target="#proceso1">
-                                No Completado
+                            <a class="badge text-bg-<?php if($_SESSION['p1'.$row['folio']]==8){ 
+                                echo "success"; $comentario = 'Completado';
+                                }else if($_SESSION['p1'.$row['folio']]==0){
+                                    echo "danger"; $comentario = 'No Completado';
+                                }else{
+                                    echo "warning"; $comentario = 'Incompleto';
+                                }?> text-decoration-none" style="font-size: 14px;" data-bs-toggle="modal" data-bs-target="[id='<?="a".$row['folio'] ?>']">
+                                <?=$comentario?>
                             </a>
                         </td>
                         <td>
-                            <a class="badge text-bg-success text-decoration-none" style="font-size: 14px;" data-bs-toggle="modal" data-bs-target="#proceso2">
-                                Completado
+                            <a class="badge text-bg-<?php if($_SESSION['p2'.$row['folio']]==5){ 
+                                echo "success"; $comentario = 'Completado';
+                                }else if($_SESSION['p2'.$row['folio']]==0){
+                                    echo "danger"; $comentario = 'No Completado';
+                                }else{
+                                    echo "warning"; $comentario = 'Incompleto';
+                                }?> text-decoration-none" style="font-size: 14px;" data-bs-toggle="modal" data-bs-target="[id='<?="b".$row['folio'] ?>']">
+                                <?=$comentario?>
                             </a>
                         </td>
                         <td>
-                            <a class="badge text-bg-warning text-decoration-none" style="font-size: 14px;" data-bs-toggle="modal" data-bs-target="#proceso3">
-                                Incompleto
+                            <a class="badge text-bg-<?php if($_SESSION['p3'.$row['folio']]==5){ 
+                                echo "success"; $comentario = 'Completado';
+                                }else if($_SESSION['p3'.$row['folio']]==0){
+                                    echo "danger"; $comentario = 'No Completado';
+                                }else{
+                                    echo "warning"; $comentario = 'Incompleto';
+                                }?> text-decoration-none" style="font-size: 14px;" data-bs-toggle="modal" data-bs-target="[id='<?="c".$row['folio'] ?>']">
+                                <?=$comentario?>
                             </a>
                         </td>
                         <td>
-                            <a class="badge text-bg-danger text-decoration-none" style="font-size: 14px;" data-bs-toggle="modal" data-bs-target="#proceso4">
-                                No Completado
+                            <a class="badge text-bg-<?php if($_SESSION['p4'.$row['folio']]==3){ 
+                                echo "success"; $comentario = 'Completado';
+                                }else if($_SESSION['p4'.$row['folio']]==0){
+                                    echo "danger"; $comentario = 'No Completado';
+                                }else{
+                                    echo "warning"; $comentario = 'Incompleto';
+                                }?> text-decoration-none" style="font-size: 14px;" data-bs-toggle="modal" data-bs-target="[id='<?="d".$row['folio'] ?>']">
+                                <?=$comentario?>
                             </a>
                         </td>
                         <td>
-                            <a class="badge text-bg-danger text-decoration-none" style="font-size: 14px;" data-bs-toggle="modal" data-bs-target="#proceso5">
-                                No Completado
+                            <a class="badge text-bg-<?php if($_SESSION['p5'.$row['folio']]==8){ 
+                                echo "success"; $comentario = 'Completado';
+                                }else if($_SESSION['p5'.$row['folio']]==0){
+                                    echo "danger"; $comentario = 'No Completado';
+                                }else{
+                                    echo "warning"; $comentario = 'Incompleto';
+                                }?> text-decoration-none" style="font-size: 14px;" data-bs-toggle="modal" data-bs-target="[id='<?="e".$row['folio'] ?>']">
+                                <?=$comentario?>
                             </a>
                         </td>
                         <td>
-                            <a class="badge text-bg-danger text-decoration-none" style="font-size: 14px;" data-bs-toggle="modal" data-bs-target="#proceso6">
-                                No Completado
+                            <a class="badge text-bg-<?php if($_SESSION['p6'.$row['folio']]==1){ 
+                                echo "success"; $comentario = 'Completado';
+                                }else{
+                                    echo "danger"; $comentario = 'No Completado';
+                                }?> text-decoration-none" style="font-size: 14px;" data-bs-toggle="modal" data-bs-target="[id='<?="f".$row['folio'] ?>']">
+                                <?=$comentario?>
                             </a>
                         </td>
                         <td>
-                            <a class="badge text-bg-danger text-decoration-none" style="font-size: 14px;" data-bs-toggle="modal" data-bs-target="#proceso7">
-                                No Completado
+                            <a class="badge text-bg-<?php if($_SESSION['p7'.$row['folio']]==9){ 
+                                echo "success"; $comentario = 'Completado';
+                                }else if($_SESSION['p7'.$row['folio']]==0){
+                                    echo "danger"; $comentario = 'No Completado';
+                                }else{
+                                    echo "warning"; $comentario = 'Incompleto';
+                                }?> text-decoration-none" style="font-size: 14px;" data-bs-toggle="modal" data-bs-target="[id='<?="g".$row['folio'] ?>']">
+                                <?=$comentario?>
                             </a>
                         </td>
                     </tr>
@@ -154,11 +195,14 @@ $host = $_SERVER['HTTP_HOST']; ?>
     </div>
 
     <!-- Modal Proceso 1-->
-    <div class="modal fade" id="proceso1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <?php $sql = "SELECT * FROM solicitud_de_regularizacion";
+          $query = mysqli_query($conn, $sql);
+          while($p1 = mysqli_fetch_array($query)){?>
+    <div class="modal fade" id="<?="a".$p1['folio']?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Folio: </h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Folio: <?=$p1['folio']?></h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -170,49 +214,49 @@ $host = $_SERVER['HTTP_HOST']; ?>
                             <tr>
                                 <td scope="row">Solicitud</td>
                                 <td>
-                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                <span class="material-icons <?php if ($p1['solicidud_estatus'] == true) {echo 'verde';$icon = '&#xe2e6;'; $a=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $a=0;}?>"><?= $icon; ?></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td scope="row">Escritutas</td>
                                 <td>
-                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                <span class="material-icons <?php if ($p1['escritura_estatus'] == true) {echo 'verde';$icon = '&#xe2e6;'; $b=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $b=0;}?>"><?= $icon; ?></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td scope="row">Identificación</td>
                                 <td>
-                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                <span class="material-icons <?php if ($p1['identificacion_estatus'] == true) {echo 'verde';$icon = '&#xe2e6;'; $c=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $c=0;}?>"><?= $icon; ?></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td scope="row">Historial Catastral</td>
                                 <td>
-                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                <span class="material-icons <?php if ($p1['historial_catastral_estatus'] == true) {echo 'verde';$icon = '&#xe2e6;'; $d=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $d=0;}?>"><?= $icon; ?></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td scope="row">Resolución idicial</td>
                                 <td>
-                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                <span class="material-icons <?php if ($p1['resolucion_idicial_estatus'] == true) {echo 'verde';$icon = '&#xe2e6;'; $e=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $e=0;}?>"><?= $icon; ?></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td scope="row">Certificación de hechos</td>
                                 <td>
-                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                <span class="material-icons <?php if ($p1['certificacion_de_hechos_estatus'] == true) {echo 'verde';$icon = '&#xe2e6;'; $f=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $f=0;}?>"><?= $icon; ?></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td scope="row">Foto aerea</td>
                                 <td>
-                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                <span class="material-icons <?php if ($p1['foto_aerea_estatus'] == true) {echo 'verde';$icon = '&#xe2e6;';$g=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $g=0;}?>"><?= $icon; ?></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td scope="row">Oficio</td>
                                 <td>
-                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                <span class="material-icons <?php if ($p1['oficio_regreso_estatus'] == 'Aceptado') { echo 'verde'; $icon = '&#xe2e6;'; $h=1;} else { echo 'rojo'; $icon = '&#xe5c9;';$h=0;} ?>"><?= $icon; ?></span>
                                 </td>
                             </tr>
                         </tbody>
@@ -224,12 +268,16 @@ $host = $_SERVER['HTTP_HOST']; ?>
             </div>
         </div>
     </div>
+    <?php $_SESSION['p1'.$p1['folio']]=$a+$b+$c+$d+$e+$f+$g+$h;}?>
     <!-- Modal Proceso 2 -->
-    <div class="modal fade" id="proceso2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <?php $sql2 = "SELECT * FROM presentacion_de_documentos_a_la_comur";
+          $query2 = mysqli_query($conn, $sql2);
+          while($p2 = mysqli_fetch_array($query2)){?>
+    <div class="modal fade" id="<?="b".$p2['folio']?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Folio: </h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Folio: <?=$p2['folio']?></h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -242,31 +290,31 @@ $host = $_SERVER['HTTP_HOST']; ?>
                             <tr>
                                 <td scope="row">Oficio</td>
                                 <td>
-                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                <span class="material-icons <?php if ($p2['oficio_estatus'] == true) {echo 'verde';$icon = '&#xe2e6;'; $a=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $a=0;}?>"><?= $icon; ?></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td scope="row">Solicitud de la regularización </td>
                                 <td>
-                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                <span class="material-icons <?php if ($p2['solicitud_de_regularizacion_estatus'] == true) {echo 'verde';$icon = '&#xe2e6;'; $b=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $b=0;}?>"><?= $icon; ?></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td scope="row">Estudio de análisis</td>
                                 <td>
-                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                <span class="material-icons <?php if ($p2['estudio_de_analisis_estatus'] == true) {echo 'verde';$icon = '&#xe2e6;'; $c=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $c=0;}?>"><?= $icon; ?></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td scope="row">Acta de comur</td>
                                 <td>
-                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                <span class="material-icons <?php if ($p2['acta_comur_estatus'] == true) {echo 'verde';$icon = '&#xe2e6;'; $d=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $d=0;}?>"><?= $icon; ?></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td scope="row">Oficio de regreso</td>
                                 <td>
-                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                <span class="material-icons <?php if ($p2['oficio_regreso_estatus'] == 'Aceptado') { echo 'verde'; $icon = '&#xe2e6;'; $e=1;} else { echo 'rojo'; $icon = '&#xe5c9;';$e=0;} ?>"><?= $icon; ?></span>
                                 </td>
                             </tr>
                         </tbody>
@@ -278,12 +326,16 @@ $host = $_SERVER['HTTP_HOST']; ?>
             </div>
         </div>
     </div>
+    <?php $_SESSION['p2'.$p2['folio']] = $a+$b+$c+$d+$e;}?>
     <!-- Modal proceso 3 -->
-    <div class="modal fade" id="proceso3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <?php $sql3 = "SELECT * FROM segunda_presentacion_de_documentos_a_la_comur";
+          $query3 = mysqli_query($conn, $sql3);
+          while($p3 = mysqli_fetch_array($query3)){?>
+    <div class="modal fade" id="<?="c".$p3['folio']?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Folio: </h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Folio: <?=$p3['folio']?></h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -296,37 +348,37 @@ $host = $_SERVER['HTTP_HOST']; ?>
                             <tr>
                                 <td scope="row">Oficio</td>
                                 <td>
-                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                <span class="material-icons <?php if ($p3['oficio_estatus'] == true) {echo 'verde';$icon = '&#xe2e6;'; $a=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $a=0;}?>"><?= $icon; ?></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td scope="row">Estudio de opinión</td>
                                 <td>
-                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                <span class="material-icons <?php if ($p3['estudio_opinion_estatus'] == true) {echo 'verde';$icon = '&#xe2e6;'; $b=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $b=0;}?>"><?= $icon; ?></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td scope="row">Acta de COMUR (Proceso 2)</td>
                                 <td>
-                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                <span class="material-icons <?php if ($p3['acta_de_comur_proceso_2_estatus'] == true) {echo 'verde';$icon = '&#xe2e6;'; $c=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $c=0;}?>"><?= $icon; ?></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td scope="row">Acta de COMUR 2</td>
                                 <td>
-                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                <span class="material-icons <?php if ($p3['acta_comur_2_estatus'] == true) {echo 'verde';$icon = '&#xe2e6;'; $d=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $d=0;}?>"><?= $icon; ?></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td scope="row">Acta Regreso</td>
                                 <td>
-                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                <span class="material-icons <?php if ($p3['oficio_regreso_estatus'] == 'Aceptado') { echo 'verde'; $icon = '&#xe2e6;'; $e=1;} else { echo 'rojo'; $icon = '&#xe5c9;';$e=0;} ?>"><?= $icon; ?></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td scope="row">Oficio de regreso</td>
                                 <td>
-                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                <span class="material-icons <?php if ($p3['oficio_regreso_estatus'] == 'Aceptado') { echo 'verde'; $icon = '&#xe2e6;'; $e=1;} else { echo 'rojo'; $icon = '&#xe5c9;';$e=0;} ?>"><?= $icon; ?></span>
                                 </td>
                             </tr>
                         </tbody>
@@ -338,12 +390,16 @@ $host = $_SERVER['HTTP_HOST']; ?>
             </div>
         </div>
     </div>
+    <?php $_SESSION['p3'.$p3['folio']] = $a+$b+$c+$d+$e;}?>
     <!-- Modal Proceso 4 -->
-    <div class="modal fade" id="proceso4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <?php $sql4 = "SELECT * FROM solicitud_por_oficio_a_la_prodeur";
+          $query4 = mysqli_query($conn, $sql4);
+          while($p4 = mysqli_fetch_array($query4)){?>
+    <div class="modal fade" id="<?="d".$p4['folio']?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Folio: </h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Folio: <?=$p4['folio']?></h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -355,19 +411,19 @@ $host = $_SERVER['HTTP_HOST']; ?>
                             <tr>
                                 <td scope="row">Oficio</td>
                                 <td>
-                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                <span class="material-icons <?php if ($p4['oficio_estatus'] == true) {echo 'verde';$icon = '&#xe2e6;'; $a=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $a=0;}?>"><?= $icon; ?></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td scope="row">Dictamen</td>
                                 <td>
-                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                <span class="material-icons <?php if ($p4['dictamen_estatus'] == true) {echo 'verde';$icon = '&#xe2e6;'; $b=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $b=0;}?>"><?= $icon; ?></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td scope="row">Oficio Regreso</td>
                                 <td>
-                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                <span class="material-icons <?php if ($p4['oficio_regreso_estatus'] == 'Aceptado') { echo 'verde'; $icon = '&#xe2e6;'; $c=1;} else { echo 'rojo'; $icon = '&#xe5c9;';$c=0;} ?>"><?= $icon; ?></span>
                                 </td>
                             </tr>
                         </tbody>
@@ -379,12 +435,16 @@ $host = $_SERVER['HTTP_HOST']; ?>
             </div>
         </div>
     </div>
+    <?php $_SESSION['p4'.$p4['folio']] = $a+$b+$c;}?>
     <!-- Modal Proceso 5 -->
-    <div class="modal fade" id="proceso5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <?php $sql5 = "SELECT * FROM presentacion_a_la_comur";
+          $query5 = mysqli_query($conn, $sql5);
+          while($p5 = mysqli_fetch_array($query5)){?>
+    <div class="modal fade" id="<?="e".$p5['folio']?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Folio: </h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Folio: <?=$p5['folio']?></h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -396,50 +456,50 @@ $host = $_SERVER['HTTP_HOST']; ?>
                             <tr>
                                 <td scope="row">Oficio</td>
                                 <td>
-                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                <span class="material-icons <?php if ($p5['oficio_estatus'] == true) {echo 'verde';$icon = '&#xe2e6;'; $a=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $a=0;}?>"><?= $icon; ?></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td scope="row">Dictamen PRODEUR</td>
                                 <td>
-                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                <span class="material-icons <?php if ($p5['dictamen_prodeur_estatus'] == true) {echo 'verde';$icon = '&#xe2e6;'; $b=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $b=0;}?>"><?= $icon; ?></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td scope="row">Acta de COMUR 1</td>
                                 <td>
-                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                <span class="material-icons <?php if ($p5['acta_de_comur_1_estatus'] == true) {echo 'verde';$icon = '&#xe2e6;'; $c=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $c=0;}?>"><?= $icon; ?></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td scope="row">Acta de COMUR 2</td>
                                 <td>
-                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                <span class="material-icons <?php if ($p5['acta_de_comur_2_estatus'] == true) {echo 'verde';$icon = '&#xe2e6;'; $d=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $d=0;}?>"><?= $icon; ?></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td scope="row">Publicación</td>
                                 <td>
-                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                <span class="material-icons <?php if ($p5['publicacion_estatus'] == true) {echo 'verde';$icon = '&#xe2e6;'; $e=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $e=0;}?>"><?= $icon; ?></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td scope="row">Estudio análisis y resolución del
                                     expediente</td>
                                 <td>
-                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                <span class="material-icons <?php if ($p5['estudio_analisis_y_resolucion_del_expediente_estatus'] == true) {echo 'verde';$icon = '&#xe2e6;'; $f=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $f=0;}?>"><?= $icon; ?></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td scope="row">Estudio de opinión</td>
                                 <td>
-                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                <span class="material-icons <?php if ($p5['estudio_de_opinion_estatus'] == true) {echo 'verde';$icon = '&#xe2e6;'; $g=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $g=0;}?>"><?= $icon; ?></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td scope="row">Oficio regreso</td>
                                 <td>
-                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                <span class="material-icons <?php if ($p5['oficion_regreso_estatus'] == 'Aceptado') { echo 'verde'; $icon = '&#xe2e6;'; $h=1;} else { echo 'rojo'; $icon = '&#xe5c9;';$h=0;} ?>"><?= $icon; ?></span>
                                 </td>
                             </tr>
                         </tbody>
@@ -451,12 +511,16 @@ $host = $_SERVER['HTTP_HOST']; ?>
             </div>
         </div>
     </div>
+    <?php $_SESSION['p5'.$p5['folio']] = $a+$b+$c+$d+$e+$f+$g+$h;}?>
     <!-- Modal Proceso 6 -->
-    <div class="modal fade" id="proceso6" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <?php $sql6 = "SELECT * FROM proyecto_definitivo";
+          $query6 = mysqli_query($conn, $sql6);
+          while($p6 = mysqli_fetch_array($query6)){?>
+    <div class="modal fade" id="<?="f".$p6['folio']?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Folio: </h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Folio: <?=$p6['folio']?></h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -468,7 +532,7 @@ $host = $_SERVER['HTTP_HOST']; ?>
                             <tr>
                                 <td scope="row">Proyecto Definitivo</td>
                                 <td>
-                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                <span class="material-icons <?php if ($p6['proyecto_definitivo_estatus'] == true) {echo 'verde';$icon = '&#xe2e6;'; $a=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $a=0;}?>"><?= $icon; ?></span>
                                 </td>
                             </tr>
                         </tbody>
@@ -480,12 +544,16 @@ $host = $_SERVER['HTTP_HOST']; ?>
             </div>
         </div>
     </div>
+    <?php $_SESSION['p6'.$p6['folio']] = $a;}?>
     <!-- Modal Proceso 7 -->
-    <div class="modal fade" id="proceso7" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <?php $sql7 = "SELECT * FROM convenio_de_regularizacion";
+          $query7 = mysqli_query($conn, $sql7);
+          while($p7 = mysqli_fetch_array($query7)){?>
+    <div class="modal fade" id="<?="g".$p7['folio']?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Folio: </h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Folio: <?=$p7['folio']?></h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -497,62 +565,56 @@ $host = $_SERVER['HTTP_HOST']; ?>
                             <tr>
                                 <td scope="row">Oficio de Catastro</td>
                                 <td>
-                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                <span class="material-icons <?php if ($p7['oficio_de_castastro_estatus'] == true) {echo 'verde';$icon = '&#xe2e6;'; $a=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $a=0;}?>"><?= $icon; ?></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td scope="row">Convenio de regularización (Solo
                                     archivo)</td>
                                 <td>
-                                    <span class="material-icons rojo">&#xe5c9;</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td scope="row">Oficio de Catastro</td>
-                                <td>
-                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                <span class="material-icons <?php if ($p7['convenio_de_regularizacion'] == null) {echo 'rojo';$icon = '&#xe5c9;'; $b=0;} else { echo 'verde'; $icon = '&#xe2e6;'; $b=1;}?>"><?= $icon; ?></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td scope="row">Firma Presidente</td>
                                 <td>
-                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                <span class="material-icons <?php if ($p7['firma_presidente_estatus'] == 'Listo') { echo 'verde'; $icon = '&#xe2e6;'; $c=1;} else { echo 'rojo'; $icon = '&#xe5c9;';$c=0;} ?>"><?= $icon; ?></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td scope="row">Firma Sindico</td>
                                 <td>
-                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                <span class="material-icons <?php if ($p7['firma_sindico_estatus'] == 'Listo') { echo 'verde'; $icon = '&#xe2e6;'; $d=1;} else { echo 'rojo'; $icon = '&#xe5c9;';$d=0;} ?>"><?= $icon; ?></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td scope="row">Firma Secretaria General</td>
                                 <td>
-                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                <span class="material-icons <?php if ($p7['firma_secretaria_general_estatus'] == 'Listo') { echo 'verde'; $icon = '&#xe2e6;'; $e=1;} else { echo 'rojo'; $icon = '&#xe5c9;';$e=0;} ?>"><?= $icon; ?></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td scope="row">Firma Tesorero</td>
                                 <td>
-                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                <span class="material-icons <?php if ($p7['firma_tesorero_estatus'] == 'Listo') { echo 'verde'; $icon = '&#xe2e6;'; $f=1;} else { echo 'rojo'; $icon = '&#xe5c9;';$f=0;} ?>"><?= $icon; ?></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td scope="row">Firma Presidente de Comite o Propietario</td>
                                 <td>
-                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                <span class="material-icons <?php if ($p7['firma_presidente_de_comite_o_propietario_estatus'] == 'Listo') { echo 'verde'; $icon = '&#xe2e6;'; $g=1;} else { echo 'rojo'; $icon = '&#xe5c9;';$g=0;} ?>"><?= $icon; ?></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td scope="row">Firma Secretario Técnico</td>
                                 <td>
-                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                <span class="material-icons <?php if ($p7['firma_secretario_tecnico_estatus'] == 'Listo') { echo 'verde'; $icon = '&#xe2e6;'; $h=1;} else { echo 'rojo'; $icon = '&#xe5c9;';$h=0;} ?>"><?= $icon; ?></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td scope="row">Firma Procurador de desarrollo urbano</td>
                                 <td>
-                                    <span class="material-icons rojo">&#xe5c9;</span>
+                                <span class="material-icons <?php if ($p7['firma_procurador_de_desarrollo_urbano_estatus'] == 'Listo') { echo 'verde'; $icon = '&#xe2e6;'; $i=1;} else { echo 'rojo'; $icon = '&#xe5c9;';$i=0;} ?>"><?= $icon; ?></span>
                                 </td>
                             </tr>
 
@@ -565,6 +627,7 @@ $host = $_SERVER['HTTP_HOST']; ?>
             </div>
         </div>
     </div>
+    <?php $_SESSION['p7'.$p7['folio']] = $a+$b+$c+$d+$e+$f+$g+$h+$i;}?>
     <!-- Modal busqueda avanzada -->
     <div class="modal fade" id="modalBusqueda" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
