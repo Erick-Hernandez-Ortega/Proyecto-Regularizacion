@@ -108,7 +108,7 @@ if(!isset($_SESSION['reloadstatus'])){ header('Refresh: 0'); $_SESSION['reloadst
             </thead>
             <tbody>
                 <?php $a=0;
-                 $sql = "SELECT folio FROM solicitud_de_regularizacion";
+                 $sql = "SELECT folio FROM solicitud_de_regularizacion WHERE archivar = false";
                 $query = mysqli_query($conn, $sql);
                 while ($row = mysqli_fetch_array($query)) { ?>
                     <tr class="folio">
