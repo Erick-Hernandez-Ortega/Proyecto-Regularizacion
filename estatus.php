@@ -1,6 +1,7 @@
 <?php
 include("src/php/db.php");
-$host = $_SERVER['HTTP_HOST']; ?>
+$host = $_SERVER['HTTP_HOST']; 
+if(!isset($_SESSION['reloadstatus'])){ header('Refresh: 0'); $_SESSION['reloadstatus'] = 1;}?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -113,7 +114,7 @@ $host = $_SERVER['HTTP_HOST']; ?>
                     <tr class="folio">
                         <th scope="row"><?= $row['folio'] ?></th>
                         <td>
-                            <a class="badge text-bg-<?php if($_SESSION['p1'.$row['folio']]==8){ 
+                            <a class="badge text-bg-<?php if($_SESSION['p1'.$row['folio']]==9){ 
                                 echo "success"; $comentario = 'Completado';
                                 }else if($_SESSION['p1'.$row['folio']]==0){
                                     echo "danger"; $comentario = 'No Completado';
@@ -256,7 +257,13 @@ $host = $_SERVER['HTTP_HOST']; ?>
                             <tr>
                                 <td scope="row">Oficio</td>
                                 <td>
-                                <span class="material-icons <?php if ($p1['oficio_regreso_estatus'] == 'Aceptado') { echo 'verde'; $icon = '&#xe2e6;'; $h=1;} else { echo 'rojo'; $icon = '&#xe5c9;';$h=0;} ?>"><?= $icon; ?></span>
+                                <span class="material-icons <?php if ($p1['oficio_estatus'] == true) { echo 'verde'; $icon = '&#xe2e6;'; $h=1;} else { echo 'rojo'; $icon = '&#xe5c9;';$h=0;} ?>"><?= $icon; ?></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Oficio de regreso</td>
+                                <td>
+                                <span class="material-icons <?php if ($p1['oficio_regreso_estatus'] == 'Aceptado') { echo 'verde'; $icon = '&#xe2e6;'; $i=1;} else { echo 'rojo'; $icon = '&#xe5c9;';$i=0;} ?>"><?= $icon; ?></span>
                                 </td>
                             </tr>
                         </tbody>
@@ -268,7 +275,7 @@ $host = $_SERVER['HTTP_HOST']; ?>
             </div>
         </div>
     </div>
-    <?php $_SESSION['p1'.$p1['folio']]=$a+$b+$c+$d+$e+$f+$g+$h;}?>
+    <?php $_SESSION['p1'.$p1['folio']]=$a+$b+$c+$d+$e+$f+$g+$h+$i;}?>
     <!-- Modal Proceso 2 -->
     <?php $sql2 = "SELECT * FROM presentacion_de_documentos_a_la_comur";
           $query2 = mysqli_query($conn, $sql2);
