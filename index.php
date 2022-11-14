@@ -113,7 +113,7 @@ if(!isset($_SESSION['reloadindex'])){header('Refresh: 0'); $_SESSION['reloadinde
                 </tr>
             </thead>
             <tbody id="bodyTable">
-                <?php $sql = "SELECT folio FROM solicitud_de_regularizacion";
+                <?php $sql = "SELECT folio FROM solicitud_de_regularizacion WHERE archivar = false";
                 $query = mysqli_query($conn, $sql);
                 while ($row = mysqli_fetch_array($query)) { ?>
                     <tr class="table-light">
