@@ -1,12 +1,7 @@
 <?php
 include("src/php/db.php");
 $host = $_SERVER['HTTP_HOST']; 
-if(!isset($_SESSION['reloadstatus'])){ header('Refresh: 0'); $_SESSION['reloadstatus'] = 1;}
-if(isset($_SESSION['Usuario'])){ 
-    $host = $_SERVER['HTTP_HOST']; 
-    if($_SESSION['Tipo']=='Super administrador' or $_SESSION['Tipo']=='Administrador') header("location: http://$host/Proyecto-Regularizacion/estatus-admin.php");
-}
-?>
+if(!isset($_SESSION['reloadstatus'])){ header('Refresh: 0'); $_SESSION['reloadstatus'] = 1;}?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -65,6 +60,9 @@ if(isset($_SESSION['Usuario'])){
                             </div>
                             <div class="offcanvas-body">
                                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                                <li class="nav-item">
+                                        <a href="registro.php" class="nav-link active" id="boton1">Registrar una cuenta</a>
+                                    </li>
                                     <li class="nav-item">
                                         <a class="nav-link text-danger" href="src/php/logout.php">Cerrar Sesión</a>
                                     </li>

@@ -129,7 +129,7 @@
                                         <span class="material-icons input-group-text">&#xea67;</span>
                                         <select class="form-control" name="Rol" required>
                                             <option selected>Rol del nuevo usuario</option>
-                                            <option selected>Capturista</option>
+                                            <option>Capturista</option>
                                             <option>Administrador</option>
                                         </select>
                                     </div>
