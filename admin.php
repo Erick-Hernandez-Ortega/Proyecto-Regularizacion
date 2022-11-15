@@ -253,7 +253,8 @@ if(!isset($_SESSION['reloadadmin'])){header('Refresh: 0'); $_SESSION['reloadadmi
                     </div>
                     <form action="src/php/proceso1.php" method="POST" enctype="multipart/form-data">
                     <div class="modal-body">
-                        <h6 class="fw-bold mb-3">Número de Folio: <?= $mod['folio']; ?></h6>
+                    <label style="font-weight: bold;" for="folio">Número de Folio: </label>
+                    <input style="font-weight: bold; padding-bottom:7px; font-size:20px;" type="text" readonly class="form-control-plaintext" name="folio" id="folio" value="<?=$mod['folio']?>">
                         <div class="row mb-3">
                             <div class="col">
                                 <label for="formFile" class="form-label fw-bold">Solicitud</label>
