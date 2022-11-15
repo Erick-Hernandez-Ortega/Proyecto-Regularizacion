@@ -58,7 +58,7 @@ footer {
 .divTabla {
   width: 95%;
   margin: auto;
-  max-height: 500px;
+  max-height: 600px;
   overflow-y: scroll;  
 }
 
