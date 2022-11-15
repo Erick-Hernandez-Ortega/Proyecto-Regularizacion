@@ -1,7 +1,9 @@
 .contenido {
   margin: auto;
-  width: 95%;
+  max-width: 95%;
   transition: all ease 0.5s;
+  max-height: 600px;
+  overflow-y: scroll;
 }
 
 #tabla-folio {
