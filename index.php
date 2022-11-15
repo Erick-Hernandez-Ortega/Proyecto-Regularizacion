@@ -240,7 +240,8 @@ if(!isset($_SESSION['reloadindex'])){header('Refresh: 0'); $_SESSION['reloadinde
                     </div>
                     <form action="src/php/proceso1.php" method="POST" enctype="multipart/form-data">
                     <div class="modal-body">
-                        <h6 class="fw-bold mb-3">Numero de Folio: <?= $mod['folio']; ?></h6>
+                    <label style="font-weight: bold;" for="folio">Número de Folio: </label>
+                    <input style="font-weight: bold; padding-bottom:7px; font-size:20px;" type="text" readonly class="form-control-plaintext" name="folio" id="folio" value="<?=$mod['folio']?>">
                         <div class="row mb-3">
                             <div class="col">
                                 <label for="formFile" class="form-label fw-bold">Solicitud</label>
@@ -293,12 +294,12 @@ if(!isset($_SESSION['reloadindex'])){header('Refresh: 0'); $_SESSION['reloadinde
                         <div class="row mb-3">
                             <div class="col">
                                 <label for="formFile" class="form-label fw-bold">Oficio Regreso</label>
-                                <span class="material-icons position-absolute <?php if ($mod['oficio_regreso_estatus'] == 'Aceptado' || $mod['oficio_regreso_estatus'] == 'En Revision') { echo 'verde'; $icon = '&#xe2e6;'; $i=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $i=0;} ?>"><?= $icon; ?></span>
+                                <span class="material-icons position-absolute <?php if ($mod['oficio_regreso'] != null) { echo 'verde'; $icon = '&#xe2e6;'; $i=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $i=0;} ?>"><?= $icon; ?></span>
                                 <input class="form-control" name="OficioRegreso" type="file" id="formFile">
                             </div>
                             <div class="col">
                                 <label for="" class="form-label fw-bold">Estado de Oficio de Regreso</label>
-                                <select class="form-control" name="estado-ofici o" required>
+                                <select class="form-control" name="estado-oficio" required>
                                     <?php if($mod['oficio_regreso_estatus']=='Aceptado'){
                                         $sel = 'selected'; $s=''; $n=''; $r=''; $j = 1;
                                         }else if($mod['oficio_regreso_estatus']=='En Revision'){
@@ -307,9 +308,9 @@ if(!isset($_SESSION['reloadindex'])){header('Refresh: 0'); $_SESSION['reloadinde
                                             $n = 'selected'; $sel=''; $s=''; $r=''; $j = 0; 
                                         }else{$s = 'selected'; $r=''; $n=''; $sel=''; $j=0;}?>
                                     <option <?=$s?>>-Seleccione uno-</option>
-                                    <option <?=$sel?>>Aceptado ✅</option>
-                                    <option <?=$n?>>No Subido ❌</option>
-                                    <option <?=$r?>>En Revision ⌛️</option>
+                                    <option <?=$sel?> value="Aceptado">Aceptado ✅</option>
+                                    <option <?=$n?> value="No Subido">No Subido ❌</option>
+                                    <option <?=$r?> value="En Revision">En Revision ⌛️</option>
                                 </select>
                             </div>
                         </div>
