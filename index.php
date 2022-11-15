@@ -882,7 +882,7 @@ if(!isset($_SESSION['reloadindex'])){header('Refresh: 0'); $_SESSION['reloadinde
         <div id="toastBusqueda" class="toast text-bg-dark" role="alert" aria-live="assertive" aria-atomic="true">
             <div style="background-color: white;" class="toast-header">
                 <img style="width: 20px; height:20px;" src="src/img/<?= $_SESSION['colorToast'] ?>.jpg" class="rounded me-2" alt="rojo">
-                <strong style="color: black;" class="me-auto">Error</strong>
+                <strong style="color: black;" class="me-auto">Mensaje</strong>
                 <small style="color:black;">hace 1 segundo</small>
                 <button type="button" class="btn-close btn-close-dark" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
