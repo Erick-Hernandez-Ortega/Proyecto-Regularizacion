@@ -390,7 +390,7 @@ if(!isset($_SESSION['reloadindex'])){header('Refresh: 0'); $_SESSION['reloadinde
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                    <!-- <button type="button" class="btn btn-primary">Enviar documentos</button> -->
+                    <button type="button" class="btn btn-success">Modificar documentos</button>
                 </div>
             </div>
         </div>

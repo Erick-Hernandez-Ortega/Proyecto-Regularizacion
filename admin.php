@@ -92,11 +92,11 @@ if(!isset($_SESSION['reloadadmin'])){header('Refresh: 0'); $_SESSION['reloadadmi
     </div>
     <div class="agregar-folio mt-3">
         <div class="btn-group">
-            <button class="btn btn-dark d-flex rounded-4" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Agregar Folio">
+            <button class="btn btn-dark d-flex rounded-4" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Agregar Folio">
                 <span class="material-icons" style="font-size: 27px;" data-bs-toggle="modal" data-bs-target="#modalFolio">&#xe2cc;</span>
             </button>
         </div>
-        <a href="archivado.php" class="btn btn-dark" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Mostrar archivados">
+        <a href="archivado.php" class="btn btn-dark" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Mostrar archivados">
             <span class="material-icons" style="font-size: 27px;">&#xe169;</span>
         </a>
     </div>
@@ -403,7 +403,7 @@ if(!isset($_SESSION['reloadadmin'])){header('Refresh: 0'); $_SESSION['reloadadmi
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                    <!-- <button type="button" class="btn btn-primary">Enviar documentos</button> -->
+                    <button type="button" class="btn btn-success">Modificar documentos</button>
                 </div>
             </div>
         </div>
