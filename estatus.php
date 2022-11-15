@@ -61,9 +61,6 @@ if(!isset($_SESSION['reloadstatus'])){ header('Refresh: 0'); $_SESSION['reloadst
                             <div class="offcanvas-body">
                                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                                     <li class="nav-item">
-                                        <a class="nav-link active" aria-current="page" href="#">Configuración</a>
-                                    </li>
-                                    <li class="nav-item">
                                         <a class="nav-link text-danger" href="src/php/logout.php">Cerrar Sesión</a>
                                     </li>
                                 </ul>
