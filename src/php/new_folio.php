@@ -30,8 +30,12 @@ if ($folio == null || $folio == " "|| substr($folio, -1)==" ") {
 
             if ($_SESSION['Tipo'] == 'Capturista') {
                 header("location: http://$host/Proyecto-Regularizacion/index.php");
+                unset($_SESSION['reloadindex']);
+                unset($_SESSION['reloadstatus']);
             } else {
                 header("location: http://$host/Proyecto-Regularizacion/admin.php");
+                unset($_SESSION['reloadadmin']);
+                unset($_SESSION['reloadstatus']);
             }
         } else {
             $_SESSION['busqueda'] = false;
@@ -56,3 +60,4 @@ if ($folio == null || $folio == " "|| substr($folio, -1)==" ") {
         }
     }
 }
+?>
