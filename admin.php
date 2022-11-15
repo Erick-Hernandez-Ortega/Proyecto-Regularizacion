@@ -306,12 +306,12 @@ if(!isset($_SESSION['reloadadmin'])){header('Refresh: 0'); $_SESSION['reloadadmi
                         <div class="row mb-3">
                             <div class="col">
                                 <label for="formFile" class="form-label fw-bold">Oficio Regreso</label>
-                                <span class="material-icons position-absolute <?php if ($mod['oficio_regreso_estatus'] == 'Aceptado' || $mod['oficio_regreso_estatus'] == 'En Revision') { echo 'verde'; $icon = '&#xe2e6;'; $i=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $i=0;} ?>"><?= $icon; ?></span>
+                                <span class="material-icons position-absolute <?php if ($mod['oficio_regreso']!=null) { echo 'verde'; $icon = '&#xe2e6;'; $i=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $i=0;} ?>"><?= $icon; ?></span>
                                 <input class="form-control" name="OficioRegreso" type="file" id="formFile">
                             </div>
                             <div class="col">
                                 <label for="" class="form-label fw-bold">Estado de Oficio de Regreso</label>
-                                <select class="form-control" name="estado-ofici o" required>
+                                <select class="form-control" name="estado-oficio" required>
                                     <?php if($mod['oficio_regreso_estatus']=='Aceptado'){
                                         $sel = 'selected'; $s=''; $n=''; $r=''; $j = 1;
                                         }else if($mod['oficio_regreso_estatus']=='En Revision'){
@@ -320,9 +320,9 @@ if(!isset($_SESSION['reloadadmin'])){header('Refresh: 0'); $_SESSION['reloadadmi
                                             $n = 'selected'; $sel=''; $s=''; $r=''; $j = 0; 
                                         }else{$s = 'selected'; $r=''; $n=''; $sel=''; $j=0;}?>
                                     <option <?=$s?>>-Seleccione uno-</option>
-                                    <option <?=$sel?>>Aceptado ✅</option>
-                                    <option <?=$n?>>No Subido ❌</option>
-                                    <option <?=$r?>>En Revision ⌛️</option>
+                                    <option <?=$sel?> value="Aceptado">Aceptado ✅</option>
+                                    <option <?=$n?> value="No Subido">No Subido ❌</option>
+                                    <option <?=$r?> value="En Revision">En Revision ⌛️</option>
                                 </select>
                             </div>
                         </div>
