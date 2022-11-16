@@ -148,15 +148,19 @@ if ($estado == '-Seleccione uno-') {
         $_SESSION['busqueda'] = false;
         $_SESSION['colorToast'] = 'rojo';
         $_SESSION['mensajeToast'] = 'No has seleccionado nada, intentalo de nuevo...';
-    header("location: http://$host/Proyecto-Regularizacion/index.php");
+        header("location: http://$host/Proyecto-Regularizacion/index.php");
     }else{
         $sql2 = "UPDATE solicitud_de_regularizacion SET oficio_regreso_estatus = '$estado' WHERE folio = '$folio'";
         $query = mysqli_query($conn, $sql2);
 
         $_SESSION['busqueda'] = false;
         $_SESSION['colorToast'] = 'verde';
-        $_SESSION['mensajeToast'] = 'El envio ha sido exitoso!';
+        $_SESSION['mensajeToast'] = 'El envio ha sido exitoso! Los cambios se mostrarán en 5 segundos.';
         header("location: http://$host/Proyecto-Regularizacion/index.php");
+
+        unset($_SESSION['reloadindex']);
+        unset($_SESSION['reloadstatus']);
+        unset($_SESSION['reloadadmin']);
     }
     
 }
