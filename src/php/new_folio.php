@@ -25,7 +25,7 @@ if ($folio == null || $folio == " "|| substr($folio, -1)==" ") {
         $rs = mysqli_query($conn, $sql);
         if ($rs) {
             $_SESSION['busqueda'] = false;
-            $_SESSION['mensajeToast'] = 'El registro del folio ha sido exitoso!';
+           $_SESSION['mensajeToast'] = 'El registro del folio ha sido exitoso! Los cambios se mostrarán en 5 segundos.';
             $_SESSION['colorToast'] = 'verde';
 
             if ($_SESSION['Tipo'] == 'Capturista') {
