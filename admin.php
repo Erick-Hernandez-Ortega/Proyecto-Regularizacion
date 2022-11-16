@@ -253,8 +253,14 @@ if(!isset($_SESSION['reloadadmin'])){header('Refresh: 0'); $_SESSION['reloadadmi
                     </div>
                     <form action="src/php/proceso1.php" method="POST" enctype="multipart/form-data">
                     <div class="modal-body">
-                    <label style="font-weight: bold;" for="folio">Número de Folio: </label>
-                    <input style="font-weight: bold; padding-bottom:7px; font-size:20px;" type="text" readonly class="form-control-plaintext" name="folio" id="folio" value="<?=$mod['folio']?>">
+                        <div class="row mb-3 g-1">
+                            <div class="col-auto">
+                                <label class="col-form-label">Número de Folio: </label>
+                            </div>
+                            <div class="col-auto">
+                                <input  type="text" readonly class="form-control-plaintext fw-bold" name="folio" id="folio" value="<?=$mod['folio']?>">
+                            </div>
+                        </div>
                         <div class="row mb-3">
                             <div class="col">
                                 <label for="formFile" class="form-label fw-bold">Solicitud</label>
@@ -880,8 +886,16 @@ if(!isset($_SESSION['reloadadmin'])){header('Refresh: 0'); $_SESSION['reloadadmi
                 <form action="src/php/archivar.php" method="post">
                 <div class="modal-body">
                     <p>¿Seguro que desea archivar esta consulta?</p>
-                    <p style="font-weight: bold; margin-bottom: 2px;">Folio:</p> 
-                    <input type="text" readonly class="form-control-plaintext" name="folio" id="folio" value="<?=$f['folio']?>">
+                    <!-- <p style="font-weight: bold; margin-bottom: 2px;">Folio:</p> 
+                    <input type="text" readonly class="form-control-plaintext" name="folio" id="folio" value="<?=$f['folio']?>"> -->
+                    <div class="row mb-3 g-1">
+                            <div class="col-auto">
+                                <label class="col-form-label">Número de Folio: </label>
+                            </div>
+                            <div class="col-auto">
+                                <input  type="text" readonly class="form-control-plaintext fw-bold" name="folio" id="folio" value="<?=$f['folio']?>">
+                            </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-danger" data-dismiss="modal">Archivar</button>

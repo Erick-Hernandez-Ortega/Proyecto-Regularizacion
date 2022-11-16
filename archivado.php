@@ -870,8 +870,14 @@ if ($_SESSION['Tipo'] == 'Capturista') header("location: http://$host/Proyecto-R
                 <form action="src/php/desarchivar.php" method="post">
                 <div class="modal-body">
                     <p>¿Seguro que desea desarchivar esta consulta?</p>
-                    <p style="font-weight: bold; margin-bottom: 2px;">Folio:</p> 
-                    <input type="text" readonly class="form-control-plaintext" name="folio" id="folio" value="<?=$f['folio']?>">
+                    <div class="row mb-3 g-1">
+                            <div class="col-auto">
+                                <label class="col-form-label">Folio: </label>
+                            </div>
+                            <div class="col-auto">
+                                <input  type="text" readonly class="form-control-plaintext fw-bold" name="folio" id="folio" value="<?=$f['folio']?>">
+                            </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-success" data-dismiss="modal">Desarchivar</button>
