@@ -163,7 +163,7 @@ if(!isset($_SESSION['reloadadmin'])){if(!isset($_SESSION['inicio'])){header('Ref
                                 }else{
                                     echo "warning"; $comentario = '&#xf1c2;'; $estado = 'Incompleto';
                                 }?> px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="<?=$estado?>">
-                                <span class="material-icons d-flex" data-bs-toggle="modal" data-bs-target="#[id='<?="d".$row['folio'] ?>']"><?=$comentario?></span>
+                                <span class="material-icons d-flex" data-bs-toggle="modal" data-bs-target="[id='<?="d".$row['folio'] ?>']"><?=$comentario?></span>
                             </button>
                         </td>
                         <td>
