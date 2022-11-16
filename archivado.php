@@ -297,7 +297,7 @@ if ($_SESSION['Tipo'] == 'Capturista') header("location: http://$host/Proyecto-R
                         <div class="row mb-3">
                             <div class="col">
                                 <label for="formFile" class="form-label fw-bold">Oficio Regreso</label>
-                                <span class="material-icons position-absolute <?php if ($mod['oficio_regreso_estatus'] == 'Aceptado' || $mod['oficio_regreso_estatus'] == 'En Revision') { echo 'verde'; $icon = '&#xe2e6;'; $i=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $i=0;} ?>"><?= $icon; ?></span>
+                                <span class="material-icons position-absolute <?php if ($mod['oficio_regreso']!=null) { echo 'verde'; $icon = '&#xe2e6;'; $i=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $i=0;} ?>"><?= $icon; ?></span>
                                 <input class="form-control" name="OficioRegreso" type="file" id="formFile">
                             </div>
                             <div class="col">
@@ -311,9 +311,9 @@ if ($_SESSION['Tipo'] == 'Capturista') header("location: http://$host/Proyecto-R
                                             $n = 'selected'; $sel=''; $s=''; $r=''; $j = 0; 
                                         }else{$s = 'selected'; $r=''; $n=''; $sel=''; $j=0;}?>
                                     <option <?=$s?>>-Seleccione uno-</option>
-                                    <option <?=$sel?>>Aceptado ✅</option>
-                                    <option <?=$n?>>No Subido ❌</option>
-                                    <option <?=$r?>>En Revision ⌛️</option>
+                                    <option <?=$sel?> value="Aceptado">Aceptado ✅</option>
+                                    <option <?=$n?> value="No Subido">No Subido ❌</option>
+                                    <option <?=$r?> value="En Revision">En Revision ⌛️</option>
                                 </select>
                             </div>
                         </div>
@@ -638,21 +638,29 @@ if ($_SESSION['Tipo'] == 'Capturista') header("location: http://$host/Proyecto-R
                     <h1 class="modal-title fs-5" id="staticBackdropLabel">Proceso 6: Proyecto definitivo</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
+                <form action="src/php/proceso6.php" method="post" enctype="multipart/form-data">
                 <div class="modal-body">
-                    <h6 class="mb-3 fw-bold">Número de Folio: <?=$p6['folio']?></h6>
-
+                    <div class="row mb-3 g-1">
+                            <div class="col-auto">
+                                <label class="col-form-label">Número de Folio: </label>
+                            </div>
+                            <div class="col-auto">
+                                <input  type="text" readonly class="form-control-plaintext fw-bold" name="folio" id="folio" value="<?=$p6['folio']?>">
+                            </div>
+                    </div>
                     <div class="row mb-3">
                         <div class="col">
                             <label for="formFile" class="form-label fw-bold">Proyecto Definitivo</label>
                             <span class="material-icons position-absolute <?php if ($p6['proyecto_definitivo_estatus'] == true) { echo 'verde'; $icon = '&#xe2e6;'; $a=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $a=0;} ?>"><?= $icon; ?></span>
-                            <input class="form-control" type="file" id="formFile">
+                            <input class="form-control" name="Definitivo" type="file" id="formFile">
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary">Enviar documentos</button>
+                    <button type="subtmit" class="btn btn-primary">Enviar documentos</button>
                 </div>
+                </form>
             </div>
         </div>
     </div>
