@@ -641,9 +641,16 @@ if(!isset($_SESSION['reloadindex'])){header('Refresh: 0'); $_SESSION['reloadinde
                     <h1 class="modal-title fs-5" id="staticBackdropLabel">Proceso 6: Proyecto definitivo</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
+                <form action="src/php/proceso6.php" method="post">
                 <div class="modal-body">
-                    <h6 class="mb-3 fw-bold">Número de Folio: <?=$p6['folio']?></h6>
-
+                    <div class="row mb-3 g-1">
+                            <div class="col-auto">
+                                <label class="col-form-label">Número de Folio: </label>
+                            </div>
+                            <div class="col-auto">
+                                <input  type="text" readonly class="form-control-plaintext fw-bold" name="folio" id="folio" value="<?=$p6['folio']?>">
+                            </div>
+                    </div>
                     <div class="row mb-3">
                         <div class="col">
                             <label for="formFile" class="form-label fw-bold">Proyecto Definitivo</label>
@@ -656,6 +663,7 @@ if(!isset($_SESSION['reloadindex'])){header('Refresh: 0'); $_SESSION['reloadinde
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
                     <button type="button" class="btn btn-primary">Enviar documentos</button>
                 </div>
+                </form>    
             </div>
         </div>
     </div>
