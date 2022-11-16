@@ -1,7 +1,8 @@
 <?php
 include("src/php/db.php");
 $host = $_SERVER['HTTP_HOST']; 
-if(!isset($_SESSION['reloadstatus'])){ header('Refresh: 0'); $_SESSION['reloadstatus'] = 1;}?>
+if($_SESSION['Tipo'] == 'Capturista') header("location: http://$host/Proyecto-Regularizacion/estatus.php");
+if(!isset($_SESSION['reloadstatusadmin'])){ header('Refresh: 0'); $_SESSION['reloadstatusadmin'] = 1;}?>
 <!DOCTYPE html>
 <html lang="es">
 
