@@ -5,20 +5,37 @@ $host = $_SERVER['HTTP_HOST'];
 
 $folio = $_POST['folio'];
 
-$archivoproyecto = $_FILES["Proyecto"]["tmp_name"];
-$tamproyecto = $_FILES["Proyecto"]["size"];
+$archivoproyecto = $_FILES["Definitivo"]["tmp_name"];
+$tamproyecto = $_FILES["Definitivo"]["size"];
 
-$fp = fopen($archivoproyecto, "rb");
-$contenido = fread($fp, $tamproyecto);
-$contenido = addslashes($contenido);
-fclose($fp);
+$a = 0;
 
-$sql = "UPDATE proyecto_definitivo SET proyecto_definitivo = '$contenido', proyecto_definitivo_estatus = 1 WHERE folio = '$folio'";
-$rs = mysqli_query($conn, $sql);
+if ($archivoproyecto != '') {
+    $fp = fopen($archivoproyecto, "rb");
+    $contenido = fread($fp, $tamproyecto);
+    $contenido = addslashes($contenido);
+    fclose($fp);
 
-$_SESSION['busqueda'] = false;
-$_SESSION['colorToast'] = 'verde';
-$_SESSION['mensajeToast'] = 'El envio ha sido exitoso!';
-header("location: http://$host/Proyecto-Regularizacion/index.php");
+    $sql = "UPDATE proyecto_definitivo SET proyecto_definitivo = '$contenido', proyecto_definitivo_estatus = 1 WHERE folio = '$folio'";
+    $rs = mysqli_query($conn, $sql);
+    
+    header("location: http://$host/Proyecto-Regularizacion/index.php");
 
+    $_SESSION['busqueda'] = false;
+    $_SESSION['colorToast'] = 'verde';
+    $_SESSION['mensajeToast'] = "El envio ha sido exitoso!\nLos cambios se mostrarán en 5 segundos...";
+
+    unset($_SESSION['reloadindex']);
+    unset($_SESSION['reloadstatus']);
+    unset($_SESSION['reloadadmin']);
+
+    $a++;
+}
+
+if($a == 0){
+    $_SESSION['busqueda'] = false;
+    $_SESSION['colorToast'] = 'rojo';
+    $_SESSION['mensajeToast'] = 'No has seleccionado nada, intentalo de nuevo...';
+    header("location: http://$host/Proyecto-Regularizacion/index.php");
+}
 ?>
