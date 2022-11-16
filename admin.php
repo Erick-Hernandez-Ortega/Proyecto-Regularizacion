@@ -410,7 +410,7 @@ if(!isset($_SESSION['reloadadmin'])){if(!isset($_SESSION['inicio'])){header('Ref
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-success">Modificar documentos</button>
+                    <button type="button" class="btn btn-primary">Enviar documentos</button>
                 </div>
             </div>
         </div>
