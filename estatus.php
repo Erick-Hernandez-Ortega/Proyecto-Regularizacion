@@ -3,8 +3,7 @@ include("src/php/db.php");
 $host = $_SERVER['HTTP_HOST']; 
 if(!isset($_SESSION['reloadstatus'])){ header('Refresh: 0'); $_SESSION['reloadstatus'] = 1;}
 if(isset($_SESSION['Usuario'])){ 
-    $host = $_SERVER['HTTP_HOST']; 
-    if($_SESSION['Tipo']=='Super administrador' or $_SESSION['Tipo']=='Administrador') header("location: http://$host/Proyecto-Regularizacion/estatus-admin.php");
+    if($_SESSION['Tipo']!='Capturista') header("location: http://$host/Proyecto-Regularizacion/estatus-admin.php");
 }
 ?>
 <!DOCTYPE html>
