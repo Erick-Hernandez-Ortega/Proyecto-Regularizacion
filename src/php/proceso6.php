@@ -21,10 +21,6 @@ if ($archivoproyecto != '') {
     
     header("location: http://$host/Proyecto-Regularizacion/index.php");
 
-    $_SESSION['busqueda'] = false;
-    $_SESSION['colorToast'] = 'verde';
-    $_SESSION['mensajeToast'] = "El envio ha sido exitoso!\nLos cambios se mostrarán en 5 segundos...";
-
     unset($_SESSION['reloadindex']);
     unset($_SESSION['reloadstatus']);
     unset($_SESSION['reloadadmin']);
