@@ -2,7 +2,7 @@
 include("src/php/db.php");
 $host = $_SERVER['HTTP_HOST'];
 if ($_SESSION['Tipo'] == 'Capturista') header("location: http://$host/Proyecto-Regularizacion/index.php"); 
-if(!isset($_SESSION['reloadadmin'])){if(!isset($_SESSION['inicio'])){header('Refresh: 0'); $_SESSION['inicio']=1;}else{header('Refresh: 5');} $_SESSION['reloadadmin'] = 1;}?>
+if(!isset($_SESSION['reloadadmin'])){header('Refresh: 0'); $_SESSION['reloadadmin'] = 1;}?>
 <!DOCTYPE html>
 <html lang="es">
 
