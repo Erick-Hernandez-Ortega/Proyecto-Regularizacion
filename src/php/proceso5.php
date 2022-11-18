@@ -140,10 +140,10 @@ if ($estado == '-Seleccione uno-') {
         $sql2 = "UPDATE presentacion_a_la_comur SET oficion_regreso_estatus = '$estado' WHERE folio = '$folio'";
         $query = mysqli_query($conn, $sql2);
 
-        $_SESSION['busqueda'] = false;
-        $_SESSION['colorToast'] = 'verde';
-        $_SESSION['mensajeToast'] = 'El envio ha sido exitoso!';
         header("location: http://$host/Proyecto-Regularizacion/index.php");
+        unset($_SESSION['reloadindex']);
+        unset($_SESSION['reloadstatus']);
+        unset($_SESSION['reloadadmin']);
     }
     
 }
