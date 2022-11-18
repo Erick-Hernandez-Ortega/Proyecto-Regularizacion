@@ -30,7 +30,7 @@ $archivooficioR = $_FILES["OficioRegreso"]["tmp_name"];
 $tamoficioR = $_FILES["OficioRegreso"]["size"];
 
 $estado = $_POST['estado-oficio'];
-$cont = 0;
+$a = 0;
 
 $csql = "SELECT oficion_regreso_estatus FROM presentacion_a_la_comur WHERE folio = '$folio'";
 $q = mysqli_query($conn, $csql);
