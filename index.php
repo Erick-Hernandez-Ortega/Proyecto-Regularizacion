@@ -547,19 +547,26 @@ if(!isset($_SESSION['reloadindex'])){header('Refresh: 0'); $_SESSION['reloadinde
                     <h1 class="modal-title fs-5" id="staticBackdropLabel">Proceso 5: Presentación a la COMUR</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
+                <form action="src/php/proceso5.php" method="POST" enctype="multipart/form-data">
                 <div class="modal-body">
-                    <h6 class="mb-3 fw-bold">Número de Folio: <?=$p5['folio']?></h6>
-
+                    <div class="row mb-3 g-1">
+                            <div class="col-auto">
+                                <label class="col-form-label">Número de Folio: </label>
+                            </div>
+                            <div class="col-auto">
+                                <input  type="text" readonly class="form-control-plaintext fw-bold" name="folio" id="folio" value="<?=$p5['folio']?>">
+                            </div>
+                    </div>
                     <div class="row mb-3">
                         <div class="col">
                             <label for="formFile" class="form-label fw-bold">Oficio</label>
                             <span class="material-icons position-absolute <?php if ($p5['oficio_estatus'] == true) { echo 'verde'; $icon = '&#xe2e6;'; $a=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $a=0;} ?>"><?= $icon; ?></span>
-                            <input class="form-control" type="file" id="formFile">
+                            <input class="form-control" name="Oficio" type="file" id="formFile">
                         </div>
                         <div class="col">
                             <label for="formFile" class="form-label fw-bold">Dictamen PRODEUR</label>
                             <span class="material-icons position-absolute <?php if ($p5['dictamen_prodeur_estatus'] == true) { echo 'verde'; $icon = '&#xe2e6;'; $b=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $b=0;} ?>"><?= $icon; ?></span>
-                            <input class="form-control" type="file" id="formFile">
+                            <input class="form-control" name="DictamenPRODEUR" type="file" id="formFile">
                         </div>
                     </div>
 
@@ -567,12 +574,12 @@ if(!isset($_SESSION['reloadindex'])){header('Refresh: 0'); $_SESSION['reloadinde
                         <div class="col">
                             <label for="formFile" class="form-label fw-bold">Acta de COMUR 1</label>
                             <span class="material-icons position-absolute <?php if ($p5['acta_de_comur_1_estatus'] == true) { echo 'verde'; $icon = '&#xe2e6;'; $c=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $c=0;} ?>"><?= $icon; ?></span>
-                            <input class="form-control" type="file" id="formFile">
+                            <input class="form-control" name="Comur1" type="file" id="formFile">
                         </div>
                         <div class="col">
                             <label for="formFile" class="form-label fw-bold">Acta de COMUR 2</label>
                             <span class="material-icons position-absolute <?php if ($p5['acta_de_comur_2_estatus'] == true) { echo 'verde'; $icon = '&#xe2e6;'; $d=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $d=0;} ?>"><?= $icon; ?></span>
-                            <input class="form-control" type="file" id="formFile">
+                            <input class="form-control" name="Comur2" type="file" id="formFile">
                         </div>
                     </div>
 
@@ -580,13 +587,13 @@ if(!isset($_SESSION['reloadindex'])){header('Refresh: 0'); $_SESSION['reloadinde
                         <div class="col">
                             <label for="formFile" class="form-label fw-bold">Publicación</label>
                             <span class="material-icons position-absolute <?php if ($p5['publicacion_estatus'] == true) { echo 'verde'; $icon = '&#xe2e6;'; $e=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $e=0;} ?>"><?= $icon; ?></span>
-                            <input class="form-control" type="file" id="formFile">
+                            <input class="form-control" name="Publicacion" type="file" id="formFile">
                         </div>
                         <div class="col">
                             <label for="formFile" class="form-label fw-bold">Estudio análisis y resolución del
                                 expediente</label>
                                 <span class="material-icons position-absolute <?php if ($p5['estudio_analisis_y_resolucion_del_expediente_estatus'] == true) { echo 'verde'; $icon = '&#xe2e6;'; $f=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $f=0;} ?>"><?= $icon; ?></span>
-                            <input class="form-control" type="file" id="formFile">
+                            <input class="form-control" name="EstudioAnalisis" type="file" id="formFile">
                         </div>
                     </div>
 
@@ -594,12 +601,12 @@ if(!isset($_SESSION['reloadindex'])){header('Refresh: 0'); $_SESSION['reloadinde
                         <div class="col">
                             <label for="formFile" class="form-label fw-bold">Estudio de opinión</label>
                             <span class="material-icons position-absolute <?php if ($p5['estudio_de_opinion_estatus'] == true) { echo 'verde'; $icon = '&#xe2e6;'; $g=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $g=0;} ?>"><?= $icon; ?></span>
-                            <input class="form-control" type="file" id="formFile">
+                            <input class="form-control" name="EstudioOpinion" type="file" id="formFile">
                         </div>
                         <div class="col">
                             <label for="formFile" class="form-label fw-bold">Oficio regreso</label>
-                            <span class="material-icons position-absolute <?php if ($p5['oficion_regreso_estatus'] == 'Aceptado' || $p5['oficion_regreso_estatus'] == 'En Revision') { echo 'verde'; $icon = '&#xe2e6;'; $h=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $h=0;} ?>"><?= $icon; ?></span>
-                            <input class="form-control" type="file" id="formFile">
+                            <span class="material-icons position-absolute <?php if ($p5['oficion_regreso'] != null) { echo 'verde'; $icon = '&#xe2e6;'; $h=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $h=0;} ?>"><?= $icon; ?></span>
+                            <input class="form-control" name="OficioRegreso" type="file" id="formFile">
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -614,9 +621,9 @@ if(!isset($_SESSION['reloadindex'])){header('Refresh: 0'); $_SESSION['reloadinde
                                             $n = 'selected'; $sel=''; $s=''; $r=''; $i=0;
                                         }else{$s = 'selected'; $r=''; $n=''; $sel=''; $i=0;}?>
                                     <option <?=$s?>>-Seleccione uno-</option>
-                                    <option <?=$sel?>>Aceptado ✅</option>
-                                    <option <?=$n?>>No Subido ❌</option>
-                                    <option <?=$r?>>En Revision ⌛️</option>
+                                    <option <?=$sel?> value="Aceptado">Aceptado ✅</option>
+                                    <option <?=$n?> value="No Subido">No Subido ❌</option>
+                                    <option <?=$r?> value="En Revision">En Revision ⌛️</option>
                             </select>
                         </div>
                         <div class="col"></div>
@@ -624,8 +631,9 @@ if(!isset($_SESSION['reloadindex'])){header('Refresh: 0'); $_SESSION['reloadinde
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary">Enviar documentos</button>
+                    <button type="submit" class="btn btn-primary">Enviar documentos</button>
                 </div>
+            </form>
             </div>
         </div>
     </div>
