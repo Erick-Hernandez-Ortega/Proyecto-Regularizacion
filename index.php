@@ -488,26 +488,33 @@ if(!isset($_SESSION['reloadindex'])){header('Refresh: 0'); $_SESSION['reloadinde
                     </h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
+                <form action="src/php/proceso4.php" method="POST" enctype="multipart/form-data">
                 <div class="modal-body">
-                    <h6 class="mb-3 fw-bold">Número de Folio: <?=$p4['folio']?></h6>
-
+                    <div class="row mb-3 g-1">
+                            <div class="col-auto">
+                                <label class="col-form-label">Número de Folio: </label>
+                            </div>
+                            <div class="col-auto">
+                                <input  type="text" readonly class="form-control-plaintext fw-bold" name="folio" id="folio" value="<?=$p4['folio']?>">
+                            </div>
+                    </div>
                     <div class="row mb-3">
                         <div class="col">
                             <label for="formFile" class="form-label fw-bold">Dictamen</label>
                             <span class="material-icons position-absolute <?php if ($p4['dictamen_estatus'] == true) { echo 'verde'; $icon = '&#xe2e6;'; $a=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $a=0;} ?>"><?= $icon; ?></span>
-                            <input class="form-control" type="file" id="formFile" disabled>
+                            <input class="form-control" name="Dictamen" type="file" id="formFile">
                         </div>
                         <div class="col">
                             <label for="formFile" class="form-label fw-bold">Oficio</label>
                             <span class="material-icons position-absolute <?php if ($p4['oficio_estatus'] == true) { echo 'verde'; $icon = '&#xe2e6;'; $b=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $b=0;} ?>"><?= $icon; ?></span>
-                            <input class="form-control" type="file" id="formFile">
+                            <input class="form-control" name="Oficio" type="file" id="formFile">
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col">
                             <label for="formFile" class="form-label fw-bold">Oficio Regreso</label>
-                            <span class="material-icons position-absolute <?php if ($p4['oficio_regreso_estatus'] == 'Aceptado' || $p4['oficio_regreso_estatus'] == 'En Revision') { echo 'verde'; $icon = '&#xe2e6;'; $c=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $c=0;} ?>"><?= $icon; ?></span>
-                            <input class="form-control" type="file" id="formFile">
+                            <span class="material-icons position-absolute <?php if ($p4['oficio_regreso'] != null) { echo 'verde'; $icon = '&#xe2e6;'; $c=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $c=0;} ?>"><?= $icon; ?></span>
+                            <input class="form-control" name="OficioRegreso" type="file" id="formFile">
                         </div>
                         <div class="col">
                             <label for="" class="form-label fw-bold">Estado de Oficio de Regreso</label>
@@ -520,9 +527,9 @@ if(!isset($_SESSION['reloadindex'])){header('Refresh: 0'); $_SESSION['reloadinde
                                             $n = 'selected'; $sel=''; $s=''; $e=''; $d=0;
                                         }else{$s = 'selected'; $e=''; $n=''; $sel=''; $d=0;}?>
                                     <option <?=$s?>>-Seleccione uno-</option>
-                                    <option <?=$sel?>>Aceptado ✅</option>
-                                    <option <?=$n?>>No Subido ❌</option>
-                                    <option <?=$e?>>En Revision ⌛️</option>
+                                    <option <?=$sel?> value="Aceptado">Aceptado ✅</option>
+                                    <option <?=$n?> value="No Subido">No Subido ❌</option>
+                                    <option <?=$e?> value="En Revision">En Revision ⌛️</option>
                             </select>
                         </div>
                     </div>
@@ -530,8 +537,9 @@ if(!isset($_SESSION['reloadindex'])){header('Refresh: 0'); $_SESSION['reloadinde
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary">Enviar documentos</button>
+                    <button type="submit" class="btn btn-primary">Enviar documentos</button>
                 </div>
+                </form>
             </div>
         </div>
     </div>
@@ -548,7 +556,7 @@ if(!isset($_SESSION['reloadindex'])){header('Refresh: 0'); $_SESSION['reloadinde
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form action="src/php/proceso5.php" method="POST" enctype="multipart/form-data">
-                <div class="modal-body">
+                    <div class="modal-body">
                     <div class="row mb-3 g-1">
                             <div class="col-auto">
                                 <label class="col-form-label">Número de Folio: </label>
