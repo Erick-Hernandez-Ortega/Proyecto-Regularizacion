@@ -1,5 +1,6 @@
 <?php include("src/php/db.php");
 $host = $_SERVER['HTTP_HOST'];
+if(!isset($_SESSION['reloadbusqueda'])){header('Refresh: 0'); $_SESSION['reloadbusqueda'] = 1;}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -545,7 +546,7 @@ $host = $_SERVER['HTTP_HOST'];
             </div>
         </div>
     </div>
-    <?php $_SESSION['i4'.$p4['folio']] = $a+$b+$c+$d;}?>
+    <?php $_SESSION['b4'.$p4['folio']] = $a+$b+$c+$d;}?>
     <!-- Modal proceso 5 -->
     <?php $sql6 = "SELECT * FROM presentacion_a_la_comur";
           $query6 = mysqli_query($conn, $sql6);
@@ -647,7 +648,7 @@ $host = $_SERVER['HTTP_HOST'];
             </div>
         </div>
     </div>
-    <?php $_SESSION['i5'.$p5['folio']] = $a+$b+$c+$d+$e+$f+$g+$h+$i;}?>
+    <?php $_SESSION['b5'.$p5['folio']] = $a+$b+$c+$d+$e+$f+$g+$h+$i;}?>
     <!-- Modal proceso 6 -->
     <?php $sql7 = "SELECT * FROM proyecto_definitivo";
           $query7 = mysqli_query($conn, $sql7);
