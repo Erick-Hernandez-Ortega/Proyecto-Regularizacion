@@ -27,7 +27,7 @@ if ($_SESSION['Tipo'] == 'Capturista') header("location: http://$host/Proyecto-R
                 <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 w-25" role="search">
                     <div class="input-group ml">
                         <span class="material-icons input-group-text">&#xe8b6;</span>
-                        <input type="search" class="form-control text-bg-light" placeholder="Buscar...">
+                        <input type="search" name="buscar" class="form-control text-bg-light" placeholder="Buscar...">
                     </div>
                 </form>
                 <div class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
@@ -111,7 +111,12 @@ if ($_SESSION['Tipo'] == 'Capturista') header("location: http://$host/Proyecto-R
                 </tr>
             </thead>
             <tbody>
-            <?php $sql = "SELECT folio FROM solicitud_de_regularizacion WHERE archivar != false";
+            <?php if(!isset($_GET['buscar'])){
+                    $_GET['buscar'] = "";
+                    $buscar = $_GET['buscar'];
+                }
+                $buscar = $_GET['buscar'];
+                $sql = "SELECT folio FROM solicitud_de_regularizacion WHERE archivar != false AND folio LIKE '%".$buscar."%'";
                 $query = mysqli_query($conn, $sql);
                 while ($row = mysqli_fetch_array($query)) { ?>
                 <tr class="table-light">
@@ -420,19 +425,26 @@ if ($_SESSION['Tipo'] == 'Capturista') header("location: http://$host/Proyecto-R
                         la COMUR</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
+                <form action="src/php/proceso3.php" method="POST" enctype="multipart/form-data">
                 <div class="modal-body">
-                    <h6 class="mb-3 fw-bold">Número de Folio: <?=$p3['folio']?></h6>
-
+                        <div class="row mb-3 g-1">
+                            <div class="col-auto">
+                                <label class="col-form-label">Número de Folio: </label>
+                            </div>
+                            <div class="col-auto">
+                                <input  type="text" readonly class="form-control-plaintext fw-bold" name="folio" id="folio" value="<?=$p3['folio']?>">
+                            </div>
+                        </div>
                     <div class="row mb-3">
                         <div class="col">
                             <label for="formFile" class="form-label fw-bold">Oficio</label>
                             <span class="material-icons position-absolute <?php if ($p3['oficio_estatus'] == true) { echo 'verde'; $icon = '&#xe2e6;'; $a=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $a=0;} ?>"><?= $icon; ?></span>
-                            <input class="form-control" type="file" id="formFile">
+                            <input class="form-control" name="Oficio" type="file" id="formFile">
                         </div>
                         <div class="col">
                             <label for="formFile" class="form-label fw-bold">Estudio de opinión</label>
                             <span class="material-icons position-absolute <?php if ($p3['estudio_opinion_estatus'] == true) { echo 'verde'; $icon = '&#xe2e6;'; $b=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $b=0;} ?>"><?= $icon; ?></span>
-                            <input class="form-control" type="file" id="formFile">
+                            <input class="form-control" name="Estudio" type="file" id="formFile">
                         </div>
                     </div>
 
@@ -440,20 +452,20 @@ if ($_SESSION['Tipo'] == 'Capturista') header("location: http://$host/Proyecto-R
                         <div class="col">
                             <label for="formFile" class="form-label fw-bold">Acta de COMUR (Proceso 2)</label>
                             <span class="material-icons position-absolute <?php if ($p3['acta_de_comur_proceso_2_estatus'] == true) { echo 'verde'; $icon = '&#xe2e6;'; $c=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $c=0;} ?>"><?= $icon; ?></span>
-                            <input class="form-control" type="file" id="formFile">
+                            <input class="form-control" name="Acta" type="file" id="formFile">
                         </div>
                         <div class="col">
                             <label for="formFile" class="form-label fw-bold">Acta de COMUR 2</label>
                             <span class="material-icons position-absolute <?php if ($p3['acta_comur_2_estatus'] == true) { echo 'verde'; $icon = '&#xe2e6;'; $d=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $d=0;} ?>"><?= $icon; ?></span>
-                            <input class="form-control" type="file" id="formFile">
+                            <input class="form-control" name="ActaCom" type="file" id="formFile">
                         </div>
                     </div>
 
                     <div class="row mb-3">
                         <div class="col">
                             <label for="formFile" class="form-label fw-bold">Oficio Regreso</label>
-                            <span class="material-icons position-absolute <?php if ($p3['oficio_regreso_estatus'] == 'Aceptado' || $p3['oficio_regreso_estatus'] == 'En Revision') { echo 'verde'; $icon = '&#xe2e6;'; $e=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $e=0;} ?>"><?= $icon; ?></span>
-                            <input class="form-control" type="file" id="formFile">
+                            <span class="material-icons position-absolute <?php if ($p3['oficio_regreso'] != null) { echo 'verde'; $icon = '&#xe2e6;'; $e=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $e=0;} ?>"><?= $icon; ?></span>
+                            <input class="form-control" name="OficioRegreso" type="file" id="formFile">
                         </div>
                         <div class="col">
                             <label for="" class="form-label fw-bold">Estado de Oficio de Regreso</label>
@@ -466,17 +478,18 @@ if ($_SESSION['Tipo'] == 'Capturista') header("location: http://$host/Proyecto-R
                                             $n = 'selected'; $sel=''; $s=''; $r=''; $f=0;
                                         }else{$s = 'selected'; $r=''; $n=''; $sel=''; $f=0;}?>
                                     <option <?=$s?>>-Seleccione uno-</option>
-                                    <option <?=$sel?>>Aceptado ✅</option>
-                                    <option <?=$n?>>No Subido ❌</option>
-                                    <option <?=$r?>>En Revision ⌛️</option>
+                                    <option <?=$sel?> value="Aceptado">Aceptado ✅</option>
+                                    <option <?=$n?> value="No Subido">No Subido ❌</option>
+                                    <option <?=$r?> value="En Revision">En Revision ⌛️</option>
                             </select>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary">Enviar documentos</button>
+                    <button type="submit" class="btn btn-primary">Enviar documentos</button>
                 </div>
+                </form>
             </div>
         </div>
     </div>
