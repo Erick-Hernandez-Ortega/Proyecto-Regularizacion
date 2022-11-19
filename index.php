@@ -678,7 +678,7 @@ if(!isset($_SESSION['reloadindex'])){header('Refresh: 0'); $_SESSION['reloadinde
                     <h1 class="modal-title fs-5" id="staticBackdropLabel">Proceso 6: Proyecto definitivo</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="src/php/proceso6.php" method="post" enctype="multipart/form-data>
+                <form action="src/php/proceso6.php" method="post" enctype="multipart/form-data">
                 <div class="modal-body">
                     <div class="row mb-3 g-1">
                             <div class="col-auto">
