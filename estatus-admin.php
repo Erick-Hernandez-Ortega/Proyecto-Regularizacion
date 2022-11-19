@@ -92,7 +92,7 @@ if(!isset($_SESSION['reloadstatusadmin'])){ header('Refresh: 0'); $_SESSION['rel
         </div>
     </div>
 
-    <div class="contenido mt-3">
+    <div class="contenido mt-4">
 
         <table class="table table-light table-hover text-center mx-auto" id="tabla-folio">
             <thead>

@@ -92,7 +92,7 @@ if(isset($_SESSION['Usuario'])){
         </div>
     </div>
 
-    <div class="contenido mt-3">
+    <div class="contenido mt-4">
 
         <table class="table table-light table-hover text-center mx-auto" id="tabla-folio">
             <thead>
@@ -218,11 +218,21 @@ if(isset($_SESSION['Usuario'])){
                                 <td>
                                 <span class="material-icons <?php if ($p1['solicidud_estatus'] == true) {echo 'verde';$icon = '&#xe2e6;'; $a=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $a=0;}?>"><?= $icon; ?></span>
                                 </td>
+                                <td>
+                                    <a href="" class="link-secondary">
+                                        <span class="material-icons">&#xeaf3;</span>
+                                    </a>
+                                </td>
                             </tr>
                             <tr>
                                 <td scope="row">Escritutas</td>
                                 <td>
                                 <span class="material-icons <?php if ($p1['escritura_estatus'] == true) {echo 'verde';$icon = '&#xe2e6;'; $b=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $b=0;}?>"><?= $icon; ?></span>
+                                </td>
+                                <td>
+                                    <a href="" class="link-secondary">
+                                        <span class="material-icons">&#xeaf3;</span>
+                                    </a>
                                 </td>
                             </tr>
                             <tr>
@@ -230,11 +240,21 @@ if(isset($_SESSION['Usuario'])){
                                 <td>
                                 <span class="material-icons <?php if ($p1['identificacion_estatus'] == true) {echo 'verde';$icon = '&#xe2e6;'; $c=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $c=0;}?>"><?= $icon; ?></span>
                                 </td>
+                                <td>
+                                    <a href="" class="link-secondary">
+                                        <span class="material-icons">&#xeaf3;</span>
+                                    </a>
+                                </td>
                             </tr>
                             <tr>
                                 <td scope="row">Historial Catastral</td>
                                 <td>
                                 <span class="material-icons <?php if ($p1['historial_catastral_estatus'] == true) {echo 'verde';$icon = '&#xe2e6;'; $d=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $d=0;}?>"><?= $icon; ?></span>
+                                </td>
+                                <td>
+                                    <a href="" class="link-secondary">
+                                        <span class="material-icons">&#xeaf3;</span>
+                                    </a>
                                 </td>
                             </tr>
                             <tr>
@@ -242,11 +262,21 @@ if(isset($_SESSION['Usuario'])){
                                 <td>
                                 <span class="material-icons <?php if ($p1['resolucion_idicial_estatus'] == true) {echo 'verde';$icon = '&#xe2e6;'; $e=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $e=0;}?>"><?= $icon; ?></span>
                                 </td>
+                                <td>
+                                    <a href="" class="link-secondary">
+                                        <span class="material-icons">&#xeaf3;</span>
+                                    </a>
+                                </td>
                             </tr>
                             <tr>
                                 <td scope="row">Certificación de hechos</td>
                                 <td>
                                 <span class="material-icons <?php if ($p1['certificacion_de_hechos_estatus'] == true) {echo 'verde';$icon = '&#xe2e6;'; $f=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $f=0;}?>"><?= $icon; ?></span>
+                                </td>
+                                <td>
+                                    <a href="" class="link-secondary">
+                                        <span class="material-icons">&#xeaf3;</span>
+                                    </a>
                                 </td>
                             </tr>
                             <tr>
@@ -254,17 +284,32 @@ if(isset($_SESSION['Usuario'])){
                                 <td>
                                 <span class="material-icons <?php if ($p1['foto_aerea_estatus'] == true) {echo 'verde';$icon = '&#xe2e6;';$g=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $g=0;}?>"><?= $icon; ?></span>
                                 </td>
+                                <td>
+                                    <a href="" class="link-secondary">
+                                        <span class="material-icons">&#xeaf3;</span>
+                                    </a>
+                                </td>
                             </tr>
                             <tr>
                                 <td scope="row">Oficio</td>
                                 <td>
                                 <span class="material-icons <?php if ($p1['oficio_estatus'] == true) { echo 'verde'; $icon = '&#xe2e6;'; $h=1;} else { echo 'rojo'; $icon = '&#xe5c9;';$h=0;} ?>"><?= $icon; ?></span>
                                 </td>
+                                <td>
+                                    <a href="" class="link-secondary">
+                                        <span class="material-icons">&#xeaf3;</span>
+                                    </a>
+                                </td>
                             </tr>
                             <tr>
                                 <td scope="row">Oficio de regreso</td>
                                 <td>
                                 <span class="material-icons <?php if ($p1['oficio_regreso_estatus'] == 'Aceptado') { echo 'verde'; $icon = '&#xe2e6;'; $i=1;} else { echo 'rojo'; $icon = '&#xe5c9;';$i=0;} ?>"><?= $icon; ?></span>
+                                </td>
+                                <td>
+                                    <a href="" class="link-secondary">
+                                        <span class="material-icons">&#xeaf3;</span>
+                                    </a>
                                 </td>
                             </tr>
                         </tbody>
@@ -667,7 +712,7 @@ if(isset($_SESSION['Usuario'])){
     <br>
 
     <!-- FOOTER -->
-    <footer class="w-100 py-4 flex-shrink-0 text-bg-light">
+    <footer class="w-100 py-4 flex-shrink-0 text-bg-light mt-4">
         <div class="container py-3">
             <div class="row gy-4 gx-5">
                 <div class="col-lg-4 col-md-6">
