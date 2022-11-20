@@ -936,7 +936,7 @@ if(!isset($_SESSION['reloadadmin'])){header('Refresh: 0'); $_SESSION['reloadadmi
                     <input type="text" readonly class="form-control-plaintext" name="folio" id="folio" value="<?=$f['folio']?>"> -->
                     <div class="row mb-3 g-1">
                             <div class="col-auto">
-                                <label class="col-form-label">Número de Folio: </label>
+                                <label class="col-form-label">Número dee Folio: </label>
                             </div>
                             <div class="col-auto">
                                 <input  type="text" readonly class="form-control-plaintext fw-bold" name="folio" id="folio" value="<?=$f['folio']?>">
