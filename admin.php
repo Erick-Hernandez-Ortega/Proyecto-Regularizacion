@@ -12,13 +12,13 @@ if(!isset($_SESSION['reloadadmin'])){header('Refresh: 0'); $_SESSION['reloadadmi
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="src/css/index.css" type="text/css" rel="stylesheet">
+    <link href="src/css/index.css?v1.1" type="text/css" rel="stylesheet">
     <link rel="shortcut icon" href="src/img/Logo-1-icono.ico">
     <title>Regularización</title>
 </head>
 
 <body>
-    <header class="p-3 text-bg-light">
+    <header class="p-3 colorfeo">
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                 <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-decoration-none">
@@ -37,7 +37,7 @@ if(!isset($_SESSION['reloadadmin'])){header('Refresh: 0'); $_SESSION['reloadadmi
 
                 <div class="d-flex">
                     <span class="material-icons icono">&#xe853;</span>
-                    <h6 class="mt-2"><?php if (isset($_SESSION['Usuario'])) {
+                    <h6 class="mt-2 colorusuario"><?php if (isset($_SESSION['Usuario'])) {
                                             echo $_SESSION['Usuario'];
                                         } else {
                                             $_SESSION['mensaje'] = "Necesitas iniciar sesión...";
@@ -48,7 +48,7 @@ if(!isset($_SESSION['reloadadmin'])){header('Refresh: 0'); $_SESSION['reloadadmi
                                         } ?></h6>
                 </div>
 
-                <nav class="navbar bg-light border-2" aria-label="Light offcanvas navbar">
+                <nav class="navbar border-2 colormenu" aria-label="Light offcanvas navbar">
                     <div class="container-fluid">
                         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbarLight" aria-controls="offcanvasNavbarLight">
                             <span class="navbar-toggler-icon"></span>
@@ -79,13 +79,13 @@ if(!isset($_SESSION['reloadadmin'])){header('Refresh: 0'); $_SESSION['reloadadmi
 
     <div class="text-center bs">
         <div class="row w-100">
-            <a class="col text-decoration-none link p-2 borde" href="admin.php">
+            <a class="col text-decoration-none link p-2 borde text-white" href="admin.php">
                 Principal
             </a>
-            <a class="col text-decoration-none link p-2 borde" href="" data-bs-toggle="modal" data-bs-target="#modalBusqueda">
+            <a class="col text-decoration-none link p-2 borde text-white" href="" data-bs-toggle="modal" data-bs-target="#modalBusqueda">
                 Búsqueda Avanzada
             </a>
-            <a class="col text-decoration-none link p-2" href="estatus.php">
+            <a class="col text-decoration-none link p-2 text-white" href="estatus.php">
                 Estatus de documentos
             </a>
         </div>
@@ -936,7 +936,7 @@ if(!isset($_SESSION['reloadadmin'])){header('Refresh: 0'); $_SESSION['reloadadmi
                     <input type="text" readonly class="form-control-plaintext" name="folio" id="folio" value="<?=$f['folio']?>"> -->
                     <div class="row mb-3 g-1">
                             <div class="col-auto">
-                                <label class="col-form-label">Número dee Folio: </label>
+                                <label class="col-form-label">Número de Folio: </label>
                             </div>
                             <div class="col-auto">
                                 <input  type="text" readonly class="form-control-plaintext fw-bold" name="folio" id="folio" value="<?=$f['folio']?>">
@@ -997,19 +997,19 @@ if(!isset($_SESSION['reloadadmin'])){header('Refresh: 0'); $_SESSION['reloadadmi
     <br>
 
     <!-- FOOTER -->
-    <footer class="w-100 py-4 flex-shrink-0 text-bg-light mt-4">
+    <footer class="w-100 py-4 flex-shrink-0 mt-4 colorfeo">
         <div class="container py-3">
             <div class="row gy-4 gx-5">
                 <div class="col-lg-4 col-md-6">
                     <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-decoration-none">
                         <img alt="" src="src/img/Logo 1.png" class="bi" width="66" height="80" role="img">
                     </a>
-                    <p class="text-muted">Ayuntamiento de Tonalá</p>
-                    <p class="text-muted">&copy; Copyrights. Todos los derechos reservados.</p>
+                    <p class="text-black">Ayuntamiento de Tonalá</p>
+                    <p class="text-black">&copy; Copyrights. Todos los derechos reservados.</p>
                 </div>
                 <div class="col-lg-2 col-md-6">
                     <h5 class="text-black mb-3">Direccion</h5>
-                    <p class="small text-muted">Calle Pino Suarez NO.32, Tonalá Centro C.P. 45400, Tonalá, Jalisco.</p>
+                    <p class="small text-black">Calle Pino Suarez NO.32, Tonalá Centro C.P. 45400, Tonalá, Jalisco.</p>
                 </div>
                 <div class="col-lg-2 col-md-6">
                     <h5 class="text-black mb-3">Redes</h5>

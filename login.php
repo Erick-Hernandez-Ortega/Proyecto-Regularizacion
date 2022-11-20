@@ -14,13 +14,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="src/css/login.css" type="text/css">
+    <link rel="stylesheet" href="src/css/login.css?v1.1" type="text/css">
     <link rel="shortcut icon" href="src/img/Logo-1-icono.ico">
     <title>Iniciar sesión</title>
 </head>
 
 <body>
-    <header class="p-3 text-bg-light">
+    <header class="p-3 colorfeo">
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                 <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-decoration-none">
