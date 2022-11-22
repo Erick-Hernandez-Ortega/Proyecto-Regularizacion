@@ -61,6 +61,11 @@ footer {
   color: var(--blanco);
 }
 
+#tituloArchivado{
+  width: 95%;
+  margin: auto;
+}
+
 .usuario {
   color: var(--blanco);
 }
