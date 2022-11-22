@@ -1,8 +1,7 @@
-<?php 
-include("src/php/db.php");
+<?php include("src/php/db.php");
 $host = $_SERVER['HTTP_HOST'];
-if ($_SESSION['Tipo'] == 'Capturista') header("location: http://$host/Proyecto-Regularizacion/index.php"); 
-if(!isset($_SESSION['reloadarchivado'])){header('Refresh: 0'); $_SESSION['reloadarchivado'] = 1;}?>
+if(!isset($_SESSION['reloadbusqueda'])){header('Refresh: 0'); $_SESSION['reloadbusqueda'] = 1;}
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -14,7 +13,11 @@ if(!isset($_SESSION['reloadarchivado'])){header('Refresh: 0'); $_SESSION['reload
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="src/css/index.css" type="text/css" rel="stylesheet">
     <link rel="shortcut icon" href="src/img/Logo-1-icono.ico">
-    <title>Regularización</title>
+
+    <title>Busqueda:
+        <?php $buscar = $_POST['folio'];
+        echo $buscar; ?>
+    </title>
 </head>
 
 <body>
@@ -28,7 +31,7 @@ if(!isset($_SESSION['reloadarchivado'])){header('Refresh: 0'); $_SESSION['reload
                 <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 w-25" role="search">
                     <div class="input-group ml">
                         <span class="material-icons input-group-text">&#xe8b6;</span>
-                        <input type="search" name="buscar" class="form-control text-bg-light" placeholder="Buscar...">
+                        <input type="search" class="form-control text-bg-light" placeholder="Buscar...">
                     </div>
                 </form>
                 <div class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
@@ -42,9 +45,8 @@ if(!isset($_SESSION['reloadarchivado'])){header('Refresh: 0'); $_SESSION['reload
                                         } else {
                                             $_SESSION['mensaje'] = "Necesitas iniciar sesión...";
                                             $_SESSION['color'] = 'danger';
-                                            $_SESSION['destroy'] = true;
-                                            $host = $_SERVER['HTTP_HOST'];
-                                            header("location: http://$host/Proyecto-Regularizacion/login.php");
+                                            $_SESSION['destroy'] = false;
+                                            echo '<script>window.location="http://' . $host . '/Proyecto-Regularizacion/login.php"</script>';
                                         } ?></h6>
                 </div>
 
@@ -76,10 +78,10 @@ if(!isset($_SESSION['reloadarchivado'])){header('Refresh: 0'); $_SESSION['reload
         </div>
     </header>
 
-
+    <!-- Submenu -->
     <div class="text-center bs">
         <div class="row w-100">
-            <a class="col text-decoration-none link p-2 borde" href="admin.php">
+            <a class="col text-decoration-none link p-2 borde" href="index.php">
                 Principal
             </a>
             <a class="col text-decoration-none link p-2 borde" href="" data-bs-toggle="modal" data-bs-target="#modalBusqueda">
@@ -91,13 +93,10 @@ if(!isset($_SESSION['reloadarchivado'])){header('Refresh: 0'); $_SESSION['reload
         </div>
     </div>
 
-    <!-- <div class="agregar-folio mt-3">
-        <a href="admin.php" class="btn btn-primary">Página principal</a>
-    </div> -->
-
-    <div class="divTabla mt-3">
-        <table class="table table-hover text-center caption-top" id="tablaCentral">
-            <caption style="color: white; font-weight: bold;">Archivados</caption>
+    <!-- Tabla que no mas mostrara un unico resultado de la busqueda -->
+    <div class="divTabla mt-4">
+        <table class="table table-hover text-center " id="tablaCentral">
+            <!-- <caption>List of users</caption> -->
             <thead>
                 <tr class="table-dark">
                     <th scope="col">FOLIO</th>
@@ -108,22 +107,38 @@ if(!isset($_SESSION['reloadarchivado'])){header('Refresh: 0'); $_SESSION['reload
                     <th scope="col">Proceso 5</th>
                     <th scope="col">Proceso 6</th>
                     <th scope="col">Proceso 7</th>
-                    <th scope="col">Acciones</th>
                 </tr>
             </thead>
             <tbody>
-            <?php if(!isset($_GET['buscar'])){
-                    $_GET['buscar'] = "";
-                    $buscar = $_GET['buscar'];
-                }
-                $buscar = $_GET['buscar'];
-                $sql = "SELECT folio FROM solicitud_de_regularizacion WHERE archivar != false AND folio LIKE '%".$buscar."%'";
+                <?php
+                if ($buscar == null) {
+                    $_SESSION['busqueda'] = false;
+                    $_SESSION['colorToast'] = 'rojo';
+                    $_SESSION['mensajeToast'] = "Ingresa un folio para continuar...";
+                    if ($_SESSION['Tipo'] == 'Capturista') {
+                        echo '<script>window.location="http://' . $host . '/Proyecto-Regularizacion/index.php"</script>';
+                    }
+                    echo '<script>window.location="http://' . $host . '/Proyecto-Regularizacion/admin.php"</script>';
+                }else{
+                $sql = "SELECT * FROM solicitud_de_regularizacion WHERE folio='$buscar'";
+                $sql2 = "SELECT * FROM solicitud_de_regularizacion WHERE folio='$buscar'";
                 $query = mysqli_query($conn, $sql);
+                $query2 = mysqli_query($conn, $sql2);
+                $a = mysqli_fetch_array($query2);
+                if ($a == '') {
+                    $_SESSION['busqueda'] = false;
+                    $_SESSION['mensajeToast'] = "El folio que ingresaste no existe...";
+                    $_SESSION['colorToast'] = 'rojo';
+                    if ($_SESSION['Tipo'] == 'Capturista') {
+                        echo '<script>window.location="http://' . $host . '/Proyecto-Regularizacion/index.php"</script>';
+                    }
+                    echo '<script>window.location="http://' . $host . '/Proyecto-Regularizacion/admin.php"</script>';
+                }
                 while ($row = mysqli_fetch_array($query)) { ?>
-                <tr class="table-light">
-                <th scope="row"><?= $row['folio'] ?></th>
+                    <tr class="table-light">
+                        <th scope="row"><?= $row['folio'] ?></th>
                         <td>
-                            <button type="button" class="btn btn-<?php if($_SESSION['i1'.$row['folio']]==10){ 
+                            <button type="button" class="btn btn-<?php if($_SESSION['b1'.$row['folio']]==10){ 
                                 echo "success"; $comentario = '&#xe876;'; $estado = 'Completado';
                                 }else if($_SESSION['i1'.$row['folio']]==0){
                                     echo "danger"; $comentario = '&#xe89c;'; $estado ='Sin empezar';
@@ -134,7 +149,7 @@ if(!isset($_SESSION['reloadarchivado'])){header('Refresh: 0'); $_SESSION['reload
                             </button>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-<?php if($_SESSION['i2'.$row['folio']]==6){ 
+                            <button type="button" class="btn btn-<?php if($_SESSION['b2'.$row['folio']]==6){ 
                                 echo "success"; $comentario = '&#xe876;'; $estado = 'Completado';
                                 }else if($_SESSION['i2'.$row['folio']]==0){
                                     echo "danger"; $comentario = '&#xe89c;'; $estado ='Sin empezar';
@@ -145,7 +160,7 @@ if(!isset($_SESSION['reloadarchivado'])){header('Refresh: 0'); $_SESSION['reload
                             </button>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-<?php if($_SESSION['i3'.$row['folio']]==6){ 
+                            <button type="button" class="btn btn-<?php if($_SESSION['b3'.$row['folio']]==6){ 
                                 echo "success"; $comentario = '&#xe876;'; $estado = 'Completado';
                                 }else if($_SESSION['i3'.$row['folio']]==0){
                                     echo "danger"; $comentario = '&#xe89c;'; $estado ='Sin empezar';
@@ -156,7 +171,7 @@ if(!isset($_SESSION['reloadarchivado'])){header('Refresh: 0'); $_SESSION['reload
                             </button>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-<?php if($_SESSION['i4'.$row['folio']]==4){ 
+                            <button type="button" class="btn btn-<?php if($_SESSION['b4'.$row['folio']]==4){ 
                                 echo "success"; $comentario = '&#xe876;'; $estado = 'Completado';
                                 }else if($_SESSION['i4'.$row['folio']]==0){
                                     echo "danger"; $comentario = '&#xe89c;'; $estado ='Sin empezar';
@@ -167,7 +182,7 @@ if(!isset($_SESSION['reloadarchivado'])){header('Refresh: 0'); $_SESSION['reload
                             </button>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-<?php if($_SESSION['i5'.$row['folio']]==9){ 
+                            <button type="button" class="btn btn-<?php if($_SESSION['b5'.$row['folio']]==9){ 
                                 echo "success"; $comentario = '&#xe876;'; $estado = 'Completado';
                                 }else if($_SESSION['i5'.$row['folio']]==0){
                                     echo "danger"; $comentario = '&#xe89c;'; $estado ='Sin empezar';
@@ -178,7 +193,7 @@ if(!isset($_SESSION['reloadarchivado'])){header('Refresh: 0'); $_SESSION['reload
                             </button>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-<?php if($_SESSION['i6'.$row['folio']]==1){ 
+                            <button type="button" class="btn btn-<?php if($_SESSION['b6'.$row['folio']]==1){ 
                                 echo "success"; $comentario = '&#xe876;'; $estado = 'Completado';
                                 }else{
                                     echo "danger"; $comentario = '&#xe89c;'; $estado ='Sin empezar';
@@ -187,7 +202,7 @@ if(!isset($_SESSION['reloadarchivado'])){header('Refresh: 0'); $_SESSION['reload
                             </button>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-<?php if($_SESSION['i7'.$row['folio']]==16){ 
+                            <button type="button" class="btn btn-<?php if($_SESSION['b7'.$row['folio']]==16){ 
                                 echo "success"; $comentario = '&#xe876;'; $estado = 'Completado';
                                 }else if($_SESSION['i7'.$row['folio']]==0){
                                     echo "danger"; $comentario = '&#xe89c;'; $estado ='Sin empezar';
@@ -197,45 +212,23 @@ if(!isset($_SESSION['reloadarchivado'])){header('Refresh: 0'); $_SESSION['reload
                                 <span class="material-icons d-flex" data-bs-toggle="modal" data-bs-target="[id='<?="g".$row['folio'] ?>']"><?=$comentario?></span>
                             </button>
                         </td>
-                    <td>
-                        <button type="button" class="btn btn-success px-1" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Desarchivar">
-                            <span class="material-icons d-flex" data-bs-toggle="modal" data-bs-target="[id='<?=$row['folio']?>']">&#xe8fb;</span>
-                        </button>
-                    </td>
-                </tr>
-        <?php }?>
+                    </tr>
+                <?php }} ?>
             </tbody>
         </table>
     </div>
 
-    <!-- Modal Folio -->
-    <div class="modal fade" id="modalFolio" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Agregar Folio</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row mb-3 align-items-center">
-                        <div class="col-auto">
-                            <label for="inputPassword6" class="col-form-label fw-bold">Número de folio</label>
-                        </div>
-                        <div class="col-auto">
-                            <input type="text" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn" style="background-color: #852120; color: white;">Agregar</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
-    <!-- Modal proceso 1-->
-    <?php
+       <!-- Modal proceso 1-->
+       <?php
     $sql2 = "SELECT * FROM solicitud_de_regularizacion";
     $query2 = mysqli_query($conn, $sql2);
     while ($mod = mysqli_fetch_array($query2)) { ?>
@@ -250,7 +243,14 @@ if(!isset($_SESSION['reloadarchivado'])){header('Refresh: 0'); $_SESSION['reload
                     </div>
                     <form action="src/php/proceso1.php" method="POST" enctype="multipart/form-data">
                     <div class="modal-body">
-                        <h6 class="fw-bold mb-3">Numero de Folio: <?= $mod['folio']; ?></h6>
+                        <div class="row mb-3 g-1">
+                            <div class="col-auto">
+                                <label class="col-form-label">Número de Folio: </label>
+                            </div>
+                            <div class="col-auto">
+                                <input  type="text" readonly class="form-control-plaintext fw-bold" name="folio" id="folio" value="<?=$mod['folio']?>">
+                            </div>
+                        </div>
                         <div class="row mb-3">
                             <div class="col">
                                 <label for="formFile" class="form-label fw-bold">Solicitud</label>
@@ -303,12 +303,12 @@ if(!isset($_SESSION['reloadarchivado'])){header('Refresh: 0'); $_SESSION['reload
                         <div class="row mb-3">
                             <div class="col">
                                 <label for="formFile" class="form-label fw-bold">Oficio Regreso</label>
-                                <span class="material-icons position-absolute <?php if ($mod['oficio_regreso']!=null) { echo 'verde'; $icon = '&#xe2e6;'; $i=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $i=0;} ?>"><?= $icon; ?></span>
+                                <span class="material-icons position-absolute <?php if ($mod['oficio_regreso'] != null) { echo 'verde'; $icon = '&#xe2e6;'; $i=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $i=0;} ?>"><?= $icon; ?></span>
                                 <input class="form-control" name="OficioRegreso" type="file" id="formFile">
                             </div>
                             <div class="col">
                                 <label for="" class="form-label fw-bold">Estado de Oficio de Regreso</label>
-                                <select class="form-control" name="estado-ofici o" required>
+                                <select class="form-control" name="estado-oficio" required>
                                     <?php if($mod['oficio_regreso_estatus']=='Aceptado'){
                                         $sel = 'selected'; $s=''; $n=''; $r=''; $j = 1;
                                         }else if($mod['oficio_regreso_estatus']=='En Revision'){
@@ -332,7 +332,7 @@ if(!isset($_SESSION['reloadarchivado'])){header('Refresh: 0'); $_SESSION['reload
                 </div>
             </div>
         </div>
-    <?php $_SESSION['i1'.$mod['folio']] = $a+$b+$c+$d+$e+$f+$g+$h+$i+$j;} ?>
+    <?php $_SESSION['b1'.$mod['folio']] = $a+$b+$c+$d+$e+$f+$g+$h+$i+$j;} ?>
     <!-- Modal proceso 2 Completado -->
     <?php $sql3 = "SELECT * FROM presentacion_de_documentos_a_la_comur";
           $query3 = mysqli_query($conn, $sql3);
@@ -413,7 +413,7 @@ if(!isset($_SESSION['reloadarchivado'])){header('Refresh: 0'); $_SESSION['reload
             </div>
         </div>
     </div>
-    <?php $_SESSION['i2'.$p2['folio']] = $a+$b+$c+$d+$e+$f;}?>
+    <?php $_SESSION['b2'.$p2['folio']] = $a+$b+$c+$d+$e+$f;}?>
     <!-- Modal proceso 3 -->
     <?php $sql4 = "SELECT * FROM segunda_presentacion_de_documentos_a_la_comur";
           $query4 = mysqli_query($conn, $sql4);
@@ -494,7 +494,7 @@ if(!isset($_SESSION['reloadarchivado'])){header('Refresh: 0'); $_SESSION['reload
             </div>
         </div>
     </div>
-    <?php $_SESSION['i3'.$p3['folio']] = $a+$b+$c+$d+$e+$f;}?>
+    <?php $_SESSION['b3'.$p3['folio']] = $a+$b+$c+$d+$e+$f;}?>
     <!-- Modal proceso 4 -->
     <?php $sql5 = "SELECT * FROM solicitud_por_oficio_a_la_prodeur";
           $query5 = mysqli_query($conn, $sql5);
@@ -562,7 +562,7 @@ if(!isset($_SESSION['reloadarchivado'])){header('Refresh: 0'); $_SESSION['reload
             </div>
         </div>
     </div>
-    <?php $_SESSION['i4'.$p4['folio']] = $a+$b+$c+$d;}?>
+    <?php $_SESSION['b4'.$p4['folio']] = $a+$b+$c+$d;}?>
     <!-- Modal proceso 5 -->
     <?php $sql6 = "SELECT * FROM presentacion_a_la_comur";
           $query6 = mysqli_query($conn, $sql6);
@@ -664,7 +664,7 @@ if(!isset($_SESSION['reloadarchivado'])){header('Refresh: 0'); $_SESSION['reload
             </div>
         </div>
     </div>
-    <?php $_SESSION['i5'.$p5['folio']] = $a+$b+$c+$d+$e+$f+$g+$h+$i;}?>
+    <?php $_SESSION['b5'.$p5['folio']] = $a+$b+$c+$d+$e+$f+$g+$h+$i;}?>
     <!-- Modal proceso 6 -->
     <?php $sql7 = "SELECT * FROM proyecto_definitivo";
           $query7 = mysqli_query($conn, $sql7);
@@ -696,13 +696,13 @@ if(!isset($_SESSION['reloadarchivado'])){header('Refresh: 0'); $_SESSION['reload
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="subtmit" class="btn btn-primary">Enviar documentos</button>
+                    <button type="submit" class="btn btn-primary">Enviar documentos</button>
                 </div>
                 </form>
             </div>
         </div>
     </div>
-    <?php $_SESSION['i6'.$p6['folio']] = $a;}?>
+    <?php $_SESSION['b6'.$p6['folio']] = $a;}?>
     <!-- Modal proceso 7  -->
     <?php $sql8 = "SELECT * FROM convenio_de_regularizacion";
           $query8 = mysqli_query($conn, $sql8);
@@ -908,40 +908,7 @@ if(!isset($_SESSION['reloadarchivado'])){header('Refresh: 0'); $_SESSION['reload
             </div>
         </div>
     </div>
-    <?php $_SESSION['i7'.$p7['folio']] = $a+$b+$c+$d+$e+$f+$g+$h+$i+$j+$k+$l+$m+$n+$o+$p;}?>
-    <!-- Modal Eliminar-->
-    <?php $fol = "SELECT * FROM solicitud_de_regularizacion WHERE archivar = true";
-          $queryf = mysqli_query($conn, $fol);
-          while($f = mysqli_fetch_array($queryf)){?>
-    <div class="modal fade" id="<?=$f['folio']?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-x1">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Desarchivar consulta</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                    </button>
-                </div>
-                <form action="src/php/desarchivar.php" method="post">
-                <div class="modal-body">
-                    <p>¿Seguro que desea desarchivar esta consulta?</p>
-                    <div class="row mb-3 g-1">
-                            <div class="col-auto">
-                                <label class="col-form-label">Folio: </label>
-                            </div>
-                            <div class="col-auto">
-                                <input  type="text" readonly class="form-control-plaintext fw-bold" name="folio" id="folio" value="<?=$f['folio']?>">
-                            </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-success" data-dismiss="modal">Desarchivar</button>
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancelar</button>
-                </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <?php }?>
+    <?php $_SESSION['b7'.$p7['folio']] = $a+$b+$c+$d+$e+$f+$g+$h+$i+$j+$k+$l+$m+$n+$o+$p;}?>
     <!-- Modal busqueda avanzada -->
     <div class="modal fade" id="modalBusqueda" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
@@ -952,7 +919,7 @@ if(!isset($_SESSION['reloadarchivado'])){header('Refresh: 0'); $_SESSION['reload
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="busqueda.php" method="POST">
+                    <form action="busqueda.php" method="post">
                         <label class="mb-1">Por folio</label>
                         <div class="input-group mb-3">
                             <span class="material-icons input-group-text">&#xe2c7;</span>
@@ -968,28 +935,14 @@ if(!isset($_SESSION['reloadarchivado'])){header('Refresh: 0'); $_SESSION['reload
         </div>
     </div>
 
-    <!-- Toast -->
-    <div class="toast-container position-fixed top-0 start-50 translate-middle-x p-4">
-        <div id="toastBusqueda" class="toast text-bg-dark" role="alert" aria-live="assertive" aria-atomic="true">
-            <div style="background-color: white;" class="toast-header">
-                <img style="width: 20px; height:20px;" src="src/img/<?= $_SESSION['colorToast'] ?>.jpg" class="rounded me-2" alt="rojo">
-                <strong style="color: black;" class="me-auto">Mensaje</strong>
-                <small style="color:black;">hace 1 segundo</small>
-                <button type="button" class="btn-close btn-close-dark" data-bs-dismiss="toast" aria-label="Close"></button>
-            </div>
-            <div class="toast-body">
-                <?php if (isset($_SESSION['mensajeToast'])) echo $_SESSION['mensajeToast']; ?>
-            </div>
-        </div>
-    </div>
 
 
     <!-- FOOTER -->
-    <footer class="w-100 py-4 flex-shrink-0 text-bg-light">
+    <footer class="w-100 py-4 flex-shrink-0 text-bg-light mt-4">
         <div class="container py-3">
             <div class="row gy-4 gx-5">
                 <div class="col-lg-4 col-md-6">
-                    <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-decoration-none">
+                    <a href="index.php" class="d-flex align-items-center mb-2 mb-lg-0 text-decoration-none">
                         <img alt="" src="src/img/Logo 1.png" class="bi" width="66" height="80" role="img">
                     </a>
                     <p class="text-muted">Ayuntamiento de Tonalá</p>
@@ -1029,26 +982,17 @@ if(!isset($_SESSION['reloadarchivado'])){header('Refresh: 0'); $_SESSION['reload
                     <h5 class="text-black mb-3">Contacto</h5>
                     <ul class="list-unstyled text-muted">
                         <li><a href="#" class="text-decoration-none">Tel. 33-35-86-60-00</a></li>
-                        <li><a href="https://tonala.gob.mx/portal/" target="blank" class="text-decoration-none">www.tonalá.gob.mx</a></li>
+                        <li><a href="#" class="text-decoration-none">www.tonalá.gob.mx</a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </footer>
 
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <script>
         const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
         const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
-    </script>
-    <script>
-        <?php if ($_SESSION['busqueda'] == false) { ?>
-            const toast = document.getElementById('toastBusqueda')
-            const t = new bootstrap.Toast(toast)
-            t.show()
-        <?php $_SESSION['busqueda'] = true;
-        } ?>
     </script>
 </body>
 
