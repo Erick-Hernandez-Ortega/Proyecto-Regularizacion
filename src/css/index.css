@@ -1,8 +1,7 @@
 :root {
   /*  Variables de css */
-  --tinto: #852120;
-  --beige: #f9e9ce;
-  --gris-claro: #9c9c9c;
+  --tinto: #7b2613;
+  --blanco: #f3f3f3;
   --gris-obscuro: #545454;
 }
 
@@ -11,7 +10,7 @@
 }
 
 .bs {
-  background-color: var(--gris-claro);
+  background-color: rgb(39, 39, 39);
 }
 
 .borde {
@@ -24,7 +23,7 @@
 }
 
 .link:hover {
-  background-color: var(--beige);
+  background-color: var(--gris-obscuro);
   color: black;
 }
 
@@ -33,12 +32,18 @@ header,
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-body {
+header,
+.c-tinto {
   background-color: var(--tinto);
+}
+
+body {
+  background-color: var(--blanco);
 }
 
 footer {
   box-shadow: rgba(0, 0, 0, 0.35) 15px 0px 15px;
+  background-color: var(--tinto);
 }
 
 .ml {
@@ -53,22 +58,23 @@ footer {
   font-weight: 200;
   font-size: 2rem;
   margin-right: 10px;
+  color: var(--blanco);
+}
+
+.usuario {
+  color: var(--blanco);
 }
 
 .divTabla {
   width: 95%;
   margin: auto;
   max-height: 600px;
-  overflow-y: scroll;  
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
 
 .agregar-folio {
   width: 95%;
   margin: auto;
-}
-
-table {
-  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
 
 thead {

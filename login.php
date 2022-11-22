@@ -1,9 +1,9 @@
-<?php session_start(); 
-      if(isset($_SESSION['Usuario'])){ 
-        $host = $_SERVER['HTTP_HOST']; 
-        if($_SESSION['Tipo']=='Capturista') header("location: http://$host/Proyecto-Regularizacion/index.php");
-        else header("location: http://$host/Proyecto-Regularizacion/admin.php"); 
-    }
+<?php session_start();
+if (isset($_SESSION['Usuario'])) {
+    $host = $_SERVER['HTTP_HOST'];
+    if ($_SESSION['Tipo'] == 'Capturista') header("location: http://$host/Proyecto-Regularizacion/index.php");
+    else header("location: http://$host/Proyecto-Regularizacion/admin.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
