@@ -12,7 +12,7 @@ if(!isset($_SESSION['reloadarchivado'])){header('Refresh: 0'); $_SESSION['reload
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="src/css/index.css" type="text/css" rel="stylesheet">
+    <link href="src/css/index.css?v1.2" type="text/css" rel="stylesheet">
     <link rel="shortcut icon" href="src/img/Logo-1-icono.ico">
     <title>Regularización</title>
 </head>
