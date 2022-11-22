@@ -1,8 +1,7 @@
 :root {
   /*  Variables de css */
-  --tinto: #852120;
-  --beige: #f9e9ce;
-  --gris-claro: #9c9c9c;
+  --tinto: #7B2613;
+  --blanco: #F3F3F3;
   --gris-obscuro: #545454;
 }
 
@@ -11,11 +10,12 @@
 }
 
 body {
-  background-color: var(--beige);
+  background-color: var(--blanco);
 }
 
 header {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: var(--tinto);
 }
 
 .login {
