@@ -109,7 +109,7 @@ if (!isset($_SESSION['reloadindex'])) {
         </button>
     </div>
 
-    <div class="divTabla mt-3 overflow-auto">
+    <div class="divTabla mt-3 overflow-auto text-bg-light">
         <table class="table table-hover text-center" id="tablaCentral">
             <thead>
                 <tr class="table-dark">
