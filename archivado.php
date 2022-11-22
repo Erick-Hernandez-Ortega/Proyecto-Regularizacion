@@ -1,7 +1,8 @@
 <?php 
 include("src/php/db.php");
 $host = $_SERVER['HTTP_HOST'];
-if ($_SESSION['Tipo'] == 'Capturista') header("location: http://$host/Proyecto-Regularizacion/index.php"); ?>
+if ($_SESSION['Tipo'] == 'Capturista') header("location: http://$host/Proyecto-Regularizacion/index.php"); 
+if(!isset($_SESSION['reloadarchivado'])){header('Refresh: 0'); $_SESSION['reloadarchivado'] = 1;}?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -713,32 +714,39 @@ if ($_SESSION['Tipo'] == 'Capturista') header("location: http://$host/Proyecto-R
                     <h1 class="modal-title fs-5" id="staticBackdropLabel">Proceso 7: Convenio de regularización</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
+                <form action="src/php/proceso7.php" method="POST" enctype="multipart/form-data">
                 <div class="modal-body">
-                    <h6 class="mb-3 fw-bold">Número de Folio: <?=$p7['folio']?></h6>
-
+                    <div class="row mb-3 g-1">
+                            <div class="col-auto">
+                                <label class="col-form-label">Número de Folio: </label>
+                            </div>
+                            <div class="col-auto">
+                                <input  type="text" readonly class="form-control-plaintext fw-bold" name="folio" id="folio" value="<?=$p7['folio']?>">
+                            </div>
+                    </div>
                     <div class="row mb-3">
                         <div class="col">
                             <label for="formFile" class="form-label fw-bold">Oficio de Catastro </label>
                             <span class="material-icons position-absolute <?php if ($p7['oficio_de_castastro_estatus'] == true) { echo 'verde'; $icon = '&#xe2e6;'; $a=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $a=0;} ?>"><?= $icon; ?></span>
-                            <input class="form-control" type="file" id="formFile">
+                            <input class="form-control" name="Oficio" type="file" id="formFile">
                         </div>
                         <div class="col">
                             <label for="formFile" class="form-label fw-bold">Convenio de regularización (Solo
                                 archivo)</label>
                                 <span class="material-icons position-absolute <?php if ($p7['convenio_de_regularizacion'] == null) { echo 'rojo'; $icon = '&#xe5c9;'; $b=0;} else { echo 'verde'; $icon = '&#xe2e6;'; $b=1;} ?>"><?= $icon; ?></span>
-                            <input class="form-control" type="file" id="formFile">
+                            <input class="form-control" name="Convenio" type="file" id="formFile">
                         </div>
                     </div>
                     <h5 class="text-center fw-bold text-decoration-underline mb-3">Firmas Con Oficio</h5>
                     <div class="row mb-3">
                         <div class="col">
                             <label for="formFile" class="form-label fw-bold">Presidente</label>
-                            <span class="material-icons position-absolute <?php if ($p7['firma_presidente_estatus'] == true) { echo 'verde'; $icon = '&#xe2e6;'; $c=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $c=0;} ?>"><?= $icon; ?></span>
-                            <input class="form-control" type="file" id="formFile">
+                            <span class="material-icons position-absolute <?php if ($p7['firma_presidente'] != null) { echo 'verde'; $icon = '&#xe2e6;'; $c=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $c=0;} ?>"><?= $icon; ?></span>
+                            <input class="form-control" name="Presidente" type="file" id="formFile">
                         </div>
                         <div class="col">
                             <label for="" class="form-label fw-bold">Estado de Firma de Presidente</label>
-                            <select class="form-control" name="estado-oficio" required>
+                            <select class="form-control" name="estado-presidente" required>
                             <?php if($p7['firma_presidente_estatus']=='Listo'){
                                         $fp = 'selected'; $fps=''; $fpn=''; $fpe=''; $d=1;
                                         }else if($p7['firma_presidente_estatus']=='En Proceso'){
@@ -747,21 +755,21 @@ if ($_SESSION['Tipo'] == 'Capturista') header("location: http://$host/Proyecto-R
                                             $fpn = 'selected'; $fp=''; $fps=''; $fpe=''; $d=0;
                                         }else{$fps = 'selected'; $fpe=''; $fpn=''; $fp=''; $d=0;}?>
                                     <option <?=$fps?>>-Seleccione uno-</option>
-                                    <option <?=$fp?>>Listo ✅</option>
-                                    <option <?=$fpn?>>Faltante ❌</option>
-                                    <option <?=$fpe?>>En Proceso ⌛️</option>
+                                    <option <?=$fp?> value="Listo">Listo ✅</option>
+                                    <option <?=$fpn?> value="Faltante">Faltante ❌</option>
+                                    <option <?=$fpe?> value="En Proceso">En Proceso ⌛️</option>
                             </select>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col">
                             <label for="formFile" class="form-label fw-bold">Sindico</label>
-                            <span class="material-icons position-absolute <?php if ($p7['firma_sindico_estatus'] == true) { echo 'verde'; $icon = '&#xe2e6;'; $e=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $e=0;} ?>"><?= $icon; ?></span>
-                            <input class="form-control" type="file" id="formFile">
+                            <span class="material-icons position-absolute <?php if ($p7['firma_sindico'] != null) { echo 'verde'; $icon = '&#xe2e6;'; $e=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $e=0;} ?>"><?= $icon; ?></span>
+                            <input class="form-control" name="Sindico" type="file" id="formFile">
                         </div>
                         <div class="col">
                             <label for="" class="form-label fw-bold">Estado de Firma de Sindico</label>
-                            <select class="form-control" name="estado-oficio" required>
+                            <select class="form-control" name="estado-sindico" required>
                             <?php if($p7['firma_sindico_estatus']=='Listo'){
                                         $fs = 'selected'; $fss=''; $fsn=''; $fse=''; $f=1;
                                         }else if($p7['firma_sindico_estatus']=='En Proceso'){
@@ -770,44 +778,44 @@ if ($_SESSION['Tipo'] == 'Capturista') header("location: http://$host/Proyecto-R
                                             $fsn = 'selected'; $fs=''; $fss=''; $fse=''; $f=0;
                                         }else{$fss = 'selected'; $fse=''; $fsn=''; $fs=''; $f=0;}?>
                                     <option <?=$fss?>>-Seleccione uno-</option>
-                                    <option <?=$fs?>>Listo ✅</option>
-                                    <option <?=$fsn?>>Faltante ❌</option>
-                                    <option <?=$fse?>>En Proceso ⌛️</option>
+                                    <option <?=$fs?> value="Listo">Listo ✅</option>
+                                    <option <?=$fsn?> value="Faltante">Faltante ❌</option>
+                                    <option <?=$fse?> value="En Proceso">En Proceso ⌛️</option>
                             </select>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col">
                             <label for="formFile" class="form-label fw-bold">Secretaria General</label>
-                            <span class="material-icons position-absolute <?php if ($p7['firma_secretaria_general_estatus'] == true) { echo 'verde'; $icon = '&#xe2e6;'; $g=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $g=0;} ?>"><?= $icon; ?></span>
-                            <input class="form-control" type="file" id="formFile">
+                            <span class="material-icons position-absolute <?php if ($p7['firma_secretaria_general'] != null) { echo 'verde'; $icon = '&#xe2e6;'; $g=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $g=0;} ?>"><?= $icon; ?></span>
+                            <input class="form-control" name="Secretaria" type="file" id="formFile">
                         </div>
                         <div class="col">
                             <label for="" class="form-label fw-bold">Estado de Firma de Secretaria General</label>
-                            <select class="form-control" name="estado-oficio" required>
-                            <?php if($p7['firma_secretario_general_estatus']=='Listo'){
+                            <select class="form-control" name="estado-secretaria" required>
+                            <?php if($p7['firma_secretaria_general_estatus']=='Listo'){
                                         $fsg = 'selected'; $fsgs=''; $fsgn=''; $fsge=''; $h=1;
-                                        }else if($p7['firma_secretario_general_estatus']=='En Proceso'){
+                                        }else if($p7['firma_secretaria_general_estatus']=='En Proceso'){
                                             $fsge = 'selected'; $fsgs=''; $fsgn=''; $fsg=''; $h=0;
-                                        }else if($p7['firma_secretario_general_estatus']=='Faltante'){
+                                        }else if($p7['firma_secretaria_general_estatus']=='Faltante'){
                                             $fsgn = 'selected'; $fsg=''; $fsgs=''; $fsge=''; $h=0;
                                         }else{$fsgs = 'selected'; $fsge=''; $fsgn=''; $fsg=''; $h=0;}?>
                                     <option <?=$fsgs?>>-Seleccione uno-</option>
-                                    <option <?=$fsg?>>Listo ✅</option>
-                                    <option <?=$fsgn?>>Faltante ❌</option>
-                                    <option <?=$fsge?>>En Proceso ⌛️</option>
+                                    <option <?=$fsg?> value="Listo">Listo ✅</option>
+                                    <option <?=$fsgn?> value="Faltante">Faltante ❌</option>
+                                    <option <?=$fsge?> value="En Proceso">En Proceso ⌛️</option>
                             </select>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col">
                             <label for="formFile" class="form-label fw-bold">Tesorero</label>
-                            <span class="material-icons position-absolute <?php if ($p7['firma_tesorero_estatus'] == true) { echo 'verde'; $icon = '&#xe2e6;'; $i=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $i=0;} ?>"><?= $icon; ?></span>
-                            <input class="form-control" type="file" id="formFile">
+                            <span class="material-icons position-absolute <?php if ($p7['firma_tesorero'] != null) { echo 'verde'; $icon = '&#xe2e6;'; $i=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $i=0;} ?>"><?= $icon; ?></span>
+                            <input class="form-control" name="Tesorero" type="file" id="formFile">
                         </div>
                         <div class="col">
                             <label for="" class="form-label fw-bold">Estado de Firma de Tesorero</label>
-                            <select class="form-control" name="estado-oficio" required>
+                            <select class="form-control" name="estado-tesorero" required>
                             <?php if($p7['firma_tesorero_estatus']=='Listo'){
                                         $ft = 'selected'; $fts=''; $ftn=''; $fte=''; $j=1;
                                         }else if($p7['firma_tesorero_estatus']=='En Proceso'){
@@ -816,21 +824,21 @@ if ($_SESSION['Tipo'] == 'Capturista') header("location: http://$host/Proyecto-R
                                             $ftn = 'selected'; $ft=''; $fts=''; $fte=''; $j=0;
                                         }else{$fts = 'selected'; $fte=''; $ftn=''; $ft=''; $j=0;}?>
                                     <option <?=$fts?>>-Seleccione uno-</option>
-                                    <option <?=$ft?>>Listo ✅</option>
-                                    <option <?=$ftn?>>Faltante ❌</option>
-                                    <option <?=$fte?>>En Proceso ⌛️</option>
+                                    <option <?=$ft?> value="Listo">Listo ✅</option>
+                                    <option <?=$ftn?> value="Faltante">Faltante ❌</option>
+                                    <option <?=$fte?> value="En Proceso">En Proceso ⌛️</option>
                             </select>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col">
                             <label for="formFile" class="form-label fw-bold">Presidente de Comite o Propietario</label>
-                            <span class="material-icons position-absolute <?php if ($p7['firma_presidente_de_comite_o_propietario_estatus'] == true) { echo 'verde'; $icon = '&#xe2e6;'; $k=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $k=0;} ?>"><?= $icon; ?></span>
-                            <input class="form-control" type="file" id="formFile">
+                            <span class="material-icons position-absolute <?php if ($p7['firma_presidente_de_comite_o_propietario'] != null) { echo 'verde'; $icon = '&#xe2e6;'; $k=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $k=0;} ?>"><?= $icon; ?></span>
+                            <input class="form-control" name="Comite" type="file" id="formFile">
                         </div>
                         <div class="col">
                             <label for="" class="form-label fw-bold">Estado de Firma de Presidente de Comite o Propietario</label>
-                            <select class="form-control" name="estado-oficio" required>
+                            <select class="form-control" name="estado-comite" required>
                             <?php if($p7['firma_presidente_de_comite_o_propietario_estatus']=='Listo'){
                                         $fpe = 'selected'; $fpes=''; $fpen=''; $fpee=''; $l=1;
                                         }else if($p7['firma_presidente_de_comite_o_propietario_estatus']=='En Proceso'){
@@ -839,21 +847,21 @@ if ($_SESSION['Tipo'] == 'Capturista') header("location: http://$host/Proyecto-R
                                             $fpen = 'selected'; $fpe=''; $fpes=''; $fpee=''; $l=0;
                                         }else{$fpes = 'selected'; $fpee=''; $fpen=''; $fpe=''; $l=0;}?>
                                     <option <?=$fpes?>>-Seleccione uno-</option>
-                                    <option <?=$fpe?>>Listo ✅</option>
-                                    <option <?=$fpen?>>Faltante ❌</option>
-                                    <option <?=$fpee?>>En Proceso ⌛️</option>
+                                    <option <?=$fpe?> value="Listo">Listo ✅</option>
+                                    <option <?=$fpen?> value="Faltante">Faltante ❌</option>
+                                    <option <?=$fpee?> value="En Proceso">En Proceso ⌛️</option>
                             </select>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col">
                             <label for="formFile" class="form-label fw-bold">Secretario Técnico</label>
-                            <span class="material-icons position-absolute <?php if ($p7['firma_secretario_tecnico_estatus'] == true) { echo 'verde'; $icon = '&#xe2e6;'; $m=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $m=0;} ?>"><?= $icon; ?></span>
-                            <input class="form-control" type="file" id="formFile">
+                            <span class="material-icons position-absolute <?php if ($p7['firma_secretario_tecnico'] != null) { echo 'verde'; $icon = '&#xe2e6;'; $m=1;} else { echo 'rojo'; $icon = '&#xe5c9;'; $m=0;} ?>"><?= $icon; ?></span>
+                            <input class="form-control" name="Secretario" type="file" id="formFile">
                         </div>
                         <div class="col">
                             <label for="" class="form-label fw-bold">Estado de Firma de Técnico</label>
-                            <select class="form-control" name="estado-oficio" required>
+                            <select class="form-control" name="estado-secretario" required>
                             <?php if($p7['firma_secretario_tecnico_estatus']=='Listo'){
                                         $fst = 'selected'; $fsts=''; $fstn=''; $fste=''; $n=1;
                                         }else if($p7['firma_secretario_tecnico_estatus']=='En Proceso'){
@@ -862,21 +870,21 @@ if ($_SESSION['Tipo'] == 'Capturista') header("location: http://$host/Proyecto-R
                                             $fstn = 'selected'; $fst=''; $fsts=''; $fste=''; $n=0;
                                         }else{$fsts = 'selected'; $fste=''; $fstn=''; $fst=''; $n=0;}?>
                                     <option <?=$fsts?>>-Seleccione uno-</option>
-                                    <option <?=$fst?>>Listo ✅</option>
-                                    <option <?=$fstn?>>Faltante ❌</option>
-                                    <option <?=$fste?>>En Proceso ⌛️</option>
+                                    <option <?=$fst?> value="Listo">Listo ✅</option>
+                                    <option <?=$fstn?> value="Faltante">Faltante ❌</option>
+                                    <option <?=$fste?> value="En Proceso">En Proceso ⌛️</option>
                             </select>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col">
                             <label for="formFile" class="form-label fw-bold">Procurador de desarrollo urbano</label>
-                            <span class="material-icons position-absolute <?php if ($p7['firma_procurador_de_desarrollo_urbano_estatus'] == true) { echo 'verde'; $icon = '&#xe2e6;'; $o=1;} else { echo 'rojo'; $icon = '&#xe5c9;';$o=0;} ?>"><?= $icon; ?></span>
-                            <input class="form-control" type="file" id="formFile">
+                            <span class="material-icons position-absolute <?php if ($p7['firma_procurador_de_desarrollo_urbano'] != null) { echo 'verde'; $icon = '&#xe2e6;'; $o=1;} else { echo 'rojo'; $icon = '&#xe5c9;';$o=0;} ?>"><?= $icon; ?></span>
+                            <input class="form-control" name="Procurador" type="file" id="formFile">
                         </div>
                         <div class="col">
                             <label for="" class="form-label fw-bold">Estado de Firma de Procurador de desarrollo urbano</label>
-                            <select class="form-control" name="estado-oficio" required>
+                            <select class="form-control" name="estado-procurador" required>
                             <?php if($p7['firma_procurador_de_desarrollo_urbano_estatus']=='Listo'){
                                         $fpdd = 'selected'; $fpdds=''; $fpddn=''; $fpdde=''; $p=1;
                                         }else if($p7['firma_procurador_de_desarrollo_urbano_estatus']=='En Proceso'){
@@ -885,17 +893,18 @@ if ($_SESSION['Tipo'] == 'Capturista') header("location: http://$host/Proyecto-R
                                             $fpddn = 'selected'; $fpdde=''; $fpdds=''; $fpdd=''; $p=0;
                                         }else{$fpdds = 'selected'; $fpdde=''; $fpddn=''; $fpdd=''; $p=0;}?>
                                     <option <?=$fpdds?>>-Seleccione uno-</option>
-                                    <option <?=$fpdd?>>Listo ✅</option>
-                                    <option <?=$fpddn?>>Faltante ❌</option>
-                                    <option <?=$fpdde?>>En Proceso ⌛️</option>
+                                    <option <?=$fpdd?> value="Listo">Listo ✅</option>
+                                    <option <?=$fpddn?> value="Faltante">Faltante ❌</option>
+                                    <option <?=$fpdde?> value="En Proceso">En Proceso ⌛️</option>
                             </select>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary">Enviar documentos</button>
+                    <button type="submit" class="btn btn-primary">Enviar documentos</button>
                 </div>
+                </form>
             </div>
         </div>
     </div>
