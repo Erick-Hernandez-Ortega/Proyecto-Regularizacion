@@ -1262,14 +1262,14 @@ if (isset($_SESSION['Usuario'])) {
                                                                         echo 'rojo';
                                                                         $icon = '&#xe5c9;';
                                                                         $b = 0;
-                                                                        $bp7 = '';
-                                                                        $p7b = '&#xeaf3;';
+                                                                        $bp7 = 'disabled';
+                                                                        $p7b = '';
                                                                     } else {
                                                                         echo 'verde';
                                                                         $icon = '&#xe2e6;';
                                                                         $b = 1;
-                                                                        $bp7 = 'disabled';
-                                                                        $p7b = '';
+                                                                        $bp7 = '';
+                                                                        $p7b = '&#xeaf3;';
                                                                     } ?>"><?= $icon; ?></span>
                                     </td>
                                     <td>
