@@ -93,7 +93,7 @@ if ($estadopresidente == '-Seleccione uno-' || $estadosindico == '-Seleccione un
         $contenido = addslashes($contenido);
         fclose($fp);
 
-        $sql = "UPDATE convenio_de_regularizacion SET oficio_de_catastro = '$contenido', oficio_de_catastro_estatus = 1 WHERE folio = '$folio'";
+        $sql = "UPDATE convenio_de_regularizacion SET oficio_de_castastro = '$contenido', oficio_de_castastro_estatus = 1 WHERE folio = '$folio'";
         $rs = mysqli_query($conn, $sql);
         $a++;
         }else{
