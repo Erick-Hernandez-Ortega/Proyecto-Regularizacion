@@ -6,11 +6,14 @@ $host = $_SERVER['HTTP_HOST'];
 $folio = $_POST['folio'];
 
 $archivoproyecto = $_FILES["Definitivo"]["tmp_name"];
+$nomproyecto = $_FILES["Definitivo"]["name"];
 $tamproyecto = $_FILES["Definitivo"]["size"];
 
 $a = 0;
 
 if ($archivoproyecto != '') {
+    $ext = substr($nomproyecto, -4);
+    if($ext == '.pdf'){
     $fp = fopen($archivoproyecto, "rb");
     $contenido = fread($fp, $tamproyecto);
     $contenido = addslashes($contenido);
@@ -26,6 +29,13 @@ if ($archivoproyecto != '') {
     unset($_SESSION['reloadadmin']);
 
     $a++;
+    }else{
+        $_SESSION['busqueda'] = false;
+        $_SESSION['colorToast'] = 'rojo';
+        $_SESSION['mensajeToast'] = 'El archivo tiene que ser un PDF';
+        header("location: http://$host/Proyecto-Regularizacion/index.php");
+    $a++;
+    }
 }
 
 if($a == 0){
