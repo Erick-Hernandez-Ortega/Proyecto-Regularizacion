@@ -237,8 +237,16 @@ if (isset($_SESSION['Usuario'])) {
         <div class="modal fade" id="<?= "a" . $p1['folio'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
+                    <form action="src/php/DocumentoP1.php" method="POST">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Folio: <?= $p1['folio'] ?></h1>
+                            <div class="row mb-3 g-1">
+                                <div class="col-auto">
+                                    <label class="col-form-label">Número de Folio: </label>
+                                </div>
+                                <div class="col-auto">
+                                    <input type="text" readonly class="form-control-plaintext fw-bold" name="folio" id="folio" value="<?= $p1['folio'] ?>">
+                                </div>
+                            </div>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -248,117 +256,141 @@ if (isset($_SESSION['Usuario'])) {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td scope="row">Solicitud</td>
+                                    <td scope="row">Solicitud</td>                        
                                     <td>
                                         <span class="material-icons <?php if ($p1['solicidud_estatus'] == true) {
                                                                         echo 'verde';
                                                                         $icon = '&#xe2e6;';
                                                                         $a = 1;
+                                                                        $ap1 = '';
+                                                                        $icon1 = '&#xeaf3;';
                                                                     } else {
                                                                         echo 'rojo';
                                                                         $icon = '&#xe5c9;';
                                                                         $a = 0;
+                                                                        $ap1 = 'disabled';
+                                                                        $icon1 = '';
                                                                     } ?>"><?= $icon; ?></span>
                                     </td>
                                     <td>
-                                        <a href="" class="link-secondary">
-                                            <span class="material-icons">&#xeaf3;</span>
-                                        </a>
+                                        <button style="border: none; background:none;" name="AP1" type="submit" class="link-secondary" <?=$ap1?>>
+                                            <span class="material-icons"><?=$icon1?></span>
+                                        </button>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td scope="row">Escritutas</td>
+                                    <td scope="row">Escrituras</td>  
                                     <td>
                                         <span class="material-icons <?php if ($p1['escritura_estatus'] == true) {
                                                                         echo 'verde';
                                                                         $icon = '&#xe2e6;';
                                                                         $b = 1;
+                                                                        $bp1 = '';
+                                                                        $icon2 = '&#xeaf3;';
                                                                     } else {
                                                                         echo 'rojo';
                                                                         $icon = '&#xe5c9;';
                                                                         $b = 0;
+                                                                        $bp1 = 'disabled';
+                                                                        $icon2 = '';
                                                                     } ?>"><?= $icon; ?></span>
                                     </td>
                                     <td>
-                                        <a href="" class="link-secondary">
-                                            <span class="material-icons">&#xeaf3;</span>
-                                        </a>
+                                        <button style="border: none; background:none;" name="BP1" type="submit" class="link-secondary" <?=$bp1?>>
+                                            <span class="material-icons"><?=$icon2?></span>
+                                        </button>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td scope="row">Identificación</td>
+                                    <td scope="row">Identificacion</td>  
                                     <td>
                                         <span class="material-icons <?php if ($p1['identificacion_estatus'] == true) {
                                                                         echo 'verde';
                                                                         $icon = '&#xe2e6;';
                                                                         $c = 1;
+                                                                        $cp1 = '';
+                                                                        $icon3 = '&#xeaf3;';
                                                                     } else {
                                                                         echo 'rojo';
                                                                         $icon = '&#xe5c9;';
                                                                         $c = 0;
+                                                                        $cp1 = 'disabled';
+                                                                        $icon3 = '';
                                                                     } ?>"><?= $icon; ?></span>
                                     </td>
                                     <td>
-                                        <a href="" class="link-secondary">
-                                            <span class="material-icons">&#xeaf3;</span>
-                                        </a>
+                                        <button style="border: none; background:none;" name="CP1" type="submit" class="link-secondary" <?=$cp1?>>
+                                            <span class="material-icons"><?=$icon3?></span>
+                                        </button>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td scope="row">Historial Catastral</td>
+                                    <td scope="row">Historial Catastral</td> 
                                     <td>
                                         <span class="material-icons <?php if ($p1['historial_catastral_estatus'] == true) {
                                                                         echo 'verde';
                                                                         $icon = '&#xe2e6;';
                                                                         $d = 1;
+                                                                        $dp1 = '';
+                                                                        $icon4 = '&#xeaf3;';
                                                                     } else {
                                                                         echo 'rojo';
                                                                         $icon = '&#xe5c9;';
                                                                         $d = 0;
+                                                                        $dp1 = 'disabled';
+                                                                        $icon4 = '';
                                                                     } ?>"><?= $icon; ?></span>
                                     </td>
                                     <td>
-                                        <a href="" class="link-secondary">
-                                            <span class="material-icons">&#xeaf3;</span>
-                                        </a>
+                                        <button style="border: none; background:none;" name="DP1" type="submit" class="link-secondary" <?=$dp1?>>
+                                            <span class="material-icons"><?=$icon4?></span>
+                                        </button>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td scope="row">Resolución idicial</td>
+                                    <td scope="row">Resolucion Idicial</td>  
                                     <td>
                                         <span class="material-icons <?php if ($p1['resolucion_idicial_estatus'] == true) {
                                                                         echo 'verde';
                                                                         $icon = '&#xe2e6;';
                                                                         $e = 1;
+                                                                        $ep1 = '';
+                                                                        $icon5 = '&#xeaf3;';
                                                                     } else {
                                                                         echo 'rojo';
                                                                         $icon = '&#xe5c9;';
                                                                         $e = 0;
+                                                                        $ep1 = 'disabled';
+                                                                        $icon5 = '';
                                                                     } ?>"><?= $icon; ?></span>
                                     </td>
                                     <td>
-                                        <a href="" class="link-secondary">
-                                            <span class="material-icons">&#xeaf3;</span>
-                                        </a>
+                                        <button style="border: none; background:none;" name="EP1" type="submit" class="link-secondary" <?=$ep1?>>
+                                            <span class="material-icons"><?=$icon5?></span>
+                                        </button>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td scope="row">Certificación de hechos</td>
+                                    <td scope="row">Certificación de Hechos</td>
                                     <td>
                                         <span class="material-icons <?php if ($p1['certificacion_de_hechos_estatus'] == true) {
                                                                         echo 'verde';
                                                                         $icon = '&#xe2e6;';
                                                                         $f = 1;
+                                                                        $fp1 = '';
+                                                                        $icon6 = '&#xeaf3;';
                                                                     } else {
                                                                         echo 'rojo';
                                                                         $icon = '&#xe5c9;';
                                                                         $f = 0;
+                                                                        $fp1 = 'disabled';
+                                                                        $icon6 = '';
                                                                     } ?>"><?= $icon; ?></span>
                                     </td>
                                     <td>
-                                        <a href="" class="link-secondary">
-                                            <span class="material-icons">&#xeaf3;</span>
-                                        </a>
+                                        <button style="border: none; background:none;" name="FP1" type="submit" class="link-secondary" <?=$fp1?>>
+                                            <span class="material-icons"><?=$icon6?></span>
+                                        </button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -368,16 +400,20 @@ if (isset($_SESSION['Usuario'])) {
                                                                         echo 'verde';
                                                                         $icon = '&#xe2e6;';
                                                                         $g = 1;
+                                                                        $gp1 = '';
+                                                                        $icon7 = '&#xeaf3;';
                                                                     } else {
                                                                         echo 'rojo';
                                                                         $icon = '&#xe5c9;';
                                                                         $g = 0;
+                                                                        $gp1 = 'disabled';
+                                                                        $icon7 = '';
                                                                     } ?>"><?= $icon; ?></span>
                                     </td>
                                     <td>
-                                        <a href="" class="link-secondary">
-                                            <span class="material-icons">&#xeaf3;</span>
-                                        </a>
+                                        <button style="border: none; background:none;" name="GP1" type="submit" class="link-secondary" <?=$gp1?>>
+                                            <span class="material-icons"><?=$icon7?></span>
+                                        </button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -387,16 +423,20 @@ if (isset($_SESSION['Usuario'])) {
                                                                         echo 'verde';
                                                                         $icon = '&#xe2e6;';
                                                                         $h = 1;
+                                                                        $hp1 = '';
+                                                                        $icon8 = '&#xeaf3;';
                                                                     } else {
                                                                         echo 'rojo';
                                                                         $icon = '&#xe5c9;';
                                                                         $h = 0;
+                                                                        $hp1 = 'disabled';
+                                                                        $icon8 = '';
                                                                     } ?>"><?= $icon; ?></span>
                                     </td>
                                     <td>
-                                        <a href="" class="link-secondary">
-                                            <span class="material-icons">&#xeaf3;</span>
-                                        </a>
+                                        <button style="border: none; background:none;" name="HP1" type="submit" class="link-secondary" <?=$hp1?>>
+                                            <span class="material-icons"><?=$icon8?></span>
+                                        </button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -406,21 +446,26 @@ if (isset($_SESSION['Usuario'])) {
                                                                         echo 'verde';
                                                                         $icon = '&#xe2e6;';
                                                                         $i = 1;
+                                                                        $ip1 = '';
+                                                                        $icon9 = '&#xeaf3;';
                                                                     } else {
                                                                         echo 'rojo';
                                                                         $icon = '&#xe5c9;';
                                                                         $i = 0;
+                                                                        $ip1 = 'disabled';
+                                                                        $icon9 = '';
                                                                     } ?>"><?= $icon; ?></span>
                                     </td>
                                     <td>
-                                        <a href="" class="link-secondary">
-                                            <span class="material-icons">&#xeaf3;</span>
-                                        </a>
+                                        <button style="border: none; background:none;" name="IP1" type="submit" class="link-secondary" <?=$ip1?>>
+                                            <span class="material-icons"><?=$icon9?></span>
+                                        </button>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
+                    </form>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                     </div>
