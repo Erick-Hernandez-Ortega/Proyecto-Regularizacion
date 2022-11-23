@@ -442,19 +442,22 @@ if (isset($_SESSION['Usuario'])) {
                                 <tr>
                                     <td scope="row">Oficio de regreso</td>
                                     <td>
-                                        <span class="material-icons <?php if ($p1['oficio_regreso_estatus'] == 'Aceptado') {
+                                    <span class="material-icons <?php if ($p1['oficio_regreso_estatus'] == 'Aceptado') {
                                                                         echo 'verde';
                                                                         $icon = '&#xe2e6;';
                                                                         $i = 1;
-                                                                        $ip1 = '';
-                                                                        $icon9 = '&#xeaf3;';
                                                                     } else {
                                                                         echo 'rojo';
                                                                         $icon = '&#xe5c9;';
                                                                         $i = 0;
+                                                                    } 
+                                                                    if($p1['oficio_regreso'] != null){
+                                                                        $ip1 = '';
+                                                                        $icon9 = '&#xeaf3;';
+                                                                    }else{
                                                                         $ip1 = 'disabled';
                                                                         $icon9 = '';
-                                                                    } ?>"><?= $icon; ?></span>
+                                                                    }?>"><?= $icon; ?></span>
                                     </td>
                                     <td>
                                         <button style="border: none; background:none;" name="IP1" type="submit" class="link-secondary" <?=$ip1?>>
@@ -481,8 +484,16 @@ if (isset($_SESSION['Usuario'])) {
         <div class="modal fade" id="<?= "b" . $p2['folio'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
+                    <form action="src/php/DocumentoP2.php" method="POST">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Folio: <?= $p2['folio'] ?></h1>
+                            <div class="row mb-3 g-1">
+                                <div class="col-auto">
+                                    <label class="col-form-label">Número de Folio: </label>
+                                </div>
+                                <div class="col-auto">
+                                    <input type="text" readonly class="form-control-plaintext fw-bold" name="folio" id="folio" value="<?= $p2['folio'] ?>">
+                                </div>
+                            </div>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -499,11 +510,20 @@ if (isset($_SESSION['Usuario'])) {
                                                                         echo 'verde';
                                                                         $icon = '&#xe2e6;';
                                                                         $a = 1;
+                                                                        $ap2 = '';
+                                                                        $p2a = '&#xeaf3;';
                                                                     } else {
                                                                         echo 'rojo';
                                                                         $icon = '&#xe5c9;';
                                                                         $a = 0;
+                                                                        $ap2 = 'disabled';
+                                                                        $p2a = '';
                                                                     } ?>"><?= $icon; ?></span>
+                                    </td>
+                                    <td>
+                                        <button style="border: none; background:none;" name="AP2" type="submit" class="link-secondary" <?=$ap2?>>
+                                            <span class="material-icons"><?=$p2a?></span>
+                                        </button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -513,11 +533,20 @@ if (isset($_SESSION['Usuario'])) {
                                                                         echo 'verde';
                                                                         $icon = '&#xe2e6;';
                                                                         $b = 1;
+                                                                        $bp2 = '';
+                                                                        $p2b = '&#xeaf3;';
                                                                     } else {
                                                                         echo 'rojo';
                                                                         $icon = '&#xe5c9;';
                                                                         $b = 0;
+                                                                        $bp2 = 'disabled';
+                                                                        $p2b = '';
                                                                     } ?>"><?= $icon; ?></span>
+                                    </td>
+                                    <td>
+                                        <button style="border: none; background:none;" name="BP2" type="submit" class="link-secondary" <?=$bp2?>>
+                                            <span class="material-icons"><?=$p2b?></span>
+                                        </button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -527,11 +556,20 @@ if (isset($_SESSION['Usuario'])) {
                                                                         echo 'verde';
                                                                         $icon = '&#xe2e6;';
                                                                         $c = 1;
+                                                                        $cp2 = '';
+                                                                        $p2c = '&#xeaf3;';
                                                                     } else {
                                                                         echo 'rojo';
                                                                         $icon = '&#xe5c9;';
                                                                         $c = 0;
+                                                                        $cp2 = 'disabled';
+                                                                        $p2c = '';
                                                                     } ?>"><?= $icon; ?></span>
+                                    </td>
+                                    <td>
+                                        <button style="border: none; background:none;" name="CP2" type="submit" class="link-secondary" <?=$cp2?>>
+                                            <span class="material-icons"><?=$p2c?></span>
+                                        </button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -541,11 +579,20 @@ if (isset($_SESSION['Usuario'])) {
                                                                         echo 'verde';
                                                                         $icon = '&#xe2e6;';
                                                                         $d = 1;
+                                                                        $dp2 = '';
+                                                                        $p2d = '&#xeaf3;';
                                                                     } else {
                                                                         echo 'rojo';
                                                                         $icon = '&#xe5c9;';
                                                                         $d = 0;
+                                                                        $dp2 = 'disabled';
+                                                                        $p2d = '';
                                                                     } ?>"><?= $icon; ?></span>
+                                    </td>
+                                    <td>
+                                        <button style="border: none; background:none;" name="DP2" type="submit" class="link-secondary" <?=$dp2?>>
+                                            <span class="material-icons"><?=$p2d?></span>
+                                        </button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -559,12 +606,25 @@ if (isset($_SESSION['Usuario'])) {
                                                                         echo 'rojo';
                                                                         $icon = '&#xe5c9;';
                                                                         $e = 0;
+                                                                    }
+                                                                    if($p2['oficio_regreso'] != null){
+                                                                        $ep2 = '';
+                                                                        $p2e = '&#xeaf3;';
+                                                                    }else{
+                                                                        $ep2 = 'disabled';
+                                                                        $p2e = '';
                                                                     } ?>"><?= $icon; ?></span>
+                                    </td>
+                                    <td>
+                                        <button style="border: none; background:none;" name="EP2" type="submit" class="link-secondary" <?=$ep2?>>
+                                            <span class="material-icons"><?=$p2e?></span>
+                                        </button>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
+                    </form>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                     </div>
@@ -580,8 +640,16 @@ if (isset($_SESSION['Usuario'])) {
         <div class="modal fade" id="<?= "c" . $p3['folio'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
+                    <form action="src/php/DocumentoP3.php" method="POST">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Folio: <?= $p3['folio'] ?></h1>
+                            <div class="row mb-3 g-1">
+                                <div class="col-auto">
+                                    <label class="col-form-label">Número de Folio: </label>
+                                </div>
+                                <div class="col-auto">
+                                    <input type="text" readonly class="form-control-plaintext fw-bold" name="folio" id="folio" value="<?= $p3['folio'] ?>">
+                                </div>
+                            </div>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -598,11 +666,20 @@ if (isset($_SESSION['Usuario'])) {
                                                                         echo 'verde';
                                                                         $icon = '&#xe2e6;';
                                                                         $a = 1;
+                                                                        $ap3 = '';
+                                                                        $p3a = '&#xeaf3;';
                                                                     } else {
                                                                         echo 'rojo';
                                                                         $icon = '&#xe5c9;';
                                                                         $a = 0;
+                                                                        $ap3 = 'disabled';
+                                                                        $p3a = '';
                                                                     } ?>"><?= $icon; ?></span>
+                                    </td>
+                                    <td>
+                                        <button style="border: none; background:none;" name="AP3" type="submit" class="link-secondary" <?=$ap3?>>
+                                            <span class="material-icons"><?=$p3a?></span>
+                                        </button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -612,11 +689,20 @@ if (isset($_SESSION['Usuario'])) {
                                                                         echo 'verde';
                                                                         $icon = '&#xe2e6;';
                                                                         $b = 1;
+                                                                        $bp3 = '';
+                                                                        $p3b = '&#xeaf3;';
                                                                     } else {
                                                                         echo 'rojo';
                                                                         $icon = '&#xe5c9;';
                                                                         $b = 0;
+                                                                        $bp3 = 'disabled';
+                                                                        $p3b = '';
                                                                     } ?>"><?= $icon; ?></span>
+                                    </td>
+                                    <td>
+                                        <button style="border: none; background:none;" name="BP3" type="submit" class="link-secondary" <?=$bp3?>>
+                                            <span class="material-icons"><?=$p3b?></span>
+                                        </button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -626,11 +712,20 @@ if (isset($_SESSION['Usuario'])) {
                                                                         echo 'verde';
                                                                         $icon = '&#xe2e6;';
                                                                         $c = 1;
+                                                                        $cp3 = '';
+                                                                        $p3c = '&#xeaf3;';
                                                                     } else {
                                                                         echo 'rojo';
                                                                         $icon = '&#xe5c9;';
                                                                         $c = 0;
+                                                                        $cp3 = 'disabled';
+                                                                        $p3c = '';
                                                                     } ?>"><?= $icon; ?></span>
+                                    </td>
+                                    <td>
+                                        <button style="border: none; background:none;" name="CP3" type="submit" class="link-secondary" <?=$cp3?>>
+                                            <span class="material-icons"><?=$p3c?></span>
+                                        </button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -640,11 +735,20 @@ if (isset($_SESSION['Usuario'])) {
                                                                         echo 'verde';
                                                                         $icon = '&#xe2e6;';
                                                                         $d = 1;
+                                                                        $dp3 = '';
+                                                                        $p3d = '&#xeaf3;';
                                                                     } else {
                                                                         echo 'rojo';
                                                                         $icon = '&#xe5c9;';
                                                                         $d = 0;
+                                                                        $dp3 = 'disabled';
+                                                                        $p3d = '';
                                                                     } ?>"><?= $icon; ?></span>
+                                    </td>
+                                    <td>
+                                        <button style="border: none; background:none;" name="DP3" type="submit" class="link-secondary" <?=$dp3?>>
+                                            <span class="material-icons"><?=$p3d?></span>
+                                        </button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -654,11 +758,20 @@ if (isset($_SESSION['Usuario'])) {
                                                                         echo 'verde';
                                                                         $icon = '&#xe2e6;';
                                                                         $e = 1;
+                                                                        $ep3 = '';
+                                                                        $p3e = '&#xeaf3;';
                                                                     } else {
                                                                         echo 'rojo';
                                                                         $icon = '&#xe5c9;';
                                                                         $e = 0;
+                                                                        $ep3 = 'disabled';
+                                                                        $p3e = '';
                                                                     } ?>"><?= $icon; ?></span>
+                                    </td>
+                                    <td>
+                                        <button style="border: none; background:none;" name="EP3" type="submit" class="link-secondary" <?=$ep3?>>
+                                            <span class="material-icons"><?=$p3e?></span>
+                                        </button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -672,12 +785,25 @@ if (isset($_SESSION['Usuario'])) {
                                                                         echo 'rojo';
                                                                         $icon = '&#xe5c9;';
                                                                         $e = 0;
+                                                                    }
+                                                                    if($p3['oficio_regreso'] != null){
+                                                                        $fp3 = '';
+                                                                        $p3f = '&#xeaf3;';
+                                                                    }else{
+                                                                        $fp3 = 'disabled';
+                                                                        $p3f = '';
                                                                     } ?>"><?= $icon; ?></span>
+                                    </td>
+                                    <td>
+                                        <button style="border: none; background:none;" name="FP3" type="submit" class="link-secondary" <?=$fp3?>>
+                                            <span class="material-icons"><?=$p3f?></span>
+                                        </button>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
+                    </form>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                     </div>
@@ -693,8 +819,16 @@ if (isset($_SESSION['Usuario'])) {
         <div class="modal fade" id="<?= "d" . $p4['folio'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
+                    <form action="src/php/DocumentoP4.php" method="POST">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Folio: <?= $p4['folio'] ?></h1>
+                            <div class="row mb-3 g-1">
+                                <div class="col-auto">
+                                    <label class="col-form-label">Número de Folio: </label>
+                                </div>
+                                <div class="col-auto">
+                                    <input type="text" readonly class="form-control-plaintext fw-bold" name="folio" id="folio" value="<?= $p4['folio'] ?>">
+                                </div>
+                            </div>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -710,11 +844,20 @@ if (isset($_SESSION['Usuario'])) {
                                                                         echo 'verde';
                                                                         $icon = '&#xe2e6;';
                                                                         $a = 1;
+                                                                        $ap4 = '';
+                                                                        $p4a = '&#xeaf3;';
                                                                     } else {
                                                                         echo 'rojo';
                                                                         $icon = '&#xe5c9;';
                                                                         $a = 0;
+                                                                        $ap4 = 'disabled';
+                                                                        $p4a = '';
                                                                     } ?>"><?= $icon; ?></span>
+                                    </td>
+                                    <td>
+                                        <button style="border: none; background:none;" name="AP4" type="submit" class="link-secondary" <?=$ap4?>>
+                                            <span class="material-icons"><?=$p4a?></span>
+                                        </button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -724,11 +867,20 @@ if (isset($_SESSION['Usuario'])) {
                                                                         echo 'verde';
                                                                         $icon = '&#xe2e6;';
                                                                         $b = 1;
+                                                                        $bp4 = '';
+                                                                        $p4b = '&#xeaf3;';
                                                                     } else {
                                                                         echo 'rojo';
                                                                         $icon = '&#xe5c9;';
                                                                         $b = 0;
+                                                                        $bp4 = 'disabled';
+                                                                        $p4b = '';
                                                                     } ?>"><?= $icon; ?></span>
+                                    </td>
+                                    <td>
+                                        <button style="border: none; background:none;" name="BP4" type="submit" class="link-secondary" <?=$bp4?>>
+                                            <span class="material-icons"><?=$p4b?></span>
+                                        </button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -742,12 +894,25 @@ if (isset($_SESSION['Usuario'])) {
                                                                         echo 'rojo';
                                                                         $icon = '&#xe5c9;';
                                                                         $c = 0;
+                                                                    }
+                                                                    if($p4['oficio_regreso'] != null){
+                                                                        $cp4 = '';
+                                                                        $p4c = '&#xeaf3;';
+                                                                    }else{
+                                                                        $cp4 = 'disabled';
+                                                                        $p4c = '';
                                                                     } ?>"><?= $icon; ?></span>
+                                    </td>
+                                    <td>
+                                        <button style="border: none; background:none;" name="CP4" type="submit" class="link-secondary" <?=$cp4?>>
+                                            <span class="material-icons"><?=$p4c?></span>
+                                        </button>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
+                    </form>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                     </div>
@@ -763,8 +928,16 @@ if (isset($_SESSION['Usuario'])) {
         <div class="modal fade" id="<?= "e" . $p5['folio'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
+                    <form action="src/php/DocumentoP5.php" method="POST">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Folio: <?= $p5['folio'] ?></h1>
+                            <div class="row mb-3 g-1">
+                                <div class="col-auto">
+                                    <label class="col-form-label">Número de Folio: </label>
+                                </div>
+                                <div class="col-auto">
+                                    <input type="text" readonly class="form-control-plaintext fw-bold" name="folio" id="folio" value="<?= $p5['folio'] ?>">
+                                </div>
+                            </div>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -780,11 +953,20 @@ if (isset($_SESSION['Usuario'])) {
                                                                         echo 'verde';
                                                                         $icon = '&#xe2e6;';
                                                                         $a = 1;
+                                                                        $ap5 = '';
+                                                                        $p5a = '&#xeaf3;';
                                                                     } else {
                                                                         echo 'rojo';
                                                                         $icon = '&#xe5c9;';
                                                                         $a = 0;
+                                                                        $ap5 = 'disabled';
+                                                                        $p5a = '';
                                                                     } ?>"><?= $icon; ?></span>
+                                    </td>
+                                    <td>
+                                        <button style="border: none; background:none;" name="AP5" type="submit" class="link-secondary" <?=$ap5?>>
+                                            <span class="material-icons"><?=$p5a?></span>
+                                        </button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -794,11 +976,20 @@ if (isset($_SESSION['Usuario'])) {
                                                                         echo 'verde';
                                                                         $icon = '&#xe2e6;';
                                                                         $b = 1;
+                                                                        $bp5 = '';
+                                                                        $p5b = '&#xeaf3;';
                                                                     } else {
                                                                         echo 'rojo';
                                                                         $icon = '&#xe5c9;';
                                                                         $b = 0;
+                                                                        $bp5 = 'disabled';
+                                                                        $p5b = '';
                                                                     } ?>"><?= $icon; ?></span>
+                                    </td>
+                                    <td>
+                                        <button style="border: none; background:none;" name="BP5" type="submit" class="link-secondary" <?=$bp5?>>
+                                            <span class="material-icons"><?=$p5b?></span>
+                                        </button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -808,11 +999,20 @@ if (isset($_SESSION['Usuario'])) {
                                                                         echo 'verde';
                                                                         $icon = '&#xe2e6;';
                                                                         $c = 1;
+                                                                        $cp5 = '';
+                                                                        $p5c = '&#xeaf3;';
                                                                     } else {
                                                                         echo 'rojo';
                                                                         $icon = '&#xe5c9;';
                                                                         $c = 0;
+                                                                        $cp5 = 'disabled';
+                                                                        $p5c = '';
                                                                     } ?>"><?= $icon; ?></span>
+                                    </td>
+                                    <td>
+                                        <button style="border: none; background:none;" name="CP5" type="submit" class="link-secondary" <?=$cp5?>>
+                                            <span class="material-icons"><?=$p5c?></span>
+                                        </button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -822,11 +1022,20 @@ if (isset($_SESSION['Usuario'])) {
                                                                         echo 'verde';
                                                                         $icon = '&#xe2e6;';
                                                                         $d = 1;
+                                                                        $dp5 = '';
+                                                                        $p5d = '&#xeaf3;';
                                                                     } else {
                                                                         echo 'rojo';
                                                                         $icon = '&#xe5c9;';
                                                                         $d = 0;
+                                                                        $dp5 = 'disabled';
+                                                                        $p5d = '';
                                                                     } ?>"><?= $icon; ?></span>
+                                    </td>
+                                    <td>
+                                        <button style="border: none; background:none;" name="DP5" type="submit" class="link-secondary" <?=$dp5?>>
+                                            <span class="material-icons"><?=$p5d?></span>
+                                        </button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -836,11 +1045,20 @@ if (isset($_SESSION['Usuario'])) {
                                                                         echo 'verde';
                                                                         $icon = '&#xe2e6;';
                                                                         $e = 1;
+                                                                        $ep5 = '';
+                                                                        $p5e = '&#xeaf3;';
                                                                     } else {
                                                                         echo 'rojo';
                                                                         $icon = '&#xe5c9;';
                                                                         $e = 0;
+                                                                        $ep5 = 'disabled';
+                                                                        $p5e = '';
                                                                     } ?>"><?= $icon; ?></span>
+                                    </td>
+                                    <td>
+                                        <button style="border: none; background:none;" name="EP5" type="submit" class="link-secondary" <?=$ep5?>>
+                                            <span class="material-icons"><?=$p5e?></span>
+                                        </button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -851,11 +1069,20 @@ if (isset($_SESSION['Usuario'])) {
                                                                         echo 'verde';
                                                                         $icon = '&#xe2e6;';
                                                                         $f = 1;
+                                                                        $fp5 = '';
+                                                                        $p5f = '&#xeaf3;';
                                                                     } else {
                                                                         echo 'rojo';
                                                                         $icon = '&#xe5c9;';
                                                                         $f = 0;
+                                                                        $fp5 = 'disabled';
+                                                                        $p5f = '';
                                                                     } ?>"><?= $icon; ?></span>
+                                    </td>
+                                    <td>
+                                        <button style="border: none; background:none;" name="FP5" type="submit" class="link-secondary" <?=$fp5?>>
+                                            <span class="material-icons"><?=$p5f?></span>
+                                        </button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -865,11 +1092,20 @@ if (isset($_SESSION['Usuario'])) {
                                                                         echo 'verde';
                                                                         $icon = '&#xe2e6;';
                                                                         $g = 1;
+                                                                        $gp5 = '';
+                                                                        $p5g = '&#xeaf3;';
                                                                     } else {
                                                                         echo 'rojo';
                                                                         $icon = '&#xe5c9;';
                                                                         $g = 0;
+                                                                        $gp5 = 'disabled';
+                                                                        $p5g = '';
                                                                     } ?>"><?= $icon; ?></span>
+                                    </td>
+                                    <td>
+                                        <button style="border: none; background:none;" name="GP5" type="submit" class="link-secondary" <?=$gp5?>>
+                                            <span class="material-icons"><?=$p5g?></span>
+                                        </button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -883,12 +1119,25 @@ if (isset($_SESSION['Usuario'])) {
                                                                         echo 'rojo';
                                                                         $icon = '&#xe5c9;';
                                                                         $h = 0;
+                                                                    }
+                                                                    if($p5['oficion_regreso'] != null){
+                                                                        $hp5 = '';
+                                                                        $p5h = '&#xeaf3;';
+                                                                    }else{
+                                                                        $hp5 = 'disabled';
+                                                                        $p5h = '';
                                                                     } ?>"><?= $icon; ?></span>
+                                    </td>
+                                    <td>
+                                        <button style="border: none; background:none;" name="HP5" type="submit" class="link-secondary" <?=$hp5?>>
+                                            <span class="material-icons"><?=$p5h?></span>
+                                        </button>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
+                    </form>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                     </div>
@@ -904,8 +1153,16 @@ if (isset($_SESSION['Usuario'])) {
         <div class="modal fade" id="<?= "f" . $p6['folio'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
+                    <form action="src/php/DocumentoP6.php" method="POST">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Folio: <?= $p6['folio'] ?></h1>
+                            <div class="row mb-3 g-1">
+                                <div class="col-auto">
+                                    <label class="col-form-label">Número de Folio: </label>
+                                </div>
+                                <div class="col-auto">
+                                    <input type="text" readonly class="form-control-plaintext fw-bold" name="folio" id="folio" value="<?= $p6['folio'] ?>">
+                                </div>
+                            </div>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -921,16 +1178,26 @@ if (isset($_SESSION['Usuario'])) {
                                                                         echo 'verde';
                                                                         $icon = '&#xe2e6;';
                                                                         $a = 1;
+                                                                        $ap6 = '';
+                                                                        $p6a = '&#xeaf3;';
                                                                     } else {
                                                                         echo 'rojo';
                                                                         $icon = '&#xe5c9;';
                                                                         $a = 0;
+                                                                        $ap6 = 'disabled';
+                                                                        $p6a = '';
                                                                     } ?>"><?= $icon; ?></span>
+                                    </td>
+                                    <td>
+                                        <button style="border: none; background:none;" name="AP6" type="submit" class="link-secondary" <?=$ap6?>>
+                                            <span class="material-icons"><?=$p6a?></span>
+                                        </button>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
+                    </form>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                     </div>
@@ -946,8 +1213,16 @@ if (isset($_SESSION['Usuario'])) {
         <div class="modal fade" id="<?= "g" . $p7['folio'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
+                    <form action="src/php/DocumentoP7.php" method="POST">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Folio: <?= $p7['folio'] ?></h1>
+                            <div class="row mb-3 g-1">
+                                <div class="col-auto">
+                                    <label class="col-form-label">Número de Folio: </label>
+                                </div>
+                                <div class="col-auto">
+                                    <input type="text" readonly class="form-control-plaintext fw-bold" name="folio" id="folio" value="<?= $p7['folio'] ?>">
+                                </div>
+                            </div>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -963,11 +1238,20 @@ if (isset($_SESSION['Usuario'])) {
                                                                         echo 'verde';
                                                                         $icon = '&#xe2e6;';
                                                                         $a = 1;
+                                                                        $ap7 = '';
+                                                                        $p7a = '&#xeaf3;';
                                                                     } else {
                                                                         echo 'rojo';
                                                                         $icon = '&#xe5c9;';
                                                                         $a = 0;
+                                                                        $ap7 = 'disabled';
+                                                                        $p7a = '';
                                                                     } ?>"><?= $icon; ?></span>
+                                    </td>
+                                    <td>
+                                        <button style="border: none; background:none;" name="AP7" type="submit" class="link-secondary" <?=$ap7?>>
+                                            <span class="material-icons"><?=$p7a?></span>
+                                        </button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -978,11 +1262,20 @@ if (isset($_SESSION['Usuario'])) {
                                                                         echo 'rojo';
                                                                         $icon = '&#xe5c9;';
                                                                         $b = 0;
+                                                                        $bp7 = '';
+                                                                        $p7b = '&#xeaf3;';
                                                                     } else {
                                                                         echo 'verde';
                                                                         $icon = '&#xe2e6;';
                                                                         $b = 1;
+                                                                        $bp7 = 'disabled';
+                                                                        $p7b = '';
                                                                     } ?>"><?= $icon; ?></span>
+                                    </td>
+                                    <td>
+                                        <button style="border: none; background:none;" name="BP7" type="submit" class="link-secondary" <?=$bp7?>>
+                                            <span class="material-icons"><?=$p7b?></span>
+                                        </button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -996,7 +1289,19 @@ if (isset($_SESSION['Usuario'])) {
                                                                         echo 'rojo';
                                                                         $icon = '&#xe5c9;';
                                                                         $c = 0;
+                                                                    }
+                                                                    if($p7['firma_presidente'] != null){
+                                                                        $cp7 = '';
+                                                                        $p7c = '&#xeaf3;';
+                                                                    }else{
+                                                                        $cp7 = 'disabled';
+                                                                        $p7c = '';
                                                                     } ?>"><?= $icon; ?></span>
+                                    </td>
+                                    <td>
+                                        <button style="border: none; background:none;" name="CP7" type="submit" class="link-secondary" <?=$cp7?>>
+                                            <span class="material-icons"><?=$p7c?></span>
+                                        </button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -1010,7 +1315,19 @@ if (isset($_SESSION['Usuario'])) {
                                                                         echo 'rojo';
                                                                         $icon = '&#xe5c9;';
                                                                         $d = 0;
+                                                                    }
+                                                                    if($p7['firma_sindico'] != null){
+                                                                        $dp7 = '';
+                                                                        $p7d = '&#xeaf3;';
+                                                                    }else{
+                                                                        $dp7 = 'disabled';
+                                                                        $p7d = '';
                                                                     } ?>"><?= $icon; ?></span>
+                                    </td>
+                                    <td>
+                                        <button style="border: none; background:none;" name="DP7" type="submit" class="link-secondary" <?=$dp7?>>
+                                            <span class="material-icons"><?=$p7d?></span>
+                                        </button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -1024,7 +1341,19 @@ if (isset($_SESSION['Usuario'])) {
                                                                         echo 'rojo';
                                                                         $icon = '&#xe5c9;';
                                                                         $e = 0;
+                                                                    }
+                                                                    if($p7['firma_secretaria_general'] != null){
+                                                                        $ep7 = '';
+                                                                        $p7e = '&#xeaf3;';
+                                                                    }else{
+                                                                        $ep7 = 'disabled';
+                                                                        $p7e = '';
                                                                     } ?>"><?= $icon; ?></span>
+                                    </td>
+                                    <td>
+                                        <button style="border: none; background:none;" name="EP7" type="submit" class="link-secondary" <?=$ep7?>>
+                                            <span class="material-icons"><?=$p7e?></span>
+                                        </button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -1038,7 +1367,19 @@ if (isset($_SESSION['Usuario'])) {
                                                                         echo 'rojo';
                                                                         $icon = '&#xe5c9;';
                                                                         $f = 0;
+                                                                    }
+                                                                    if($p7['firma_tesorero'] != null){
+                                                                        $fp7 = '';
+                                                                        $p7f = '&#xeaf3;';
+                                                                    }else{
+                                                                        $fp7 = 'disabled';
+                                                                        $p7f = '';
                                                                     } ?>"><?= $icon; ?></span>
+                                    </td>
+                                    <td>
+                                        <button style="border: none; background:none;" name="FP7" type="submit" class="link-secondary" <?=$fp7?>>
+                                            <span class="material-icons"><?=$p7f?></span>
+                                        </button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -1052,7 +1393,19 @@ if (isset($_SESSION['Usuario'])) {
                                                                         echo 'rojo';
                                                                         $icon = '&#xe5c9;';
                                                                         $g = 0;
+                                                                    }
+                                                                    if($p7['firma_presidente_de_comite_o_propietario'] != null){
+                                                                        $gp7 = '';
+                                                                        $p7g = '&#xeaf3;';
+                                                                    }else{
+                                                                        $gp7 = 'disabled';
+                                                                        $p7g = '';
                                                                     } ?>"><?= $icon; ?></span>
+                                    </td>
+                                    <td>
+                                        <button style="border: none; background:none;" name="GP7" type="submit" class="link-secondary" <?=$gp7?>>
+                                            <span class="material-icons"><?=$p7g?></span>
+                                        </button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -1066,7 +1419,19 @@ if (isset($_SESSION['Usuario'])) {
                                                                         echo 'rojo';
                                                                         $icon = '&#xe5c9;';
                                                                         $h = 0;
+                                                                    }
+                                                                    if($p7['firma_secretario_tecnico'] != null){
+                                                                        $hp7 = '';
+                                                                        $p7h = '&#xeaf3;';
+                                                                    }else{
+                                                                        $hp7 = 'disabled';
+                                                                        $p7h = '';
                                                                     } ?>"><?= $icon; ?></span>
+                                    </td>
+                                    <td>
+                                        <button style="border: none; background:none;" name="HP7" type="submit" class="link-secondary" <?=$hp7?>>
+                                            <span class="material-icons"><?=$p7h?></span>
+                                        </button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -1080,13 +1445,26 @@ if (isset($_SESSION['Usuario'])) {
                                                                         echo 'rojo';
                                                                         $icon = '&#xe5c9;';
                                                                         $i = 0;
+                                                                    }
+                                                                    if($p7['firma_procurador_de_desarrollo_urbano'] != null){
+                                                                        $ip7 = '';
+                                                                        $p7i = '&#xeaf3;';
+                                                                    }else{
+                                                                        $ip7 = 'disabled';
+                                                                        $p7i = '';
                                                                     } ?>"><?= $icon; ?></span>
+                                    </td>
+                                    <td>
+                                        <button style="border: none; background:none;" name="IP7" type="submit" class="link-secondary" <?=$ip7?>>
+                                            <span class="material-icons"><?=$p7i?></span>
+                                        </button>
                                     </td>
                                 </tr>
 
                             </tbody>
                         </table>
                     </div>
+                    </form>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                     </div>
