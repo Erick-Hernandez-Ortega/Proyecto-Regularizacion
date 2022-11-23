@@ -6,30 +6,39 @@ $host = $_SERVER['HTTP_HOST'];
 $folio = $_POST['folio'];
 
 $archivooficio = $_FILES["Oficio"]["tmp_name"];
+$nomoficio = $_FILES["Oficio"]["name"];
 $tamoficio = $_FILES["Oficio"]["size"];
 
 $archivoconvenio = $_FILES["Convenio"]["tmp_name"];
+$nomconvenio = $_FILES["Convenio"]["name"];
 $tamconvenio = $_FILES["Convenio"]["size"];
 
 $archivopresidente = $_FILES["Presidente"]["tmp_name"];
+$nompresidente = $_FILES["Presidente"]["name"];
 $tampresidente = $_FILES["Presidente"]["size"];
 
 $archivosindico = $_FILES["Sindico"]["tmp_name"];
+$nomsindico = $_FILES["Sindico"]["name"];
 $tamsindico = $_FILES["Sindico"]["size"];
 
 $archivosecretaria = $_FILES["Secretaria"]["tmp_name"];
+$nomsecretaria = $_FILES["Secretaria"]["name"];
 $tamsecretaria = $_FILES["Secretaria"]["size"];
 
 $archivotesorero = $_FILES["Tesorero"]["tmp_name"];
+$nomtesorero = $_FILES["Tesorero"]["name"];
 $tamtesorero = $_FILES["Tesorero"]["size"];
 
 $archivocomite = $_FILES["Comite"]["tmp_name"];
+$nomcomite = $_FILES["Comite"]["name"];
 $tamcomite = $_FILES["Comite"]["size"];
 
 $archivosecretario = $_FILES["Secretario"]["tmp_name"];
+$nomsecretario = $_FILES["Secretario"]["name"];
 $tamsecretario = $_FILES["Secretario"]["size"];
 
 $archivoprocurador = $_FILES["Procurador"]["tmp_name"];
+$nomprocurador = $_FILES["Procurador"]["name"];
 $tamprocurador = $_FILES["Procurador"]["size"];
 
 $estadopresidente = $_POST['estado-presidente'];
@@ -77,6 +86,8 @@ if ($estadopresidente == '-Seleccione uno-' || $estadosindico == '-Seleccione un
     header("location: http://$host/Proyecto-Regularizacion/index.php");
 }else{
     if ($archivooficio != '') {
+        $ext = substr($nomoficio, -4);
+        if($ext == '.pdf'){
         $fp = fopen($archivooficio, "rb");
         $contenido = fread($fp, $tamoficio);
         $contenido = addslashes($contenido);
@@ -85,9 +96,14 @@ if ($estadopresidente == '-Seleccione uno-' || $estadosindico == '-Seleccione un
         $sql = "UPDATE convenio_de_regularizacion SET oficio_de_catastro = '$contenido', oficio_de_catastro_estatus = 1 WHERE folio = '$folio'";
         $rs = mysqli_query($conn, $sql);
         $a++;
+        }else{
+            $c = 1;
+        }
     }
 
     if ($archivoconvenio != '') {
+        $ext = substr($nomconvenio, -4);
+        if($ext == '.pdf'){
         $fp3 = fopen($archivoconvenio, "rb");
         $contenido3 = fread($fp3, $tamconvenio);
         $contenido3 = addslashes($contenido3);
@@ -96,9 +112,14 @@ if ($estadopresidente == '-Seleccione uno-' || $estadosindico == '-Seleccione un
         $sql = "UPDATE convenio_de_regularizacion SET convenio_de_regularizacion = '$contenido3' WHERE folio = '$folio'";
         $rs = mysqli_query($conn, $sql);
         $a++;
+        }else{
+            $c = 1;
+        }
     }
 
     if ($archivopresidente != '') {
+        $ext = substr($nompresidente, -4);
+        if($ext == '.pdf'){
         $fp2 = fopen($archivopresidente, "rb");
         $contenido2 = fread($fp2, $tampresidente);
         $contenido2 = addslashes($contenido2);
@@ -107,9 +128,14 @@ if ($estadopresidente == '-Seleccione uno-' || $estadosindico == '-Seleccione un
         $sql = "UPDATE convenio_de_regularizacion SET firma_presidente = '$contenido2' WHERE folio = '$folio'";
         $rs = mysqli_query($conn, $sql);
         $a++;
+        }else{
+            $c = 1;
+        }
     }
 
     if ($archivosindico != '') {
+        $ext = substr($nomsindico, -4);
+        if($ext == '.pdf'){
         $fp4 = fopen($archivosindico, "rb");
         $contenido4 = fread($fp4, $tamsindico);
         $contenido4 = addslashes($contenido4);
@@ -118,9 +144,14 @@ if ($estadopresidente == '-Seleccione uno-' || $estadosindico == '-Seleccione un
         $sql = "UPDATE convenio_de_regularizacion SET firma_sindico = '$contenido4' WHERE folio = '$folio'";
         $rs = mysqli_query($conn, $sql);
         $a++;
+        }else{
+            $c = 1;
+        }
     }
 
     if ($archivosecretaria != '') {
+        $ext = substr($nomsecretaria, -4);
+        if($ext == '.pdf'){
         $fp5 = fopen($archivosecretaria, "rb");
         $contenido5 = fread($fp5, $tamsecretaria);
         $contenido5 = addslashes($contenido5);
@@ -129,9 +160,14 @@ if ($estadopresidente == '-Seleccione uno-' || $estadosindico == '-Seleccione un
         $sql = "UPDATE convenio_de_regularizacion SET firma_secretaria_general = '$contenido5' folio = '$folio'";
         $rs = mysqli_query($conn, $sql);
         $a++;
+        }else{
+            $c = 1;
+        }
     }
 
     if ($archivotesorero != '') {
+        $ext = substr($nomtesorero, -4);
+        if($ext == '.pdf'){
         $fp6 = fopen($archivotesorero, "rb");
         $contenido6 = fread($fp6, $tamtesorero);
         $contenido6 = addslashes($contenido6);
@@ -140,9 +176,14 @@ if ($estadopresidente == '-Seleccione uno-' || $estadosindico == '-Seleccione un
         $sql = "UPDATE convenio_de_regularizacion SET firma_tesorero = '$contenido6' folio = '$folio'";
         $rs = mysqli_query($conn, $sql);
         $a++;
+        }else{
+            $c = 1;
+        }
     }
 
     if ($archivosecretario != '') {
+        $ext = substr($nomsecretario, -4);
+        if($ext == '.pdf'){
         $fp7 = fopen($archivosecretario, "rb");
         $contenido7 = fread($fp7, $tamsecretario);
         $contenido7 = addslashes($contenido7);
@@ -151,9 +192,14 @@ if ($estadopresidente == '-Seleccione uno-' || $estadosindico == '-Seleccione un
         $sql = "UPDATE convenio_de_regularizacion SET firma_secretario_tecnico = '$contenido7' folio = '$folio'";
         $rs = mysqli_query($conn, $sql);
         $a++;
+        }else{
+            $c = 1;
+        }
     }
 
     if ($archivocomite != '') {
+        $ext = substr($nomcomite, -4);
+        if($ext == '.pdf'){
         $fp9 = fopen($archivocomite, "rb");
         $contenido9 = fread($fp9, $tamcomite);
         $contenido9 = addslashes($contenido9);
@@ -162,9 +208,14 @@ if ($estadopresidente == '-Seleccione uno-' || $estadosindico == '-Seleccione un
         $sql = "UPDATE convenio_de_regularizacion SET firma_presidente_de_comite_o_propietario = '$contenido9' WHERE folio = '$folio'";
         $rs = mysqli_query($conn, $sql);
         $a++;
+        }else{
+            $c = 1;
+        }
     }
 
     if ($archivoprocurador != '') {
+        $ext = substr($nomprocurador, -4);
+        if($ext == '.pdf'){
         $fp9 = fopen($archivoprocurador, "rb");
         $contenido9 = fread($fp9, $tamprocurador);
         $contenido9 = addslashes($contenido9);
@@ -173,6 +224,9 @@ if ($estadopresidente == '-Seleccione uno-' || $estadosindico == '-Seleccione un
         $sql = "UPDATE convenio_de_regularizacion SET firma_procurador_de_desarrollo_urbano = '$contenido9' WHERE folio = '$folio'";
         $rs = mysqli_query($conn, $sql);
         $a++;
+        }else{
+            $c = 1;
+        }
     }
 
     if($a == 0 && $estadopresidente == $estpresidente['firma_presidente_estatus'] && $estadosindico == $estsindico['firma_sindico_estatus'] && $estadosecretaria == $estsecretaria['firma_secretaria_general_estatus'] 
@@ -204,18 +258,21 @@ if ($estadopresidente == '-Seleccione uno-' || $estadosindico == '-Seleccione un
         $sql8 = "UPDATE convenio_de_regularizacion SET firma_procurador_de_desarrollo_urbano_estatus = '$estadoprocurador' WHERE folio = '$folio'";
         $query8 = mysqli_query($conn, $sql8);
 
+        $c = 0;
+
         header("location: http://$host/Proyecto-Regularizacion/index.php");
         unset($_SESSION['reloadindex']);
         unset($_SESSION['reloadstatus']);
         unset($_SESSION['reloadadmin']);
     }
 
+    if($c == 1){
+        $_SESSION['busqueda'] = false;
+        $_SESSION['colorToast'] = 'rojo';
+        $_SESSION['mensajeToast'] = 'El archivo tiene que ser un PDF';
+        header("location: http://$host/Proyecto-Regularizacion/index.php");
+    }
+
 }
-
-
-
-
-
-
 
 ?>
