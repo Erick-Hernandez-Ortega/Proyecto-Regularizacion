@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-11-2022 a las 23:26:55
+-- Tiempo de generación: 24-11-2022 a las 03:27:46
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -50,15 +50,6 @@ CREATE TABLE `convenio_de_regularizacion` (
   `firma_procurador_de_desarrollo_urbano_estatus` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Volcado de datos para la tabla `convenio_de_regularizacion`
---
-
-INSERT INTO `convenio_de_regularizacion` (`folio`, `oficio`, `oficio_estatus`, `oficio_de_castastro`, `oficio_de_castastro_estatus`, `convenio_de_regularizacion`, `firma_presidente`, `firma_presidente_estatus`, `firma_sindico`, `firma_sindico_estatus`, `firma_secretaria_general`, `firma_secretaria_general_estatus`, `firma_tesorero`, `firma_tesorero_estatus`, `firma_secretario_tecnico`, `firma_secretario_tecnico_estatus`, `firma_presidente_de_comite_o_propietario`, `firma_presidente_de_comite_o_propietario_estatus`, `firma_procurador_de_desarrollo_urbano`, `firma_procurador_de_desarrollo_urbano_estatus`) VALUES
-(' Prueba_Trigger_2', NULL, 0, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'En Proceso', NULL, NULL, NULL, NULL),
-('Folio', NULL, 0, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-('Prueba_Trigger', NULL, 0, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -85,15 +76,6 @@ CREATE TABLE `presentacion_a_la_comur` (
   `oficion_regreso_estatus` varchar(12) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Volcado de datos para la tabla `presentacion_a_la_comur`
---
-
-INSERT INTO `presentacion_a_la_comur` (`folio`, `oficio`, `oficio_estatus`, `dictamen_prodeur`, `dictamen_prodeur_estatus`, `acta_de_comur_1`, `acta_de_comur_1_estatus`, `acta_de_comur_2`, `acta_de_comur_2_estatus`, `publicacion`, `publicacion_estatus`, `estudio_analisis_y_resolucion_del_expediente`, `estudio_analisis_y_resolucion_del_expediente_estatus`, `estudio_de_opinion`, `estudio_de_opinion_estatus`, `oficion_regreso`, `oficion_regreso_estatus`) VALUES
-(' Prueba_Trigger_2', NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, '0'),
-('Folio', NULL, 1, NULL, 1, NULL, 1, NULL, 1, NULL, 1, NULL, 1, NULL, 1, NULL, '1'),
-('Prueba_Trigger', NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, '0');
-
 -- --------------------------------------------------------
 
 --
@@ -114,15 +96,6 @@ CREATE TABLE `presentacion_de_documentos_a_la_comur` (
   `oficio_regreso_estatus` varchar(12) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Volcado de datos para la tabla `presentacion_de_documentos_a_la_comur`
---
-
-INSERT INTO `presentacion_de_documentos_a_la_comur` (`folio`, `oficio`, `oficio_estatus`, `solicitud_de_regularizacion`, `solicitud_de_regularizacion_estatus`, `estudio_de_analisis`, `estudio_de_analisis_estatus`, `acta_comur`, `acta_comur_estatus`, `oficio_regreso`, `oficio_regreso_estatus`) VALUES
-(' Prueba_Trigger_2', NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, NULL),
-('Folio', NULL, 1, NULL, 1, NULL, 1, NULL, 0, NULL, '1'),
-('Prueba_Trigger', NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, '0');
-
 -- --------------------------------------------------------
 
 --
@@ -134,15 +107,6 @@ CREATE TABLE `proyecto_definitivo` (
   `proyecto_definitivo` longblob DEFAULT NULL,
   `proyecto_definitivo_estatus` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `proyecto_definitivo`
---
-
-INSERT INTO `proyecto_definitivo` (`folio`, `proyecto_definitivo`, `proyecto_definitivo_estatus`) VALUES
-(' Prueba_Trigger_2', NULL, 0),
-('Folio', NULL, 1),
-('Prueba_Trigger', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -163,15 +127,6 @@ CREATE TABLE `segunda_presentacion_de_documentos_a_la_comur` (
   `oficio_regreso` longblob DEFAULT NULL,
   `oficio_regreso_estatus` varchar(12) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `segunda_presentacion_de_documentos_a_la_comur`
---
-
-INSERT INTO `segunda_presentacion_de_documentos_a_la_comur` (`folio`, `oficio`, `oficio_estatus`, `estudio_opinion`, `estudio_opinion_estatus`, `acta_de_comur_proceso_2`, `acta_de_comur_proceso_2_estatus`, `acta_comur_2`, `acta_comur_2_estatus`, `oficio_regreso`, `oficio_regreso_estatus`) VALUES
-(' Prueba_Trigger_2', NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, '0'),
-('Folio', NULL, 1, NULL, 1, NULL, 1, NULL, 0, NULL, '0'),
-('Prueba_Trigger', NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, '0');
 
 -- --------------------------------------------------------
 
@@ -201,15 +156,6 @@ CREATE TABLE `solicitud_de_regularizacion` (
   `oficio_regreso_estatus` varchar(12) DEFAULT NULL,
   `archivar` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `solicitud_de_regularizacion`
---
-
-INSERT INTO `solicitud_de_regularizacion` (`folio`, `solicitud`, `solicidud_estatus`, `escritura`, `escritura_estatus`, `identificacion`, `identificacion_estatus`, `historial_catastral`, `historial_catastral_estatus`, `resolucion_idicial`, `resolucion_idicial_estatus`, `certificacion_de_hechos`, `certificacion_de_hechos_estatus`, `foto_aerea`, `foto_aerea_estatus`, `oficio`, `oficio_estatus`, `oficio_regreso`, `oficio_regreso_estatus`, `archivar`) VALUES
-(' Prueba_Trigger_2', NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, NULL, 0),
-('Folio', NULL, 1, NULL, 1, NULL, 0, NULL, 1, NULL, 0, NULL, 0, NULL, 1, NULL, 0, NULL, NULL, 0),
-('Prueba_Trigger', NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 'En Revision', 0);
 
 --
 -- Disparadores `solicitud_de_regularizacion`
@@ -243,15 +189,6 @@ CREATE TABLE `solicitud_por_oficio_a_la_prodeur` (
   `oficio_regreso_estatus` varchar(12) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Volcado de datos para la tabla `solicitud_por_oficio_a_la_prodeur`
---
-
-INSERT INTO `solicitud_por_oficio_a_la_prodeur` (`folio`, `dictamen`, `dictamen_estatus`, `oficio`, `oficio_estatus`, `oficio_regreso`, `oficio_regreso_estatus`) VALUES
-(' Prueba_Trigger_2', NULL, 0, NULL, 0, NULL, '0'),
-('Folio', NULL, 0, NULL, 0, NULL, '0'),
-('Prueba_Trigger', NULL, 0, NULL, 0, NULL, '0');
-
 -- --------------------------------------------------------
 
 --
@@ -277,11 +214,7 @@ CREATE TABLE `usuarios_regulacion` (
 --
 
 INSERT INTO `usuarios_regulacion` (`id_usuario`, `nombre_de_usuario`, `contraseña`, `tipo_de_usuario`, `nombre`, `apellido_paterno`, `apellido_materno`, `dependencia`, `email`, `sexo`, `nombramiento`) VALUES
-(1, 'Administrador', '12345', 'Super administrador', 'Super administrador', '', '', 'Administrador', 'jaimeg@hotmail.com', 'Masculino', 'Super administrador'),
-(2, 'Administrador', 'abcdef', 'Administrador', 'Administrador', '', '', 'U de G', 'ramonc@gmail.com', 'Masculino', 'Jefe de departamento'),
-(3, 'GabrielG', '101112', 'Capturista', 'Jose Gabriel ', 'Garcia ', 'Perez', 'U de G', 'JoseG@hotmail.com', 'Masculino', 'Prueba'),
-(4, 'CarlosX', '111213', 'Capturista', 'Carlos ', 'X', 'X', 'U de G', 'Carlos@gmail.com', 'Masculino', 'Prueba'),
-(5, 'JaimeG', '12345', 'Capturista', 'Jose Jaime Guadalupe ', 'Castaneda ', 'Ruiz', 'U de G', 'JoseG@hotmail.com', 'Masculino', 'Prueba');
+(1, 'Administrador', 'JefaturaRT.2022', 'Super administrador', 'Super administrador', '', '', 'Administrador', 'JefaturaPredios.CUT@gmail.com', 'Masculino', 'Super administrador');
 
 --
 -- Índices para tablas volcadas
@@ -348,7 +281,7 @@ ALTER TABLE `usuarios_regulacion`
 -- AUTO_INCREMENT de la tabla `usuarios_regulacion`
 --
 ALTER TABLE `usuarios_regulacion`
-  MODIFY `id_usuario` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_usuario` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restricciones para tablas volcadas
