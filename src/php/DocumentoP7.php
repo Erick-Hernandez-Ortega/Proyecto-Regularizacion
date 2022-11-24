@@ -13,7 +13,7 @@ if(isset($_POST['AP7'])){
     header('Content-type: application/pdf');
     header("Content-Disposition: inline; filename=$folio-Oficio_de_Catastro.pdf");
     header('Content-Transfer-Encoding: binary');
-    echo $text['oficio_de_catastro'];
+    echo $text['oficio_de_castastro'];
 }
 if(isset($_POST['BP7'])){
     header('Cache-Control: no-cache, must-revalidate, post-check=0, pre-check=0');
